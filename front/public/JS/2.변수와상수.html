@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+     const pi = 3.14
+     console.log(pi);
+     //컨트롤 쉬프트 슬러쉬 누르면 여러줄 주석처리
+/*      pi = 10
+    console.log(pi)  
+*/
+    
+    //1. 변수의 선언
+    let pi2 = 3.141592
+    //2. 변수 출력
+    console.log("pi2 ", pi2)
+    //3. 변수의 값 변경
+    pi2 = 10
+    
+    
+    // * 활용 : js변수에 저장된 html 형식의 문자를 html에 출력
+    let list = ''
+    list += "<ul>"
+    list += "<li>Hello</li>"
+    list += "<li>javascript</li>"
+    list += "</ul>"
+     console.log(list);
+    document.write(list)
+    
+    //4.증감 연산자 
+    let 변수2 = 3
+    console.log("변수2:" + 변수2)
+    console.log("변수2 선위증가" + (++변수2)) //증가후에 출력
+    console.log("변수2 후위증가" + (변수2++)) //출력후에 증가
+    console.log(변수2)
+    console.log("변수2 선위감소" + (--변수2)) //감소후에 출력
+    console.log("변수2 후위감소" + (변수2--)) //출력후에 감소
+    
+    
+    
+</script>
+</body>
+</html>

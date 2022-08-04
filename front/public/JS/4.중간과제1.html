@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <script type="text/javascript">
+  //문제1 : prompt함수로 금액을 입력받아서 지폐 세기
+      //예) 3456789 입력했을경우
+      //결과 출력 [ console.log ] :
+      //십만원 : 3장
+      //만원 : 5장
+      //천원 : 6장
+      //백원 : 7개
+        const input = String(prompt("십만원 단위의 금액을 입력해주세요.^^"))
+        console.log("십만원 : ", input[0]+"장","\n만원 : ",input[1]+"장","\n천원 : ",input[2]+"장","\n백원 : ",input[2]+"개")
+        
+   //문제2 : prompt함수 로 반지름 입력받아 원 넓이 출력
+      // 원 넓이 공식   : 반지름 * 반지름 * 원주율[3.14]
+        const radius = prompt("반지름을 입력해주세요.^^")
+        console.log("원의 넓이는?",radius*radius*3.14)
+        
+   //문제3 : prompt함수 로 숫자를 입력받아 입력받은 값이 3의 배수인지 체크 
+       //결과 예상 출력
+            //3의 배수이면 true 출력 / 아니면 false
+        const  Number = prompt("숫자를 입력해주세요.^^")
+        let bool   
+        if(Number%3===0){
+         bool = true        	
+        }
+        else{
+         bool = false
+        }
+        console.log("3의배수일까요??",bool)
+   //문제4 : prompt함수 로 숫자를 입력받아 입력받은 값이 홀수인지 체크 
+       //결과 예상 출력
+            // 홀수이면 true 출력 / 짝수이면 false
+        const oddNumber  = prompt("숫자를 입력해주세요.^^")
+        let bol    
+        if(oddNumber%2===0){
+         bol = false        	
+        }
+        else{
+         bol = true
+        }
+        console.log("홀수일까요??",bol)
+   //문제5 : 두 실수를 입력받아 앞실수의 값이 뒤 실수의 값의 몇% 인지 출력하기 
+        const firstNumber  = prompt("숫자를 입력해주세요.^^") 
+        const secondNumber  = prompt("숫자를 입력해주세요.^^")   
+        const result = (firstNumber/secondNumber)*100+"%"
+        console.log("앞수 나누기 뒷수의 퍼센트 값은??",result)
+        //예) 54.5       84.3 이면 결과 : 64,~~%
+
+ </script>
+</body>
+</html>
