@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <!-- 폼양식 : 사용자가 키보드로 입력 하거나 마우스 선택할수 있는 서식 -->
+ <form> <!-- 폼시작 -->
+<!-- 한글자 두글자 정도 입력하고 컨트롤 스페이스 누르면 자동완성된다. -->
+   이름 : <input type="text" value="유재석" readonly="readonly"> <br>
+   아이디 : <input type="text" placeholder="아이디 입력" autofocus="autofocus"> <br>
+   회원등급 : <input type="text" value="일반" disabled="disabled"> <br>
+   비밀번호 : <input type="password"> <br>
+   선택버튼[복수선택x] : <input type="radio" name="email" >예 
+                     <input type="radio" name="email" >아니오 <br>
+   선택버튼[복수선택o] : <input type="checkbox" name="item" >뉴스
+                     <input type="checkbox" name="item" >드라마
+                     <input type="checkbox" name="item"> 스포츠<br>
+   목록상자 : <input type="text">@
+                <select>
+                <option>직접입력</option>
+                <option>naver.com</option>
+                <option>nate.com</option>
+                </select> <br>
+   자기소개 : <textarea rows="3" cols="3"></textarea> <br>
+   버튼 : <input type="button" value="버튼"><br>
+         <input type="submit" value="폼 전송버튼"><br>
+         <input type="reset" value="다시쓰기"><br>
+         <!-- 여기까지 잘 쓰임 -->
+   색상 : <input type="color"><br>
+   날짜 : <input type="date"><br>
+   날짜/시간 : <input type="datetime-local"><br>
+   이메일 : <input type="email"><br>
+   월단위 : <input type="month"><br>
+   시간단위 : <input type="time"><br>
+   주간단위 : <input type="week"><br>
+   숫자범위 : <input type="number" min="0" max="10" ><br>
+   숫자범위 : <input type="range" min="0" max="10" ><br>
+ </form><!-- 폼끝 -->
+</body>
+</html>
