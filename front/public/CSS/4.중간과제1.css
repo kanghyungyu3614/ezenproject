@@ -1,0 +1,37 @@
+@charset "UTF-8";
+h3{
+	border-left: solid 9px green;
+	padding-left: 20px
+}
+ul#prefreInfo{
+	background-color:#d4d4d4;
+	border: solid 1px gray;
+	padding:50px;
+	border-radius: 10px;
+}
+div#classInfo{
+	margin-left: 20px;
+	width: 30%;
+	border: solid 1px gray;	
+	border-radius: 10px;
+	border-bottom: solid 1px gray;
+	padding: 30px;
+}
+div#classInfo p{
+		border-bottom: solid 1px gray;
+}
+div#classInfo div a{
+        padding-left:230px;
+		text-align : right;
+}
+div#classInfo div a:hover{
+	text-decoration:none;
+}
+
+div#classInfo div a:visited{
+	text-decoration:none;
+}
+
+div#classInfo div a:active{
+	text-decoration:none;
+}
