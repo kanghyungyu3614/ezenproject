@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	    /* css 주석
+	       선택자{속성 : 값}
+	    
+	    */
+	    /* 웹폰트 : 폰트설치 없이 웹에서 폰*/
+	    @font-face {
+	    font-family: 'EF_MACHO';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_MACHO.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	    *{/*  모든곳에 적용*/
+		/* 	     font-family: "궁서"; */
+	     color: blue;
+	     font-family:EF_MACHO;
+	    }
+	h3{
+		/* 	   font-family:EF_MACHO; */
+/*   		text-decoration: overline line-through underline; */
+                        /*  윗줄      취소선         밑줄*/
+        text-align: center; /* 폰트정렬 = left center right */
+        
+        text-shadow: 3px 3px 3px orange;
+                   /* x축  y축  깊이  색상  */
+     }
+	p{
+	 background-color: yellow;
+	 line-height: 150%;
+	 font-size:30px; /* 폰트 크기 */
+	 font-style: italic;
+	 font-weight: bold; /* 폰트 굵게*/
+	 letter-spacing: 50px;/*글자간격[자간]  */
+	 word-spacing: 5px; /*단어간격[어간]  */
+	}
+	a{
+	  text-docoration: none;      /* 밑줄제거 */
+	  color: black; 
+	}
+	a:hover{ /*a태그에 마우스를 올렸을때 이벤트  */
+	  color:orange; 
+	}
+	a:visited{ /* 1번 이상 a태그를 클릭했을때 */
+	  color: blue;
+	}
+	a:active{     /* a태그에 마우스를 클릭했을때 이벤트 */
+	  color:green;
+	}
+</style>
+</head>
+<body>
+      <!--  
+      글자/폰트 관련 속성
+                   1.font-family: 폰트명
+                   2. color : 글꼴색
+                   3. background-color: 배경색
+                   4. font-size : 폰트크기
+                   5. font-style: italic [폰트기울기]
+                   6. font-weight : bold [폰트 굵게]
+                   7. text-decoration : 
+                           overline            :윗줄
+                           underline           :밑줄
+                           line-through        :취소선
+                   8.text-align : 
+                          center     :가운데 정렬
+                          left       :왼쪽 정렬
+                          right      :오른쪽 정렬
+                   9.text-shadow   : x축 y축 흐림도 색상 
+                   10.line-height  : 줄간격[%]
+                   11.letter-spacing : 자간
+                   12.word-spacing   : 어간
+      -->
+<h3>강아지</h3>
+<p>개는 중형 동물이자 가장 널리 분포하며 개체 수가 가장 많은 지상 동물 중 하나이며 
+가축화한 회색늑대이다. <br>
+개는 인류가 최초로 가축으로 삼은 동물로 알려져 있으며, 역사적으로 반려견, 
+사냥견으로서 길러 왔다.
+</p>
+<a href="http://www.naver.com">네이버</a>
+<!-- http : 하이퍼텍스트 전송 프로토콜 [html 전송 방식] 
+            // 프로토콜[규약]
+            //경기도 안산시 구 동
+            // 유재석에게 
+            //도메인(DNS)
+            http://ip주소/port          ->문자
+-->
+</body>
+</html>
