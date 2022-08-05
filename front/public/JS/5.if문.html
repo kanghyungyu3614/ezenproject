@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body> <!--  
+<body> 
+       <!--  
    			조건문[ if , switch ] 
                  예) 동생(컴퓨터)에게 a,b,c편의점에서 1000 콜라 사오기 심부름 
                      a편의점간다 -> 콜라가 1000이하이면 -> 구매해서 집간다.
@@ -15,6 +16,37 @@
                      아니면 집에 간다.
             
        -->
+       <script type="text/javascript">
+       // p.131
+          if(273 < 100){
+        	  alert("273<100  --> true")
+          }
+       alert("종료")
+       const date = new Date() //Date클래스로 date객체 선언 [ Date 날짜 관련 클래스 ] 
+       const hour = date.getHours()  // date 객체에서 '시' 만 호출해서 hour 상수에 저장
+       console.log("hour",hour)
+       if( hour < 12){
+    	   alert('오전 입니다.')
+       }
+       if(hour >= 12 ){
+    	   alert('오후 입니다.')
+       }
+       
+       if(hour< 11){
+    	   alert('아침을 먹을 시간입니다.')
+       }
+       else if(hour<15){
+    	    alert('점심 먹을 시간 입니다.')
+       }
+       
+       
+       </script>
+       
+       
+       
+       
+       
+       
  
 </body>
 </html>
