@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+		출력 console(*) 
+<!-- 		문제1) 입력받은 수 만큼 별 출력  -->
+ <script type="text/javascript">
+//문제1 )
+	// 1. 별의 개수 입력받는다.
+let 문제1 = Number( prompt(' 1. 별의 수 : ') ) 
+	// 2. 출력할 문자열을 저장할 변수 선언
+let output = ''
+	// 3. i는 1부터 입력받은 수까지 1씩 증가 반복 
+for( let i = 1 ; i<=문제1 ; i++ ){
+	// 4. 출력할 변수에 별을 추가한다.
+	output +='*'
+}
+	// 5. 반복문 종료후 출력 변수를 출력한다.
+console.log( output )
+ </script>
+ 
+ 
+<!-- 		문제2) 입력받은 수 만큼 별 출력 [ 조건 : 5개마다 줄바꿈 ] -->
+ <script type="text/javascript">
+	// 문제2 )
+	let 문제2 = Number( prompt('2. 별의 수 : ' ))
+	output = '' // 위에서 선언된 변수는 선언이 불가능 [ 공백으로 수정 ]
+	for( let i = 1 ; i<=문제2 ; i++ ){
+		output +='*'
+		// [조건 : 5개마다 줄바꿈 = 5의배수마다 ]
+		if( i % 5 == 0 ){ output +='\n' }
+	}
+	console.log( output )
+ </script>
+ 
+ 
+ 
+<!-- 		문제3) 입력받은 줄수 만큼 별 출력 [ 만약에 5 를 입력했을때 ]
+			*
+			**
+			***
+			****
+			***** -->
+<script type="text/javascript">
+	// 문제3 )
+	let 문제3 = Number( prompt("3. 줄 수 : ") )
+	output = ''
+	for( let i = 1 ; i<=문제3 ; i++ ){
+		// 1. i는 1부터 입력받은 줄수까지 1씩증가한다.
+		// * 별찍기처리
+		for( let s = 1 ; s<=i ; s++ ){
+			output += '*'
+			// 2. s는 1부터 i(현재줄수) 까지 1씩증가한다.
+		}
+		// * 줄바꿈처리 
+		output += '\n'
+	}
+	// 결과
+	console.log( output )
+</script>
+
+
+<!-- 		문제4) 입력받은 줄수 만큼 별 출력
+			*****     5
+			****      4
+			***       3
+			**        2
+			*         1  -->
+<script type="text/javascript">
+		let 문제4 = Number( prompt("4. 줄 수 : ") )
+		output = ''
+		for( let i = 문제4 ; i>0 ; i-- ){
+			// 1. i는 1부터 입력받은 줄수까지 1씩증가한다.
+			// * 별찍기처리
+			for( let s = i ; s>0 ; s-- ){
+				output += '*'
+				// 2. s는 1부터 i(현재줄수) 까지 1씩증가한다.
+			}
+			// * 줄바꿈처리 
+			output += '\n'
+		}
+		// 결과
+		console.log( output )
+</script>
+
+
+			
+<!-- 		문제5) 입력받은 줄수 만큼 별 출력
+			    *
+			   **
+			  ***
+			 ****
+			***** -->
+<script type="text/javascript">
+	// 문제5 )
+	let 문제5 = Number( prompt("5. 줄 수 : ") )
+	output = ''
+	for(let i=1; i<=문제5; i++){
+	  output += ' '
+	}
+	for( let i = 1 ; i<=문제5 ; i++ ){
+		// 1. i는 1부터 입력받은 줄수까지 1씩증가한다.
+		// * 별찍기처리
+		for( let s = 1 ; s<=i ; s++ ){
+			
+			output += '*'
+			// 2. s는 1부터 i(현재줄수) 까지 1씩증가한다.
+		}
+		output = output.slice(1,output.length-1)
+		// * 줄바꿈처리 
+		output += '\n'
+	}
+	// 결과
+	console.log( output )
+</script>
+			
+<!-- 		문제6) 입력받은 줄수 만큼 별 출력
+			*****
+			 ****
+			  ***
+			   **
+			    * -->
+<script type="text/javascript">
+
+
+
+
+
+</script>
+<!-- 		문제7) 입력받은 줄수 만큼 별 출력
+			    *
+			   ***
+			  *****
+			 *******
+			********* -->
+<script type="text/javascript">
+
+
+
+
+
+</script>			
+<!-- 		문제7) 입력받은 줄수[홀수] 만큼 별 출력
+			 *   *
+			  * *
+			   *
+			  * *
+			 *   * -->
+<script type="text/javascript">
+
+
+
+
+</script>
+
+</body>
+</html>
