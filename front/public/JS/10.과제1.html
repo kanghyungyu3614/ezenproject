@@ -70,7 +70,27 @@ console.log( output )
 			***       3
 			**        2
 			*         1  -->
-<script type="text/javascript">
+			
+<script> /* 선생님 풀이  */
+	// 문제4 ) 
+	let 문제4 = Number( prompt("4. 줄 수 : ") )
+	output = '' // 위에서 사용된 변수의 내용을 다시 공백으로 수정 
+	for( let i = 1 ; i<=문제4 ; i ++ ){
+		// i는 1부터 입력받은 수까지 1씩증가 반복
+		// * 별찍기 
+		for( let s = 1 ; s<=문제4-i+1 ; s++ ){
+			output +='*'
+		}
+		// * 줄바꿈
+		output +='\n'
+	}
+	// 결과
+	console.log( output )
+
+
+</script>			
+			
+<!-- 내풀이 <script type="text/javascript"> 
 		let 문제4 = Number( prompt("4. 줄 수 : ") )
 		output = ''
 		for( let i = 문제4 ; i>0 ; i-- ){
@@ -85,7 +105,7 @@ console.log( output )
 		}
 		// 결과
 		console.log( output )
-</script>
+</script> -->
 
 
 			
