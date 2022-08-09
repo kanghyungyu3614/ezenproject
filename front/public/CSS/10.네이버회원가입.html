@@ -11,7 +11,8 @@
 	  text-align: center;
 	 }
 	 .img img{
-	  margin-right:150px;
+	  margin-right:200px;
+	  padding-right:10px;
 	 }
 	 form{
 	  width:740px;
@@ -27,11 +28,50 @@
 	  background-color: white;
 	  padding: 3px solid #f5f6f7;
 	 }
+	 .birthYear, .birthDay {
+	   width:160px;
+	   height:30px;
+	   float:left;
+	 }
+	 .birthMonth, .birthDay{
+	   margin-left: 10px;
+	 }
+	 .birthMonth{
+	   width:160px;
+	   height:35px;
+	   float:left;
+	   background-color: white;
+	 }
+	 .gender {
+	  width: 500px;
+	  height: 40px;	 
+	  background-color: white;
+	 }
+	 .choiceNumber{
+	  width: 500px;
+	  height: 40px;	 
+	  background-color: white;	 
+	 }
+	 .choicePhoneNumber{
+	  width: 340px;
+	  height: 40px;	 
+	  background-color: white;	
+	  vertical-align: top; 	
+	 }
+	 .ChoiceNumberBtt{
+	  width: 145px;
+	  height: 45px;	 
+	  background-color: white;
+	 }
+	 tr td{
+	  float: left;
+	 }
+	 
 	</style>
 </head>
 <body>
  <div class="img"> 
-  <img src="../img/네이버로고.png">
+  <img src="../img/네이버로그.png">
 	  <form>
 		  <table>
 		  <tr><td><h4>아이디</h4></td></tr>
@@ -52,24 +92,28 @@
 		  
 		  <tr><td><h4>생년월일</h4></td></tr>
 		  
-		  <tr><td><input></td></tr>
+		  <tr>
+		     <td>
+		       <input class="birthYear" placeholder="년(4자)">
+		       <select class="birthMonth"><option>월</option><option>1월</option><option>2월</option><option>3월</option><option>4월</option></select>
+		       <input class="birthDay">
+		     </td>
+		  </tr>
 		  
 		  <tr><td><h4>성별</h4></td></tr>
 		  
-		  <tr><td><input></td></tr>
+		  <tr><td><select class="gender"><option>성별</option><option>남</option><option>녀</option></select></td></tr>
 		  
 		  <tr><td><h4>본인 확인 이메일</h4></td></tr>
 		  
-		  <tr><td><input></td></tr>
+		  <tr><td><input placeholder="선택입력"></td></tr>
 		  
 		  <tr><td><h4>휴대전화</h4></td></tr>
 		  
-		  <tr><td><select><option>대한민국 +82</option> <option>미국/캐나다 +01</option></select></td></tr>
+		  <tr><td><select class="choiceNumber"><option>대한민국 +82</option> <option>미국/캐나다 +01</option></select></td></tr>
 		  
-		  <tr><td><input></td></tr>
-		  
-		  <tr><td><input></td></tr>
-		  <tr><td><input type="submit" value="가입하기"></td></tr>
+		  <tr><td><input class="choicePhoneNumber" placeholder="전화번호입력"> <input type="button" class="ChoiceNumberBtt" value="인증번호 받기"></td></tr>
+		  <tr><td><input class="sumbitButton" type="submit" value="가입하기"></td></tr>
 		  </table>
 	  </form>
  </div>

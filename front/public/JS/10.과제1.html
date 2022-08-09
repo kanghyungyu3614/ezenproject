@@ -119,19 +119,17 @@ console.log( output )
 	// 문제5 )
 	let 문제5 = Number( prompt("5. 줄 수 : ") )
 	output = ''
-	for(let i=1; i<=문제5; i++){
-	  output += ' '
-	}
 	for( let i = 1 ; i<=문제5 ; i++ ){
-		// 1. i는 1부터 입력받은 줄수까지 1씩증가한다.
-		// * 별찍기처리
+		//1.공백찍기
+		for( let b = 1 ; b<=문제5-i ; b++ ){
+			output += ' '
+		}
+		//2. 별찍기
 		for( let s = 1 ; s<=i ; s++ ){
 			
 			output += '*'
-			// 2. s는 1부터 i(현재줄수) 까지 1씩증가한다.
 		}
-		output = output.slice(1,output.length-1)
-		// * 줄바꿈처리 
+		//  3. 줄바꿈처리 
 		output += '\n'
 	}
 	// 결과
@@ -145,35 +143,81 @@ console.log( output )
 			   **
 			    * -->
 <script type="text/javascript">
-
-
-
-
-
+	// 문제5 )
+	let 문제6 = Number( prompt("6. 줄 수 : ") )
+	output = ''
+	for( let i = 1 ; i<=문제6 ; i++ ){
+		//1.공백찍기
+		for( let b = 1 ; b<=i-1; b++ ){
+			output += ' '
+		}
+		//2. 별찍기
+		for( let s = 1 ; s<=문제6-i+1; s++ ){
+			
+			output += '*'
+		}
+		//  3. 줄바꿈처리 
+		output += '\n'
+	}
+	// 결과
+	console.log( output )
 </script>
-<!-- 		문제7) 입력받은 줄수 만큼 별 출력
-			    *
-			   ***
-			  *****
-			 *******
-			********* -->
+<!-- 		문제7) 입력받은 줄수 만큼 별 출력       줄     공백=b           별 
+			    *                             1      b= 1 2 3 4     1
+			   ***                            2      b= 1 2 3       3
+			  *****                           3      b= 1 2         5
+			 *******                          4      b= 1           7
+			*********                         5      b= 0           9
+                			
+			
+			
+-->
 <script type="text/javascript">
-
-
-
-
-
-</script>			
-<!-- 		문제7) 입력받은 줄수[홀수] 만큼 별 출력
+	// 문제7 )
+	let 문제7 = Number( prompt("7. 줄 수 : ") )
+	output = ''  //초기화
+	for( let i = 1 ; i<=문제7 ; i++ ){
+		//1.공백찍기
+		for( let b = 1 ; b<=문제7-i; b++ ){
+			output += ' '
+		}
+		//2. 별찍기
+		for( let s = 1 ; s<=2*i-1; s++ ){
+			
+			output += '*'
+		}
+		//  3. 줄바꿈처리 
+		output += '\n'
+	}
+	// 결과
+	console.log( output )
+</script>		
+<!-- 		문제7) 입력받은 줄수[홀수] 만큼 별 출력               i=5       i===j인거랑 i랑 j 반비례하게 찍기 
 			 *   *
 			  * *
 			   *
 			  * *
 			 *   * -->
 <script type="text/javascript">
+ let 문제8 = prompt("8.줄수(홀수) : ")
+ output = ''
+ for(let i=1; i<=문제8; i++){ // 행 = 가로
+	 for(let j=1; j<=문제8; j++){ //열 = 세로 
+		 if(i==j){   
+			 output +="*"
+		 }
+		 else if(i+j==(문제8)){ //행===열 동일한 경우 별찍기
+			 output +="*"
+		 }
+		 else{
+			 output += ' '
+		 }
+	 }
+	 output +="\n"
+ }
 
-
-
+// 결과
+console.log( output )
 
 </script>
 
