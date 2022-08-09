@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	
+   <style>
+		   
+		form{
+			width: 700px;	/*가로길이*/
+			margin: 0 auto;	/*가로 가운데정렬 */
+		}
+		table{
+			width : 700px;
+			border-top: solid 3px black; /*위 테두리*/
+		}
+		td{
+			border-bottom: solid 1px #eeeeee;
+			padding: 5px;
+		}
+		td input{ /* 하위식별자 선택시 : 상위식별자 하위식별자 */
+			width: 500px;	height: 30px;
+		}
+		td textarea {
+			width: 500px;	height: 100px; resize: none;
+		}
+		.btnbox{ text-align: right; }
+		.btnbox input{ padding: 5px 20px; margin: 20px 5px} 
+   </style>
+
+</head>
+<body>
+
+	<form> <!-- 폼양식  -->
+		<table> <!-- 테이블 태그 -->
+			<tr> <td> 이름 </td> <td> 홍길동 </tr> <!-- tr : 행 -->
+			<tr> 
+				<td> 제목 </td>
+				<td> <input type="text"> </td>
+			</tr>
+			<tr> 
+				<td> 내용 </td>
+				<td> <textarea></textarea> </td>
+			</tr>
+			<tr> 
+				<td> 첨부파일 </td>
+				<td> <input type="file"></td> <!-- 파일전송  -->
+			</tr>
+		</table>
+		<div class="btnbox">
+		  <!-- button 으로 하지말고 input태그로 하자 -->
+			<input type="submit" value="저장하기">
+			<input type="button" value="목록보기">
+		</div>
+	</form>
+
+</body>
+</html>
