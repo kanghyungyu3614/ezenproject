@@ -24,24 +24,52 @@
 	   margin-left:40px;
 	}
 	.content{
-	   text-align: center;	   	
+	   display: inline-block;
+	   text-align: left
 	}
 	div button{
-	text-align: end;
+		text-align: end;
 	}
 	.main{
-	   border-bottom : 1px solid gray;	
+	   margin: 30px;
+
 	}
 	.button{
-	 padding-top:20px;
+		 padding-top:20px;
+		 text-align:right;
+		 margin-right:30px;
+		 border-top : 1px solid gray;	
+	}
+	button{
+	    padding-right:20px; 
+		width:100px;
+		height:40px;
 	}
 	#email{
-	width:100px;
+		width:100px;
 	}
 	div select {
-	width:200px;
-	height:38px;
+		width:200px;
+		height:38px;
 	}
+ 	input[class="radiobox"]{
+	 	width:50px;
+	 	text-align: center;
+ 	}
+ 	input[class="checkbox"]{
+	 	width:35px;
+	 	text-align: center;
+ 	}
+ 	span[class="hello"]{
+ 	    display: inline-block;
+ 	    height: 100px;
+ 		vertical-align:top;
+ 		text-align:left
+ 	}
+ 	textarea{
+ 	   margin-left:35px;
+ 	   resize: none;
+ 	}
 	</style>
 </head>
 <body>
@@ -74,18 +102,20 @@
 		
 		<div >
 		     <span class="content">이메일 수신</span>
-		     <input type="radio" name="drone" value="비수신"checked></input>
-		     <input type="radio" name="drone" value="수신"checked></input>
+		     <input class="radiobox" type="radio" name="drone" checked>비수신</input>
+		     <input class="radiobox" type="radio" name="drone" >수신</input>
 		</div>
 		
 		<div >
 		     <span class="content">가입 경로</span>
-		     <input></input>
+		     <input type="checkbox" name="xxx" value="yyy" class="checkbox" ><span>친구추천</span></input>
+		     <input type="checkbox" name="xxx" value="yyy" class="checkbox" ><span>인터넷검색</span></input>
+		     <input type="checkbox" name="xxx" value="yyy" class="checkbox" checked><span>기타</span></input>
 		</div>
 		
 		<div>
-		     <span class="content">인사말</span>
-		     <input></input>
+		     <span class="hello">인사말</span>
+		     <textarea cols=70 rows=10></textarea>
 		</div>
 	 </div>	
 	<div class="button">
