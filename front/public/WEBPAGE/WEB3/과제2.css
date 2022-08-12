@@ -103,13 +103,13 @@ li{ list-style-type: none; }
 }
 #weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
 	text-align: center;
+	height:25px;
 }
 
 #reservationText{
 	background-color: white;
 	clear: both;
 	float: right;
-	border: 1px solid red;
 	width: 500px;
 	height: 500px;
 	position: absolute;
@@ -124,9 +124,18 @@ li{ list-style-type: none; }
 }
 .reseervationGuide{
 	border-left: 5px solid black; 
+	font-weight: bold;
+	font-size: 20px;
+	padding: 0 0 0 10px;
 }
 
-
+.comment{
+	padding: 10px 10px 15px 0;
+	font-size: 15px;	
+}
+.commentTmi{
+	color: green;
+}
 
 
 
