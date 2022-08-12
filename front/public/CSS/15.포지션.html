@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+  .box1 , .box2 , .box3 
+  ,.box4 , .box5 , .box6
+  ,.box7 , .box8 , .box9
+  ,.box10 , .box11 , .box12
+  ,.box13
+  
+  { 
+     width: 100px;
+     height: 60px;
+     background-color: yellow;
+     border: solid 1px red;
+  
+  }
+  .box2 {
+          position: relative;
+          left: 50px;
+          top: 20px;
+          
+   }
+   .box5 {
+          position: absolute;
+          left: 50px;
+          top: 20px;
+   }
+   .parent1{
+      width: 300px;
+      height: 200px;
+      border: solid 1px red;
+      position: relative;
+      left: 200px;
+      top: 60px;
+   }
+   .box8 {
+      position: absolute;
+      left: 30px;
+      top: 30px;
+   }
+   .parent2 { 
+              width: 300px; 
+              height: 200px; 
+              border: solid 1px red;
+              position: absolute;
+              left: 200px;
+              top: 60px;
+   }
+   .box11 { 
+            position: relative; 
+            left:30px; 
+            top: 30px;
+    }
+   .box13 {
+            position: fixed;
+            right: 100px;
+            top: 50px;
+   }
+
+
+</style>
+</head>
+<body>
+  
+  <h3> 상대 위치 지정</h3>
+  <div class="box1">박스 1</div>
+  <div class="box2">박스 2</div>
+  <div class="box3">박스 3</div>
+
+  <h3> 상대 위치 지정</h3>
+  <div class="box4">박스 4</div>
+  <div class="box5">박스 5</div>
+  <div class="box6">박스 6</div>  
+   
+  <h3> 부모 : 상대위치 (relative) </h3>   
+  <div class="parent1"> 
+	  <div class="box7">박스 7</div>
+	  <div class="box8">박스 8</div>
+	  <div class="box9">박스 9</div>  
+
+  </div>   
+  
+  
+  <h3> 부모 : 절대위치 (relative) </h3>   
+  <div class="parent2"> 
+	  <div class="box10">박스 10</div>
+	  <div class="box11">박스 11</div>
+	  <div class="box12">박스 12</div>  
+  </div>
+  
+  <div class="box12">박스 13</div>
+  
+</body>
+</html>
