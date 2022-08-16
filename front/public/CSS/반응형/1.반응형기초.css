@@ -1,0 +1,11 @@
+@charset "UTF-8";
+*{border : solid 1px red;}
+#header{
+	padding: 30px;
+}
+#menu{
+	width:29%; float:left;
+}
+#main{
+	width: 69%; float: right;
+}
