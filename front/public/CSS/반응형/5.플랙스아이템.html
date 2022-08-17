@@ -1,78 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width , initial-scale=1.0">
-<title>Insert title here</title>
-  <style>
-    .container1 , .container2 , .container3 { 
-       display: flex;
-    }
-    .box {
-       border: 1px solid red;
-       background-color: blue; 
-       color: white;
-       margin: 10px;
-    }
-    .container1 .box:nth-child(5) {
-       order: -1;
-    }
-    .container1 .box:nth-child(1) {
-       order: 6;
-    }
-    .container2 .box{
-       flex-grow : 1;
-    }
-    .container2 .box:nth-child(3){
-       flex-grow : 2;
-       flex-basis: 100px;
-    }    
-    .container2 .box:nth-child(5){
-       flex-grow : 3;
-       flex-basis: 200px;
-    }     
-    .container3 .box{
-        flex-grow: 1;
-    }
-    .container3 .box:nth-child(3){
-       flex-shrink: 2; 
-       flex-basis: 100px; 
-    }
-    .container3 .box:nth-child(5){
-       flex-shrink: 3;  
-       flex-basis: 200px;
-    }    
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width , inital-scale=1.0"> <!-- 뷰포트 -->
+	<title>Insert title here</title>
+	
+	<style type="text/css">
+	
+		/*
+			개별 식별자
+				1 *{ } 2.태그명{ } 3. .class명{ } 4. #id명{ }
+			여러개 식별자
+				식별자 , 식별자 , 식별자 {  }
+			하위 식별자 
+				식별자 하위식별자
+			중복 이름의 식별자 선택 [ 인덱스 1부터 시작  ]
+				중복식별자 : nth-child( 인덱스 )
+				
+		*/
+		*{ padding: 0 ; margin: 0 ; box-sizing: border-box;}
+		.container1  , .container2
+		, .container3 , .container4 ,  .container5 { display: flex; }
+		
+		.box{
+			border: 1px solid red;
+			background-color: blue; color: white;
+			margin: 10px;
+		}
+		
+		.container1 .box:nth-child(5){
+			order: -1;
+		}
+		.container1 .box:nth-child(1){
+			order: 6;
+		}
+		
+		.container2 .box{
+			flex-grow : 1;
+		}
+		.container2 .box:nth-child(3){
+			flex-grow : 2;
+		}
+		.container2 .box:nth-child(5){
+			flex-grow : 4;
+		}
+		.container3 .box{
+			flex-grow : 1;
+		}
+		.container3 .box:nth-child(3){
+			flex-shrink: 2;
+			flex-basis: 100px; /* 사이즈 최소 크기 제한 */
+		}
+		.container3 .box:nth-child(5){
+			flex-shrink: 4;
+			flex-basis: 200px;	/* 사이즈 최소 크기 제한 */
+		}
+		.container4 .box:nth-child(4){
+			flex: 1 0 200px;
+			/* flex : grow , shrink , basis */
+		}
+		.container5{ height: 200px; border: 1px solid red; }
+		.container5 .box{ height: 50px; }
+		.container5 .box:nth-child(4){
+			align-self: center;
+		}
+		.container5 .box:nth-child(2){
+			align-self: flex-start;
+		}
+		.container5 .box:nth-child(3){
+			align-self: flex-end;
+		}	
+		
+	</style>
+	
 </head>
 <body>
-  <h3> flex 관련된 속성들 </h3>
-  <h5> order : 순서번호 [배치순서 : 1 2]</h5>
-  <div class="container1">
-	  <div class="box">box1</div>
-	  <div class="box">box2</div>
-	  <div class="box">box3</div>
-	  <div class="box">box4</div>
-	  <div class="box">box5</div>
-	  <div class="box">box6</div>
-  </div>
-  <h5> flex-grow : 양쪽 여백 없이 자동 배치 </h5>
-  <div class="container2">
-	  <div class="box">box1</div>
-	  <div class="box">box2</div>
-	  <div class="box">box3</div>
-	  <div class="box">box4</div>
-	  <div class="box">box5</div>
-	  <div class="box">box6</div>
-  </div>  
 
-  <h5> flex-shrink : 양쪽 여백 없이 자동 배치 </h5>
-  <div class="container3">
-	  <div class="box">box1</div>
-	  <div class="box">box2</div>
-	  <div class="box">box3</div>
-	  <div class="box">box4</div>
-	  <div class="box">box5</div>
-	  <div class="box">box6</div>
-  </div>    
+	<h3> flex 관련된 속성들 </h3>
+	<h6> order : 순서번호	[ 배치 순서 : 1 2 3 4 ~ ] </h6>
+	<div class="container1">
+		<div class="box">box1</div>
+		<div class="box">box2</div>
+		<div class="box">box3</div>
+		<div class="box">box4</div>
+		<div class="box">box5</div>
+		<div class="box">box6</div>
+	</div>
+	
+	<h5> flex-grow : 양쪽 여백 없이 자동 배치[ 화면내 여백 있을경우 여백 나눠서 사이즈 증가 ]   </h5>
+	<div class="container2">
+		<div class="box">box1</div>
+		<div class="box">box2</div>
+		<div class="box">box3</div>
+		<div class="box">box4</div>
+		<div class="box">box5</div>
+		<div class="box">box6</div>
+	</div>
+	
+	<h5> flex-shrink : 양쪽 여백 없이 자동 배치[ 화면밖 사이즈 만큼 나눠서 사이즈 감소 ]    </h5>
+	<h5> flex-basis : 사이즈 최소 크기 제한   </h5>
+	<div class="container3">
+		<div class="box">box1</div>
+		<div class="box">box2</div>
+		<div class="box">box3</div>
+		<div class="box">box4</div>
+		<div class="box">box5</div>
+		<div class="box">box6</div>
+	</div>
+	
+	<h5> flex : grow , shrink , basis  </h5>
+	<div class="container4">
+		<div class="box">box1</div>
+		<div class="box">box2</div>
+		<div class="box">box3</div>
+		<div class="box">box4</div>
+		<div class="box">box5</div>
+		<div class="box">box6</div>
+	</div>
+	<h5> align-self : flex-start ,  center , flex-end  </h5>
+	<div class="container5">
+		<div class="box">box1</div>
+		<div class="box">box2</div>
+		<div class="box">box3</div>
+		<div class="box">box4</div>
+		<div class="box">box5</div>
+		<div class="box">box6</div>
+	</div>
+	
+	
+
+
 </body>
 </html>
