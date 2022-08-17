@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+*{margin: 0; padding:0; box-sizing: border-box; border: 1px solid red;}
+li{ list-style-type: none;}
+
+.box{
+	clear: both;
+	width: 80%;
+	height: 50%;
+	margin: 0 auto;
+}

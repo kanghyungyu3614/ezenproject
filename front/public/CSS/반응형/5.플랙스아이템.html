@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
+<title>Insert title here</title>
+  <style>
+    .container1 , .container2 , .container3 { 
+       display: flex;
+    }
+    .box {
+       border: 1px solid red;
+       background-color: blue; 
+       color: white;
+       margin: 10px;
+    }
+    .container1 .box:nth-child(5) {
+       order: -1;
+    }
+    .container1 .box:nth-child(1) {
+       order: 6;
+    }
+    .container2 .box{
+       flex-grow : 1;
+    }
+    .container2 .box:nth-child(3){
+       flex-grow : 2;
+       flex-basis: 100px;
+    }    
+    .container2 .box:nth-child(5){
+       flex-grow : 3;
+       flex-basis: 200px;
+    }     
+    .container3 .box{
+        flex-grow: 1;
+    }
+    .container3 .box:nth-child(3){
+       flex-shrink: 2; 
+       flex-basis: 100px; 
+    }
+    .container3 .box:nth-child(5){
+       flex-shrink: 3;  
+       flex-basis: 200px;
+    }    
+  </style>
+</head>
+<body>
+  <h3> flex 관련된 속성들 </h3>
+  <h5> order : 순서번호 [배치순서 : 1 2]</h5>
+  <div class="container1">
+	  <div class="box">box1</div>
+	  <div class="box">box2</div>
+	  <div class="box">box3</div>
+	  <div class="box">box4</div>
+	  <div class="box">box5</div>
+	  <div class="box">box6</div>
+  </div>
+  <h5> flex-grow : 양쪽 여백 없이 자동 배치 </h5>
+  <div class="container2">
+	  <div class="box">box1</div>
+	  <div class="box">box2</div>
+	  <div class="box">box3</div>
+	  <div class="box">box4</div>
+	  <div class="box">box5</div>
+	  <div class="box">box6</div>
+  </div>  
+
+  <h5> flex-shrink : 양쪽 여백 없이 자동 배치 </h5>
+  <div class="container3">
+	  <div class="box">box1</div>
+	  <div class="box">box2</div>
+	  <div class="box">box3</div>
+	  <div class="box">box4</div>
+	  <div class="box">box5</div>
+	  <div class="box">box6</div>
+  </div>    
+</body>
+</html>

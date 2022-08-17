@@ -26,118 +26,563 @@ li{ list-style-type: none; }
 .item img{ width: 100%; }
 
 
-
-
-
-
-/*-------------------페이지 이미지----------------- */
-#pageImg{
-	background-image: url("img/sub_reservation.jpg");
-	width: 80%;
-	height: 340px;
-	background-repeat: no-repeat;
-	margin: 0 auto;
-}
-.pageImgMain{
-	text-align: center;
-	padding-top: 110px;
+/*-------------------페이지 이미지------------------------------------------------------------------------------------------------ */
+@media (min-width: 5760px){
+	#pageImg{
+		background-image: url("img/sub_reservation.jpg");
+		background-repeat: no-repeat;
+		margin: 0 35% 0 35%;
+		width: 29%;
+		
+	}
+	.pageImgMain{
+		margin: 0 aut0;
+		text-align: center;
+		padding: 120px 220px;
+		width: 70%;
+	}
 	
-}
-.ImgText{
-	margin: 0 auto;
-	text-align: center;
-	font-size: 20px;
-	color: white;
-}
-.ImgTestSub{
-	text-align: center;
-	font-size: 15px;
-	color: white;	
-}
+
+	.ImgText{
+		margin: 0 45% 0 45%;
+		width: 130px;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.ImgTestSub{
+		text-align: center;
+		font-size: 15px;
+		color: white;	
+	}
 
 
 
 
 
-/*-------------------예약 선택 페이지------------------------  */
-#reservationCalendar {
-	background-color: white;
- 	margin: 50px 0 90px 400px; 
-	width: 700px;
-	height: 690px;     /*  */
-	background-color: #fcf9ea;
-	float: left;
-} 
- #reservationText{
-	background-color: #fcf9ea;
-} 
-
-#reservationChoice{
-	text-align: center;
-	padding: 30px 0 10px 0;
-}
-#reservationCalendarChoice{
-	text-align: center;
-	font-size: 15px;
-	margin-bottom: 20px;
 }
 
 
-#reservationCalendarTable {
-	margin: 0 auto;
-	border: 2px solid black;
-	background-color: white;
-	width: 670px;
-	height: 400px;
-	border-collapse:collapse;
-}
- td {
-	border: 2px solid black;
-	vertical-align: top;
-	width: 80px;
-	height: 90px;
+ @media (min-width: 3840px) and (max-width: 5760px){
+	#pageImg{
+		background-image: url("img/sub_reservation.jpg");
+		background-repeat: no-repeat;
+		margin: 0 35% 0 35%;
+		width: 29%;
+		
+	}
+	.pageImgMain{
+		margin: 0 aut0;
+		text-align: center;
+		padding: 120px 220px;
+		width: 70%;
+	}
+	
+
+	.ImgText{
+		margin: 0 45% 0 45%;
+		width: 130px;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.ImgTestSub{
+		text-align: center;
+		font-size: 15px;
+		color: white;	
+	}
+
 } 
 
-.sunday{
-	color: red;
-}
-#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
-	text-align: center;
-	height:25px;
-}
 
-#reservationText{
-	background-color: white;
-	clear: both;
-	float: right;
-	width: 500px;
-	height: 500px;
-	position: absolute;
-	top: 490px;
-	right: 280px;
-}
-.reservationTextTmi{
-/* 	font-size: 20px; */
-/* 	font-weight: bold; */
-/* 	border-left: 20px; */
-    padding: 15px 15px 15px 15px;
-}
-.reseervationGuide{
-	border-left: 5px solid black; 
-	font-weight: bold;
-	font-size: 20px;
-	padding: 0 0 0 10px;
-}
 
-.comment{
-	padding: 10px 10px 15px 0;
-	font-size: 15px;	
-}
-.commentTmi{
-	color: green;
+
+@media (min-width: 2880px) and (max-width: 3840px) {
+	#pageImg{
+		background-image: url("img/sub_reservation.jpg");
+		background-size : auto ;
+		width: 50%;
+		height: 50%;
+		background-repeat: no-repeat;
+		margin: 20px 10% 20px 25%;
+	}
+	.pageImgMain{
+		text-align: center;
+		padding: 110px 0;
+		margin: 0 0 0 10%;
+		
+	}
+	
+
+	.ImgText{
+		margin: 0 auto;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.ImgTestSub{
+		
+		text-align: center;
+		font-size: 15px;
+		color: white;	
+	}
 }
 
 
+
+
+
+@media (min-width: 2560px) and(max-width: 2880px) {
+	#pageImg{
+		background-image: url("img/sub_reservation.jpg");
+		width: 80%;
+		height: 50%;
+		background-repeat: no-repeat;
+		margin: 0  0 0 40%;
+	}
+	.pageImgMain{
+		text-align: center;
+		padding: 110px 0;
+		
+	}
+
+
+	.ImgText{
+		margin: 0 auto;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.ImgTestSub{
+		text-align: center;
+		font-size: 15px;
+		color: white;	
+	}	
+}
+
+@media (max-width: 2560px){
+	#pageImg{
+		background-image: url("img/sub_reservation.jpg");
+		width: 80%;
+		height: 340px;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+	.pageImgMain{
+		text-align: center;
+		padding-top: 110px;
+		
+	}
+	.ImgText{
+		margin: 0 auto;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.ImgTestSub{
+		text-align: center;
+		font-size: 15px;
+		color: white;	
+	}
+
+}
+
+
+
+
+/*-------------------예약 선택 페이지-----------------------------------------------------------------------------------------------------------  */
+@media (min-width: 5760px){
+	#reservationCalendar {
+		background-color: white;
+		margin: 0 0 0 36%;
+		width: 900px;
+		height: 690px; 
+		background-color: #fcf9ea;
+		float: left;
+		
+	} 
+	#reservationText{
+		background-color: white;
+		margin-top: 1%;
+		float: left;
+		height: 500px;
+		top: 490px;
+		right: 280px;
+	}
+	
+	#reservationChoice{
+		text-align: center;
+		padding: 30px 0 10px 0;
+	}
+	#reservationCalendarChoice{
+		text-align: center;
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	
+	
+	#reservationCalendarTable {
+		margin: 0 auto;
+		border: 2px solid black;
+		background-color: white;
+		width: 670px;
+		height: 400px;
+		border-collapse:collapse;
+	}
+	 td {
+		border: 2px solid black;
+		vertical-align: top;
+		width: 80px;
+		height: 90px;
+	} 
+	
+	.sunday{
+		color: red;
+	}
+	#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
+		text-align: center;
+		height:25px;
+	}
+	
+	
+	.reservationTextTmi{
+		padding: 15px 15px 15px 15px;
+	}
+	.reseervationGuide{
+		border-left: 5px solid black; 
+		font-weight: bold;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	
+	.comment{
+		padding: 10px 10px 15px 0;
+		font-size: 15px;	
+	}
+	.commentTmi{
+		color: green;
+	}
+}
+
+
+
+
+
+@media (min-width: 3840px) and (max-width: 5760px){
+	#reservationCalendar {
+		background-color: white;
+		margin: 0 0 0 36%;
+		width: 900px;
+		height: 690px; 
+		background-color: #fcf9ea;
+		float: left;
+		
+	} 
+	#reservationText{
+		background-color: white;
+		margin-top: 1%;
+		float: left;
+		height: 500px;
+		top: 490px;
+		right: 280px;
+	}
+	
+	#reservationChoice{
+		text-align: center;
+		padding: 30px 0 10px 0;
+	}
+	#reservationCalendarChoice{
+		text-align: center;
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	
+	
+	#reservationCalendarTable {
+		margin: 0 auto;
+		border: 2px solid black;
+		background-color: white;
+		width: 670px;
+		height: 400px;
+		border-collapse:collapse;
+	}
+	 td {
+		border: 2px solid black;
+		vertical-align: top;
+		width: 80px;
+		height: 90px;
+	} 
+	
+	.sunday{
+		color: red;
+	}
+	#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
+		text-align: center;
+		height:25px;
+	}
+	
+	
+	.reservationTextTmi{
+		padding: 15px 15px 15px 15px;
+	}
+	.reseervationGuide{
+		border-left: 5px solid black; 
+		font-weight: bold;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	
+	.comment{
+		padding: 10px 10px 15px 0;
+		font-size: 15px;	
+	}
+	.commentTmi{
+		color: green;
+	}
+	
+
+
+
+
+
+}
+
+
+
+
+@media (min-width: 2880px) and (max-width: 3840px) {
+	#reservationPage{
+		width:100%;
+	}
+	#reservationCalendar {
+		background-color: white;
+		height: 690px; 
+	    width:800px;
+		background-color: #fcf9ea;
+		float: left;
+		margin: 0 0 0 28%;
+	} 
+	#reservationText{
+		background-color: white;
+		float: left;
+		height: 500px;
+	}
+	
+	#reservationChoice{
+		text-align: center;
+		padding: 30px 0 10px 0;
+	}
+	#reservationCalendarChoice{
+		text-align: center;
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	
+	
+	#reservationCalendarTable {
+		margin: 0 auto;
+		border: 2px solid black;
+		background-color: white;
+		width: 670px;
+		height: 400px;
+		border-collapse:collapse;
+	}
+	 td {
+		border: 2px solid black;
+		vertical-align: top;
+		width: 80px;
+		height: 90px;
+	} 
+	
+	.sunday{
+		color: red;
+	}
+	#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
+		text-align: center;
+		height:25px;
+	}
+	
+	
+	.reservationTextTmi{
+		padding: 15px 15px 15px 15px;
+	}
+	.reseervationGuide{
+		border-left: 5px solid black; 
+		font-weight: bold;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	
+	.comment{
+		padding: 10px 10px 15px 0;
+		font-size: 15px;	
+	}
+	.commentTmi{
+		color: green;
+	}
+	
+
+
+
+}
+
+
+@media (min-width: 2560px) and(max-width: 2880px) {
+
+	#reservationCalendar {
+		background-color: white;
+		 margin: 0 auto;
+		width: 30%;
+		height: 690px; 
+	
+		background-color: #fcf9ea;
+		float: left;
+		
+	} 
+	#reservationText{
+		background-color: white;
+		float: left;
+		width: 33%;
+		height: 500px;
+		top: 490px;
+		right: 280px;
+	}
+	
+	#reservationChoice{
+		text-align: center;
+		padding: 30px 0 10px 0;
+	}
+	#reservationCalendarChoice{
+		text-align: center;
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	
+	
+	#reservationCalendarTable {
+		margin: 0 auto;
+		border: 2px solid black;
+		background-color: white;
+		width: 670px;
+		height: 400px;
+		border-collapse:collapse;
+	}
+	 td {
+		border: 2px solid black;
+		vertical-align: top;
+		width: 80px;
+		height: 90px;
+	} 
+	
+	.sunday{
+		color: red;
+	}
+	#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
+		text-align: center;
+		height:25px;
+	}
+	
+	
+	.reservationTextTmi{
+		padding: 15px 15px 15px 15px;
+	}
+	.reseervationGuide{
+		border-left: 5px solid black; 
+		font-weight: bold;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	
+	.comment{
+		padding: 10px 10px 15px 0;
+		font-size: 15px;	
+	}
+	.commentTmi{
+		color: green;
+	}
+	
+
+
+
+
+
+}
+
+@media (max-width: 2560px){
+	#reservationCalendar {
+		background-color: white;
+		 margin: 10px 20px 10px 20%;
+		height: 690px; 
+		background-color: #fcf9ea;
+		float: left;
+		
+	} 
+	#reservationText{
+		background-color: white;
+		margin: 30px 10px 10px 10px;
+		float: left;
+		width: 33%;
+		height: 500px;
+		top: 490px;
+		right: 280px;
+	}
+	
+	#reservationChoice{
+		text-align: center;
+		padding: 30px 0 10px 0;
+	}
+	#reservationCalendarChoice{
+		text-align: center;
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	
+	
+	#reservationCalendarTable {
+		margin: 0 auto;
+		border: 2px solid black;
+		background-color: white;
+		width: 670px;
+		height: 400px;
+		border-collapse:collapse;
+	}
+	 td {
+		border: 2px solid black;
+		vertical-align: top;
+		width: 80px;
+		height: 90px;
+	} 
+	
+	.sunday{
+		color: red;
+	}
+	#weekSun  , #weekMon , #weekTue , #weekWed ,#weekThu ,#weekFri ,#weekSet{
+		text-align: center;
+		height:25px;
+	}
+	
+	
+	.reservationTextTmi{
+		padding: 15px 15px 15px 15px;
+	}
+	.reseervationGuide{
+		border-left: 5px solid black; 
+		font-weight: bold;
+		font-size: 20px;
+		padding: 0 0 0 10px;
+	}
+	
+	.comment{
+		padding: 10px 10px 15px 0;
+		font-size: 15px;	
+	}
+	.commentTmi{
+		color: green;
+	}
+	
+
+
+}
 
 /* ----------------------- 푸터  ------------------------ */
 #footer{ 
