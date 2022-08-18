@@ -19,7 +19,7 @@
 
 // 4. 여러개 board 객체를 저장할 배열 선언 
 let boardlist = [ ] 
-
+let Boardnum = 0;
 // js가 실행될때 함수 실행
 게시물출력()
 
@@ -40,15 +40,16 @@ function 글등록(){
 	// 5. 객체를 배열에 저장한다. 
 	boardlist.push( board ) // 배열명.push( 데이터 ) : 배열에 데이터 추가함수 
 	alert('[안내] 글 등록이 되었습니다.')
+	게시물출력()
 	// 6. input에 공백 넣기 
 	document.getElementById('bwriter').value = ''
 	document.getElementById('bpassword').value= ''
 	document.getElementById('btitle').value= ''
 	document.getElementById('bcontent').value= ''
 	// 7. 글 등록시 게시물출력 함수 호출 
-	게시물출력()
 	
 } // 글등록 함수 end 
+
 
 // 1. 
 function 게시물출력(){
@@ -68,6 +69,9 @@ function 게시물출력(){
 	document.getElementById('boardlist').innerHTML = html
 } // 게시물출력 함수 end 
 
+
+
+
 function 게시물보기( i ){
 	document.getElementById('viewtitle').innerHTML =  boardlist[i].제목
 	document.getElementById('viewwriter').innerHTML =  boardlist[i].작성자
@@ -75,18 +79,40 @@ function 게시물보기( i ){
 } // 게시물보기 함수 end 
 
 
+
+
+
 function 게시물제거(){
-    let Boardnum = 0;
+    
+   // console.log(document.querySelector("tbody")[1])
 	for(let i=0; i<boardlist.length; i++){
-		if(document.getElementById('viewtitle').innerHTML === boardlist[i].제목){
-			Boardnum = i
+		if(document.getElementById('viewtitle').value === boardlist[i].제목){
+			Boardnum = i		
 		}
 	}
-    delete boardlist[Boardnum]
+		    document.getElementById('boardlist').children[0].children[Boardnum+1].remove()   
+		    if(boardlist.length===1){
+			  delete boardlist[Boardnum]
+			  boardlist[0] = {}
+		     }
+		     else if(boardlist.length>1){
+		      delete boardlist[Boardnum]
+		      delete boardlist[0]
+		     }
+		     
+		    
+		    document.getElementById('viewtitle').innerHTML =  ""
+		    document.getElementById('viewwriter').innerHTML =  ""
+		    document.getElementById('viewcontent').innerHTML =  ""		
 
+/*
+    게시물출력()
+    delete boardlist[Boardnum]   
 	document.getElementById('viewtitle').innerHTML =  ""
 	document.getElementById('viewwriter').innerHTML =  ""
 	document.getElementById('viewcontent').innerHTML =  ""	
+
+ */
 }
 
 
