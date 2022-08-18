@@ -3,7 +3,7 @@
  */
 let ElevatorFloor = 5;
 let ElevatorMine =2;
-
+let Elevator = document.getElementById("elevator")
 
 
 
@@ -14,6 +14,7 @@ document.getElementById("State_Mine").innerHTML = `내 층수 :  ${ElevatorMine}
 
 
 function up_button (){
+    Elevator.style.transform = "translateY("-100+"px)";
 	ElevatorFloor += 1;
 	document.getElementById("State_Elevator").innerHTML = `엘리베이터 층수 : ${ElevatorFloor}`
 	//엘리베이터가 15층보다 높을때 
@@ -26,13 +27,13 @@ function up_button (){
     if(ElevatorFloor===1){
 	document.getElementById("State_Elevator").innerHTML = `1층에 도착했습니다.`
 	}
-
 }
 
 
 
 
 function down_button (){
+	Elevator.style.transform = "translateY("+100+"px)";
 	ElevatorFloor -= 1;
 	document.getElementById("State_Elevator").innerHTML = `엘리베이터 층수 : ${ElevatorFloor}`
 	//엘리베이터가 0층보다 낮을때 
