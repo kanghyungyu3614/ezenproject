@@ -6,19 +6,26 @@ let ElevatorMine =2;
 let Elevator = document.getElementById("elevator")
 document.getElementById("State_Mine").innerHTML = `내 층수 :  ${ElevatorMine}`
 
-
-let Up_Button = document.getElementById("UpButton")
+/**let Up_Button = document.getElementById("UpButton")
 Up_Button.addEventListener("click",()=>{
 	Elevator.style.transform = "translateY("+(-100)+"px)";
-})
+}) */
+
 
 
 function up_button (){
-	UpTansFrom()
+	/* 
 	function UpTansFrom(){
 	 Elevator.style.transform = "translateY("+(-100)+"px)";	
 	}
-   
+	*/
+	
+     anime({
+      targets: 'Elevator',
+      translateX: 250,
+      scale: 2,
+      rotate: '-1turn'
+  });
 	ElevatorFloor += 1;
 	document.getElementById("State_Elevator").innerHTML = `엘리베이터 층수 : ${ElevatorFloor}`
 	//엘리베이터가 15층보다 높을때 
@@ -43,11 +50,15 @@ Down_Button.addEventListener("click",()=>{
 
 
 function down_button (){
+	/*
 	DownTansFrom()
 	function DownTansFrom(){
 	 Elevator.style.transform = "translateY("+100+"px)";	
 	}
+		
 	
+	 */
+
 	ElevatorFloor -= 1;
 	document.getElementById("State_Elevator").innerHTML = `엘리베이터 층수 : ${ElevatorFloor}`
 	//엘리베이터가 0층보다 낮을때 
