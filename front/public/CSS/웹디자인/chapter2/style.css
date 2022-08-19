@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+
+.container{
+	overflow: auto;
+	scroll-snap-type: y mandatory; /* y축 스크롤스냅 적용*/
+	height: 100vh;
+}
+section{
+	scroll-snap-align : start;	/* 스크롤 멈추는 지점 */
+	height: 100vh; /* vh : 뷰포트 높이 */
+	background-size: cover;		/* 화면의 비율 유지 -> 전체 화면 채우기 */
+	background-position: center center; /* 가로  세로  정렬 */
+	background-repeat: no-repeat; /* 자동 채우기 제거 */
+}
+/*-------------- 1구역 -----------------*/
+.hero{
+	background-image: url("images/빵.jpg"); /* 배경 이미지*/
+	text-align: center;
+	padding-top: 10vh;
+}
+/*-------------- 2구역 -----------------*/
+.menu{
+	background-image: url("images/빵1.png"); /*배경 이미지 */
+	display:flex;
+	align-items: center;	/* 모델 세로 정렬 배치 */
+}
+.wrapper{
+	width : 900px;
+	margin: 0 auto;	/* 모델 가로 정렬 배치*/
+}
+.menulist tr{
+	margin-bottom: 5px;
+	line-height: 2;
+}
+/*-------------- 3구역 -----------------*/
+.contact{
+	background-image: url("images/빵2.png");
+	text-align: center;
+}
+.contactsns{
+	display: flex;
+	justify-content: center;
+}
+.contactsns a{
+	margin-top : 50px;
+	margin-left: 10px;
+}
+
+
+.fa-square-facebook{
+	color: red;
+}
+
+.title{
+	font-family: 'DynaPuff', cursive; /* 구글 웹폰트*/
+	font-size: 7rem;
+	margin-bottom: 2rem;
+}
+
+
+/* 미디어 쿼리 : 디바이스 크기에 따라 css 적용 */
+@media (max-width:700px) {
+	.title{
+		font-size: 4rem;
+		color: blue;
+	}
+}

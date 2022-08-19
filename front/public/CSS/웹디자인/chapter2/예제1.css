@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("images/빵1.png"), url("images/빵2.png");
+	/* 배경이미지는 , 이용한 다수 이미지 적용  */
+	background-position : left top ,   right top ;
+	                  /* 첫번째 이미지*/ /*두번째 이미지*/
+	background-repeat: no-repeat; 
+	text-align: center;
+}

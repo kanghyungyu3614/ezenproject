@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.container{
+	overflow: auto;
+	scroll-snap-type: y proximity; /*부모요소 스크롤스냅 y축*/
+	height: 100vh;
+}
+.area{
+/*     scroll-snap-align: start;  */
+/* 	scroll-snap-align: end; */ 
+	scroll-snap-align: center;
+	height: 70vh;
+}
+/*동일한 클래스가 많을때*/
+.area:nth-child(1){
+	background-color: red;
+}
+.area:nth-child(2){
+	background-color: blue;
+}
+.area:nth-child(3){
+	background-color: black;
+}
+.area:nth-child(4){
+	background-color: orange;
+}
