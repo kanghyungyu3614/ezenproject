@@ -54,7 +54,6 @@ function 글등록(){
 // 1. 
 function 게시물출력(){
 	let html = '<tr> <th>번호</th> <th>제목</th> <th>작성자</th> </tr>'
-	
 	// 반복문 
 	for( let i = 0 ; i<boardlist.length ; i++ ){
 		// i는 0부터 배열의길이 까지 1씩 증가 			// 배열내 i번째 객체내 '제목' 키 호출 -> 값 이 나옴
