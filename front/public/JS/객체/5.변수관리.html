@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+	   .container{
+	      width: 80%;
+	      border: 1px solid block;
+	      margin: 0 auto;
+	      display: flex;
+	   }
+	   .addbox{
+	      width: 45%; text-align: center;
+	   }
+	   .listbox{
+	       width: 45%; text-align: center;
+	   }
+	   table { width: 100%; border: 1px solid black; border-collapse: collapse;}
+	   th, td{ border: 1px solid black;}
+	</style>
+</head>
+<body>
+
+	  <div class="container">
+		  <div class="addbox">
+		  	<h3>학생 점수 등록</h3>
+		  	<form>
+		  	학생명[동명이인은 불가] : <input type="text" id="name"><br>
+		  	국어 : <input type="text" id="kor"><br>
+		  	영어 : <input type="text" id="eng"><br>
+		  	수학 : <input type="text" id="math"><br>
+		  	<button type="button" onclick="점수등록()">점수 등록</button>		  			  	
+		  	</form>
+
+		  </div>
+		  <div class="listbox">
+		    <h3>학생 점수 목록</h3> 
+		    <table id="listtable">
+		     
+		    </table>   
+		  </div>
+     </div>
+
+
+
+
+   <script type="text/javascript" src="5.변수관리.js"></script>
+</body>
+</html>
