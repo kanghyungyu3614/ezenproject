@@ -1,0 +1,10 @@
+@charset "UTF-8";
+	h1{
+	  font-size: 2rem;	
+	  font-family: "굴림";
+	  font-weight: bold;
+	  display: inline-block;
+	  /* 선형 그라데이션 배경 : transparent : 투명색 */
+	  background-image:linear-gradient( transparent 50%, #ff6 50% );
+	  padding-bottom: .25rem;
+     }
