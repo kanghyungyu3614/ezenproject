@@ -24,13 +24,13 @@
 	studentlist.push(student)
 	
 	alert("학생 점수 등록이 되었습니다.")
-	console.log("studentlist",studentlist)
 	
 	document.getElementById("name").value = ""
 	document.getElementById("kor").value = ""
 	document.getElementById("eng").value = ""
 	document.getElementById("math").value = ""
 	
+	학생랭킹()
 	학생출력()
 }
 
@@ -61,8 +61,7 @@ function 학생출력(){
 	for(let i=0; i<studentlist.length; i++){
 		let sum =studentlist[i].kor + studentlist[i].eng+studentlist[i].math
 		let avg = sum/3
-		학생랭킹()
-		console.log(studentlist)
+		
 		// i는 0부터 배열내 마지막인덱스까지[배열의 길이-1] 1씩 증가반복
 		html += "<tr>" +
 	                "<th>"+i+"</th>" +
@@ -85,23 +84,31 @@ function 학생출력(){
 function 학생삭제(i){
 	studentlist.splice(i,1)
 	학생출력()
+	학생랭킹()
 }
 
 function 학생랭킹(){
 	let len = studentlist.length;
 	let min = "";
-
     for(let i=0; i<len; i++){
        for(let j=0; j<len; j++){
-		let isum =Number(studentlist[i].kor) + Number(studentlist[i].eng)+Number(studentlist[i].math)
-		let iavg = isum/3
+		let isum =studentlist[i].kor + studentlist[i].eng+studentlist[i].math
+		let iavg = Math.floor(isum/3)
 		let jsum =studentlist[j].kor + studentlist[j].eng+studentlist[j].math
-		let javg = jsum/3
+		let javg = Math.floor(jsum/3)
 	    if(iavg < javg){
-		min = studentlist.splice(i,1)[0]
-		studentlist[j] = min
-		
-	 }else{ continue;}   
+		min = studentlist.splice(j,1)
+			if(i===0){
+				studentlist.unshift(min[0])
+			}
+			else{
+				studentlist[i] = min[0]
+				min = ""
+				continue;	
+			}
+	    }else if(iavg > javg || iavg === javg){
+		continue;
+	    }
      }	
    }
    return true;

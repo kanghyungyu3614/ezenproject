@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+
+/*  CoupangMark  */
+*{
+	margin:0;
+	padding:0;
+}
+#container{
+	margin: 0 auto;
+	width: 25%;
+	height: 1000px;
+	background-color: white;	
+	border: solid 1px red; 
+}
+
+/*CoupangMark*/
+#CoupangMark{
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	border: solid 1px red; 
+}
+#image_Coupang{
+    width: 120px;
+    height: 98px;
+    border: solid 1px red; 
+}
+
+/*  Signup_Information  */
+#Signup_Information{
+	font-size:12px;
+	font-weight: bold;
+	margin: 10px 0; 
+	border: solid 1px red; 
+}
+
+
+
+/*  email_inputBox  */
+#email_inputBox{
+	display: flex;
+	border: solid 1px red; 
+	width:100%;
+	height:35px;
+}
+
+
+
+
+
+
+
+
+
+
+/*  Password_inputBox  */
+#Password_inputBox{
+	display: flex;
+	border: solid 1px red; 
+	width:100%;
+	height:35px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  password_CheckOut_inputBox  */
+#Password_CheckOut_inputBox{
+	display: flex;
+	border: solid 1px red; 
+	width:100%;
+	height:35px;
+}
+
+
+
+/*  Name_inputBox  */
+#Name_inputBox{
+	display: flex;
+	border: solid 1px red; 
+	width:100%;
+	height:35px;
+}
+
+
+
+/*  phoneNumber_inputBox  */
+#phoneNumber_inputBox{
+	display: flex;
+	border: solid 1px red; 
+	width:100%;
+	height:35px;
+}
+
+
+
+/*  Agree_Checkbox  */
+
+/*  Agree_Checkbox_List  */
+
+/*  SignUp_Button  */
+
+/*  footer_Box  */
+
