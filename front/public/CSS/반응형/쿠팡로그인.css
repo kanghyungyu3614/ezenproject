@@ -36,9 +36,9 @@
 /*   id_Component    */
 
 #id_Component{
+	display: flex;
     border: 1px solid gray;
 	height:50px;
-	display: flex;
 	font-family:dotum,sans-serif;
 	margin-bottom: 10px;
 }

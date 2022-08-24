@@ -1,0 +1,53 @@
+<!-- 
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 	<script> 
+	          //콜백함수 
+	          const h1 = (text) => `<h1>${text}</h1>`
+	</script>
+-->
+ 	<script> 
+	          document.body.innerHTML += h1('1번째 script 태그')
+	</script>
+	<script> 
+	
+	          document.addEventListener('DomContentLoaded' , ()=>{
+        	  const h1 = (text) => `<h1>${text}</h1>`
+              document.body.innerHTML += h1('DomContentLoaded 이벤트 발생')
+	              
+	          
+	          })
+	          // 2. onload
+	          // document.onload = function (){코드}
+	          document.onload = function (){}
+	          document.innerHTML += 'load 이벤트 발생'
+	          // 3.load
+	             // document.addEventListener('load', function(){ 코드}) 
+	          document.addEventListener('load', function(){
+	        	  document.innerHTML += 'load 이벤트 발생'
+	          })
+	          
+	</script>	
+</head>
+<body>
+	<script> 
+	          document.body.innerHTML += h1('2번째 script 태그')
+	</script>
+	<h1>1번째 h1 태그 </h1>
+	<script> 
+	          document.body.innerHTML += h1('3번째 script 태그')
+	</script>	
+	<h1>2번째 h2 태그 </h1>
+	
+	<script type="text/javascript">
+	   document.body.innerHTML += 'body 하단 작성'
+	</script>
+</body>
+</html>

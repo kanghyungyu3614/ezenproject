@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-
-/*  CoupangMark  */
 *{
 	margin:0;
 	padding:0;
@@ -13,6 +11,8 @@
 	background-color: white;	
 	border: solid 1px red; 
 }
+
+
 
 /*CoupangMark*/
 #CoupangMark{
@@ -37,6 +37,10 @@
 
 
 
+
+
+
+
 /*  email_inputBox  */
 #email_inputBox{
 	display: flex;
@@ -45,9 +49,15 @@
 	height:35px;
 }
 
+#email_Image{
+/* 	display: inline-block; */
+	width:50px;
+	height:50px;
+}
 
-
-
+#email_inputBoxDom{
+/* 	display: inline-block; */
+}
 
 
 
@@ -91,6 +101,15 @@
 	width:100%;
 	height:35px;
 }
+
+
+
+
+
+
+
+
+
 
 
 
