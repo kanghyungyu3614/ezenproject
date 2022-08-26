@@ -1,61 +1,49 @@
 @charset "UTF-8";
 
-/* ----------------------------헤더 ----------------------------------------- */
 
-body {
-	color: #949087;
-	font-family: sans-serif;
-	background: #faf6ef url("img/header.svg");
+/*-------------------- 헤더 -----------------------*/
+
+body{
+	color: #949087; font-family: '굴림';
+	background-image: url("images/bg.png");
 }
-
-
 header{
 	max-width: 1000px;
 	margin: 2.5rem auto 0;
-	background-image: url("img/header.svg");
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-size: cover;
+	background-image: url("images/header.svg");
+	background-repeat: no-repeat; /* 자동 채우기 제거 */
+	background-position: center top; /* 배경 위치 */
+	background-size: cover; /* 배경 사이즈 */
 	height: 170px;
 }
 .page_title{
-	font-size: 30px;
-	font-family: "굴림";
-	text-align: center;
+	font-size: 35px; font-family: '굴림'; text-align: center;
+	margin: 50px 0px;
+	
 }
 .page_desc{
-	font-size: 10px; text-align: center;
-	margin: 40px 0px;
+	font-size: 15px; text-align: center;
+	
 }
-
-
-/*------------------------- 컨테이너--------------------  */
+/* ------------------- 컨테이너 -------------------*/
 .container{
-	max-width: 1000px;
-	margin: 0 auto;
+	max-width: 1000px; margin: 0 auto;	
 	background-color: #ffffff;
 	border-radius: 0 0 10px 10px;
+	
 }
 
 
+/*---------------------------------------------*/
 
-
-
-
-
-
-
-
-
-/* ------------------------------------------------------------------------- */
 .post_title{
 	padding-bottom: 10px; 		/* 아래 안쪽 여백 */
-
-	/* 배경 그라데이션 */
+	
+	/* 배경 그라데이션 : linear-gradient : 선형그라이데이션 */
 	background-image: linear-gradient(45deg, #fff 30%, #ccc 30%, #ccc 50%, #fff 50%, 
 	#fff 80%, #ccc 80%, #ccc 100%);
-
-
+	
+	
 	background-size: 6px 6px;
 	margin-bottom: 1.5rem;
 }
@@ -71,164 +59,220 @@ header{
 	color : #949087;
 	text-decoration: none; /* 링크 밑줄제거 */
 }
-
-/*-----------------------------------------*/
+/*------------------------------------------*/
 .post_img{
-	width: 100%;
-	height: 260px;
-	object-fit: cover;
-	border-radius: 40% 70% 50% 30%/50% ;
+	width : 100%;
+	height: 260px; /* 고정 높이 -> 비율이 깨짐 */
+	object-fit : cover;
+	border-radius: 40% 70% 50% 30% / 50%;
+				/* 각각의 가로      /  세로 : 50% 통일 */
+				 
 }
 .post_thumb{
 	position: relative;
 }
+/*------------------------------------------*/
 
 
-
-/*-----------------------------------------*/
 .btn a{
-	color: #fff;
-	padding: 10px 20px;
-	background-color: #eda1a1;
+	color: #fff;	/*글자색*/
+	padding: 10px 20px;	/* 안쪽 여백 : 가로 세로 */
+	background-color: #eda1a1; /* 배경색 */
+	
+	/* 그림자 : 1.box-shadow 2.text-shadow */
 	box-shadow: 0 0 0 5px #eda1a1;
+			/* x축 , y축 , 그림정도 , 확대/축소 정도 , 색상 */ 
+	
 	border: 2px dashed #e38787;
 	border-radius: 5px;
 	text-decoration: none;
 	display: inline-block;
 }
-.btn a:hover{
+.btn a:hover{ /* 마우스 올렸을때 */
 	color: #fff;
 	background-color: #e38787;
 	box-shadow: 0 0 0 5px #e38787;
 	border: 2px dashed #eda1a1;
+	
 }
-/**/
-article ul li::before {
-	content: "";
+/*------------------ 가상 요소로 글머리 만들기 --------------------*/
+article ul li::before{
+	content : '';
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: #93d8d0;
+	background-color: #93d8d0;
 	display: inline-block;
 	margin: 0 8px 2px 0;
 }
 
-ol li {
-	counter-increment: list;
-
+ol li{
+	/* 요소의 연속 값을 세는 속성  : 해당 요소를 사용할때마다 숫자가 늘어남*/
+	counter-increment: asd; 
 }
-ol li::before{
-	content: counter(list);
+
+article ol li::before{
+	content: counter( asd );
 	color: #93DFB8;
-	display: inline-block;
-	margin-left: 8px;
+	display: inline-block;	
+	margin-right: 8px;
 }
 
-/* 
+/*------------------ 인용문 --------------------*/
 article blockquote{
 	position: relative;
 	padding: 1rem 3rem 1rem 3rem;
 	margin-bottom: 1rem;
 }
-article blockquote::before,
-article blockquote::after  {
-	font-size: 6rem;
-	font-family: "Noto Sans Kr, sans-serif";
-	position: absolute;
-	color: #cccccc;
-	line-height: 0;
 
+article blockquote::before ,
+article blockquote::after  {
+	font-size : 6rem;
+	font-family: "Noto Sans KR" , sans-serif;
+	position: absolute;
+	color : #cccccc;	/* 단색일경우 3자리 */
+	line-height : 0;
 }
 
 article blockquote::before{
 	content: '\201C';
 	top: 2.5rem;
 	left: 0;
-	
 }
 
+article blockquote::after{
+	content: '\201D';
+	bottom: 0.5rem;
+	right: 0;
+}
+/* ---------------------------------------------------- */
 
-article blockquote::after  {
-    content: '\201D';
-    bottom: 0.5rem;
-    right: 0;
-} */
+.bqbox{
+	position: relative; /* 가상요소들의 부모요소에 relative */
+	padding: 20px;
+}
 
-blockquote{
-	position: relative;
-	padding: 2rem;
+.bqbox ::before , .bqbox ::after{
+	content: '' ;
+	width: 40px; height: 40px;
+	position: absolute; /* 가상요소들의 absolute */
 }
-blockquote::before,
-blockquote::after{
-	content:'';
-	width:40px;
-	height:40px;
-	position:absolute;
+
+.bqbox ::before {
+	border-top: 2px solid red;
+	border-left: 2px solid red;
+	top: 0; left: 0;		/* 왼쪽 상단 */ 
 }
-blockquote::before{
-	border-top: 2px solid #cccccc;
-	border-left: 2px solid #cccccc;
-	top: 0;
-	left:0;
+.bqbox ::after {
+	border-bottom: 2px solid red;
+	border-right: 2px solid red;
+	bottom: 0; right: 0;	/* 오른쪽 하단 */
 }
-blockquote::after{
-	border-bottom: 2px solid #cccccc;
-	border-right: 2px solid #cccccc;	
-	bottom: 0;
-	right:0;
-}
+
+/* ---------------------------------------------------- */
 
 .pagination{
-	display: flex;
-	justify-content: center;
-	font-family:"굴림";
-	font-size: 1.5rem;
+	display: flex;	/* 하위 요소 가로배치 */
+	justify-content: center;/* 하위 요소 가로 중앙배치*/
+	font-family: '굴림';
+	font-size: 1.5rem;	
 	text-align: center;
 }
-
 .pagination a{
-	width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    padding-top:4px;
-    margin: 0 10px;
-    display: inline-block;
+	width: 36px; height: 36px;
+	border-radius: 50%;	/* 둥근모서리 = 원형 */
+	padding-top: 4px; /*안쪽여백*/
+	margin: 0 10px; /* 바깥여백 */
+	display: inline-block; /* display: inline 사용할경우 사이즈 적용X */
+}
+.pagination .current{ /* 현재 페이지 번호 강조 */
+	background-color: #cccccc;/*배경색*/
+	color: #ffffff;	/*글꼴색*/
 }
 
-.pagination .current{
-	background: #ccc;
+.pagination a:hover{ /* 페이지에 마우스를 올렸을때 */
+	background-color: #93d8d0;
 	color: #ffffff;
 }
-.pagination a:hover{
-	background: #93d8d0;
-	color: #ffffff;
-}
 
-
+/* ---------------------------------------------------- */
 
 .side_box{
-	border: 1px solid #cccccc;
+	border: 1px solid #ccc; /* 기본 테두리 */
 	border-radius: 6px;
-	outline: 2px solid red;
-	outline-offset: 4px;
+	outline: 2px solid red; /* 바깥 테두리 */
+	outline-offset:4px; /* 기본 테두리와 바깥 테두리 간격 */
 	padding: 0.875rem;
-	margin-bottom: 4rem;
-	position: relative;
+	margin-bottom : 4rem;
+	position: relative; /* 발바닥 모양 배치하기 위한 */
 }
-.side_box ::before{
-	width: 2rem; height: 2rem;
-	text-align: center;
-	position: absolute;
-	top:-1rem;
-	left: 0; right: 0;
-	margin: 0 auto;
-	background-color: #ffffff;
-	font-family: "Font Awesome 5 Pro";	
-	content: "\f1b0";
+.side_box::before{ 
+	width : 2rem; height:2rem;
+	text-align:center;
+	position : absolute;	/* ** */
+	top : -1rem; /* 테두리 겹치기*/
+	left : 0 ; right :0;
+	margin : 0 auto; /* 가운데 정렬 */
+	background-color : #ffffff;
+	
+	
+	font-family: "Font Awesome 5 Pro";
+	content : '\f1b0';
 	font-weight: 900;
 	font-size: 1.5rem;
-	color:#949087;
+	color: #949087;
 }
+/* -----------------------  */
+ footer{
+    background-color: #949087;
+    text-align: center;
+    padding: 3rem;
+ }
+ footer ul {
+    display: flex;   /*  */
+    justify-content: center;
+    margin-bottom: 2rem;
+ }
+ footer li{
+    margin: 0 12px;
+ }
+ footer a {
+    color: #ffffff;
+ }
+ footer a:hover {
+    color: #c7c3ba;
+ }
+ footer small {
+    color: #c7c3ba;
+    font-size: .875rem;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -237,8 +281,7 @@ blockquote::after{
 
 
 /* 미디어쿼리 : 디바이스 크기에 따라 css 설정 */
-@media( min-width : 600px)  {
-
+@media( min-width : 600px)  { /* 가로사이즈 600px 이상일때 반응형 */
 	.container{
 		display: flex;
 		justify-content: space-between;
@@ -249,16 +292,20 @@ blockquote::after{
 	aside{
 		width: 26%;
 	}
-    .post_img{
-        width: 220px;
-        height: 180px;
-    }
-    .post_thumb{
-	    margin: 0 3rem 1rem 0;
-	    shape-outside: circle();
-	    float:left;
-    }
-
+	.post_img{	/* 이미지 고정 사이즈 -> 비율이 깨짐 */
+		width: 220px;
+		height: 180px;
+	}
+	.post_thumb{
+		margin : 0 3rem 1rem 0;
+		shape-outside : circle();
+		float: left;
+	}
+	.popular-posts{
+	  position: sticky;
+	  top: 1rem;
+	}
+	
 	/* 
 		min-width : 600px;  : 최소 가로사이즈 600px 
 		[ 600px 이상에서 사용되는 css ]

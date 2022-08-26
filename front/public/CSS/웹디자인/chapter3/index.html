@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<meta name="viewport" content="width=device-width , inital-scale=1.0"> <!-- 뷰포트 -->
-<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC|M+PLUS+Rounded+1c:400,500&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/b8a7fea4d4.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 뷰포트 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css 기본 초기화 -->
+	<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+	<!-- 구글 웹폰트 -->
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|M+PLUS+Rounded+1c:400,500&display=swap" rel="stylesheet">
+	<!-- font awesome 글머리 기호[ 아이콘 ] -->
+	<script src="https://kit.fontawesome.com/b8a7fea4d4.js"></script>
+	<!-- 본인css -->
+	<link href="style.css" rel="stylesheet">
+	
 </head>
 <body>
-   <header>
-      <h1 class="page_title">Cat Blog</h1>
-      <p class="page-desc">고양이 기르는 법과 반려묘에 관한 이야기를 매일 전답합니다.</p>
-   </header>
-
-
-
-
-   <div class="container">
-      <main>
-           <article>
-	           ..메인 콘텐츠..
-	           <div class="post_title">
-	              <h2><a href="#">처음 고양이를 키우는 분이라면 필수로 필요한 것!</a></h2>
-	           </div>
-	           <div class="post_thumb">
-	              <p class="post_date"><span>2021</span>12/28</p>
-	              <img class="post_img" alt="" src="img/cat1.jpg">
-	           </div>
-	           <p class="post_desc">
-	            처음 고야이를 키운다면 우선 무엇이 필요할까요?
-	            꼭 필요한 물품과 사두면 편리한 물품에 대해 소개합니다.
-	            고양이는 앞으로 약 10년간 함께 살아가는 가족입니다.
-	            함께하는 생활을 기분좋게 시작하기 위해서 미리 제대로 준비해둡시다.
-	            추천하는 고양이 사료 랭킹도 정리해보았습니다.
-	           </p>
-	           <!--  p.122 -->
-	           <p class="btn"><a href="#">더보기</a></p>
-	           
-	           <!-- p.126 -->
-	           <ul>
-	              <li> 고양이 간식</li>
-	              <li> 화장실, 화장실 모래</li>
-	              <li> 식품 </li>
-	           </ul>
-	           
-	           
-	           <ol>
-	             <li>건식 사료A</li>
-	             <li>습식 사료B(C배합)</li>
-	             <li>건식 사료D 닭고기 맛</li>
-	           </ol>
-	           
-	           <blockquote>
-	             <p>
-	                 쉬고 있는 고양이의 눈은 아주 부드럽습니다.
-	                 적대적이지 않고 상대방에게 호의가 있을 때는 눈을 가늘게 뜨거나 깜빡거립니다.
-	                 가끔 윙크를 할 때도 있습니다.
-	             </p>
-	           </blockquote>
-           </article>
-               <ul class="pagination">
-                   <li><a href="#" class="current">1</a></li>
-                   <li><a href="#">2</a></li>
-                   <li><a href="#">3</a></li>
-                   <li><a href="#">4</a></li>
-                   <li><a href="#">></a></li>
-               </ul>
-      </main>
-      
-      <aside>
-           
-           <div class="side_box">
-               <h3>Category</h3>
-               <ul>
-                    <li><a href="#">고양이 종류</a></li>
-                    <li><a href="#">식사 : 사료</a></li>
-                    <li><a href="#">건강 : 질병</a></li>
-                    <li><a href="#">고양이 생태</a></li>
-                    <li><a href="#">고양이와 함께 사는법</a></li>                   
-               </ul>
-           
-           
-           </div>
-
-           
-      </aside>
-   
-   </div>
+	
+	<header>	<!-- 헤더 -->
+		<h1 class="page_title"> Cat Blog</h1>
+		<p class="page_desc"> 고양이 기르는 법과 반려묘에 관한 이야기를 매일 전달합니다 </p>
+	</header>
+	
+	<div class="container">
+		<main>
+			<article>
+				<div class="post_title">
+					<h2><a href="#">처음 고양이를 키우는 분이라면 필수로 필요한 것!</a></h2>
+				</div>
+				<div class="post_thumb">
+					<p class="post_date"><span>2021</span>12/28</p>
+					<img class="post_img" src="img/cat1.jpg">
+				</div>
+				<p class="post_desc">
+					처음 고양이를 키운다면 우선 무엇이 필요할까요?
+					꼭 필요한 물품과 사두면 편리한 물품에 대해 소개합니다.
+					고양이는 앞으로 약 10년간 함께 살아가는 가족입니다.
+					함께하는 생활을 기분좋게 시작하기 위해서 미리 제대로 준비해둡시다.
+					추천하는 고양이 사료 랭킹도 정리해보았습니다.
+				</p>
+				<!-- p.122 -->
+				<p class="btn"><a href="#">더보기</a></p>
+				
+				<!-- p.126 -->
+				<ul> <!-- 번호 없는 목록 -->
+					<li> 고양이 간식 </li>
+					<li> 화장실, 화장실 모래</li>
+					<li> 식품 </li>
+				</ul>
+				
+				<!-- p.128 -->
+				<ol> <!-- 번호 있는 목록 -->
+					<li> 건식 사료A</li>
+					<li> 습식 사료B (C배합) </li>
+					<li> 건식 사료D 닭고기 맛 </li>
+				</ol>
+				
+				<!-- p.134 -->
+				<blockquote>
+					<p>
+						쉬고 있는 고양이는 눈은 아주 부드럽습니다.
+						적대적이지 않고 상대방에게 호의가 있을 때는 눈을 가늘게 뜨거나 깜빡거립니다.
+						가끔 윙크를 할 떄도 있습니다.
+					</p>
+				</blockquote>
+				
+				<!-- p.135 -->
+				<div class="bqbox">
+					<p>
+						쉬고 있는 고양이는 눈은 아주 부드럽습니다.
+						적대적이지 않고 상대방에게 호의가 있을 때는 눈을 가늘게 뜨거나 깜빡거립니다.
+						가끔 윙크를 할 떄도 있습니다.
+					</p>
+				</div>
+			</article>
+			
+			<!-- p.137 -->
+			<ul class="pagination">
+				<li><a href="#" class="current"> 1 </a> </li>
+				<li><a href="#"> 2 </a> </li>
+				<li><a href="#"> 3 </a> </li>
+				<li><a href="#"> 4 </a> </li>
+				<li><a href="#"> > </a> </li>
+			</ul>
+			
+		</main>
+	
+		<aside>
+		
+			<div class="side_box"> <!--  p.140 사이드바 -->			
+				<h3> Category</h3>
+				<ul>
+					<li><a href="#">고양이 종류</a> </li>
+					<li><a href="#">식사·사료</a> </li>
+					<li><a href="#">건강·질병</a> </li>
+					<li><a href="#">고양이 상태</a> </li>
+					<li><a href="#">고양이와 함께 사는법</a> </li>
+				</ul>
+			</div>		
+			<!-- p.154  -->
+			<div class="side_box popular-posts">
+			   <h3> Popular Posts</h3>
+			   <ul>
+			     <li><a href="#">처음 고양이를 병원에 데려갈 때의 마음가짐</a></li>
+			     <li><a href="#">고양이 발바닥 젤리로 알아보는 반려묘 성격?</a></li>
+			     <li><a href="#">움직이는 고양이 사진 찍는 팁</a></li>
+			     <li><a href="#">추천하는 고양이 사료는?</a></li>
+			     <li><a href="#">고양이에게 목걸이를 채워도 괜찮을까? 조심해야 할 5가지</a></li>
+			   </ul>
+			</div>
+			
+			
+		</aside>
+		
+	</div>
+     <footer>
+         <ul> <!-- display : flex -->
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Instagram</a></li>
+         </ul>
+         <p><small> &copy; 2021 Cat Blog</small></p>
+     
+     </footer>
 
 </body>
 </html>
+
+
+
