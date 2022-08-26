@@ -16,11 +16,14 @@
     const addTodo = () =>{
 	
 	//5-1번 input안의 내용물 공백제거후 ''이면 
-	if(input.value.trim() === '')
+	if(input.value.trim() === ''){
+		
        alert('할 일을 입력해주세요.')
        //6번 함수 종료
        return 
-    }
+		
+	}
+    
     
     
     //5-2번 여기서부터 인거 같음
@@ -56,9 +59,42 @@
 	  item.style.textDecoration = event.target.checked ? "line-through" : ''
     })
     
-    //text 객체를 조작합니다. input태그의 값을 span태그의 내용에 할당한다. 
+    // 10번 : text 객체를 조작합니다. input태그의 값을 span태그의 내용에 할당한다. 
     text.textContent = input.value 
     
+    // 11번 : button객체를 조작합니다.
+    button.textContent = "제거하기"
+    button.addEventListener('click', ()=>{
+	  // 버튼을 클릭하면 removeTodo(key)를 실행
+	  removeTodo(key)
+    })
+    
+    
+    // 12번 입력 양식을 비워줍니다.
+    input.value = ''
+    }
+    //addTodo 끝
+    
+    // removeTodo 시작
+    // 식별 키로 문서 객체를 제거합니다.
+    
+    const removeTodo = (key) =>{
+	  
+     const item = document.querySelector(`[data-key="${key}"]`)
+     todoList.removeChild(item)
+    } 
+    
+    
+    // removeTodo 끝
+    // 추가된 상위 컴포넌트 를 클릭하면 addTodo를 실행한다.
+    addButton.addEventListener('click', addTodo)
+    input.addEventListener('keyup', (event)=>{
+	 const ENTER = 13
+	 if(event.keyCode === ENTER){
+		addTodo()
+	}
+    }
+    )
     
     
     
