@@ -1,15 +1,16 @@
 @charset "UTF-8";
-/*--------------------- 레이아웃--------------- */
+/*----------- 레이아웃 ----------------*/
 .wrapper{
 	max-width: 1200px;
 	margin: 0 auto;
 	width: 100%;
 }
-/*  헤더 */
+
+/* ----------- 헤더 ------------------- */
 header .wrapper{
-	display: flex;
-	justify-content: space-between;/* 가로 정렬 */
-	align-items: center;/* 세로 정렬 */
+	display: flex;	
+	justify-content: space-between; /* 가로 정렬 */
+	align-items: center;			/* 세로 정렬 */
 	padding: 25px 10px;
 }
 .logo{
@@ -18,103 +19,219 @@ header .wrapper{
 .main_nav{
 	display: flex;
 }
-.main_nav li{
-	text-align: center; font-size:20px;
-}
-.main_nav a{ padding: 10px; width:50px;}
+.main_nav li{ text-align: center; font-size: 20px;}
+.main_nav a{ padding: 10px; width: 50px; }
+
+/* 가상요소로 아이콘 추가 */
 .main_nav a::before{
 	display: block;
 	margin-bottom: 5px;
 	font-family: 'Font Awesome 5 PRO';
 	font-weight: 900;
 }
-.menu_home::before{ content: '\f015'}
-.menu_job::before{ content: '\f0ca'}
-.menu_job::before{ content: '\f56e'}
-/*-------------------버튼----------------- */
-.btn{ /* 모든 버튼에 적용할 css  */
-	padding: 15px 40px;
-    text-align:center;
-    font-size: 16px;
+.menu_home::before{ content: '\f015' }
+.menu_job::before{ content: '\f0ca' }
+.menu_form::before{ content: '\f56e' }
+
+
+
+/* -------------- 버튼 ------------- */
+.btn{	/* 모든 버튼에 적용할 css */
+	padding : 15px 50px; /* 버튼 사이즈 */
+	text-align: center;	
+	font-size: 18px;
 }
-.btn_primary{ /* 메인이미지 버튼에 적용할 css  */
+.btn_primary{ /* 메인이미지 버튼에 적용할 css */
 	background-color: #000080;
 	color: white;
 }
-.btn_secondary{ /* 푸터 버튼에 적용할 css  */
-	background-color: #000080;
+.btn_secondary{ /* 푸터 버튼에 적용할 css */
+	background-color: #2d3374;
 	color: white;
 }
 
-/*---------------------메인이미지------------------  */
+
+/*-------------- 메인 이미지 --------------*/
 .home_hero{
-	background-image: url("images/bg-hero.jpg");
-	background-repeat: no-repeat;
-	background-position: right top;
+	background-image: url("images/bg-hero.jpg"); /* 배경 이미지  */
+	background-repeat: no-repeat; /* 자동채우기 제거*/
+	background-position: right top; /* 배경이미지 위치*/
 	background-size: 70vw auto;
 	padding: 5.5rem 1rem 3rem;
 }
 .home_hero h2{
 	font-family: '굴림';
 	font-size: 1.5rem;
-	background: rgba(255,255,255, 0.8);
+	background: rgba( 255,255,255, 0.8); /* 0.8 투명도 */
 	margin: 8vw 0 12vw;
 	padding: 1rem;
 	display: inline-block;
 }
 .home_hero p{
-	font-size:1.125rem;
+	font-size: 1.125rem;
 	margin-bottom: 2rem;
 }
-/*-------------chartist.css------------------  */
-.ct-label{ /* 그래프 글씨 */
+/* ------------ chartist.css [ F12 개발자도구에서 클래스 확인 ] ---------------*/
+.ct-label{
 	font-size: 1rem;
-	fill: #fff; 
+	fill : #fff
 }
-/* .ct-series-a  */
-.ct-series-a .ct-series-pie{
-	fill: #2d3374;
-}
-/* .ct-series-b  */
-.ct-series-b .ct-series-pie{
-	fill: #ff8080;
-}
-/* .ct-series-c  */
-.ct-series-c .ct-series-pie{
-	fill: #00ff00;
-}
-/* .ct-series-d  */
-.ct-series-d .ct-series-pie{
-	fill: #0000ff;
-}
+.ct-series-a .ct-slice-pie{ fill : #2d3374; }
+.ct-series-b .ct-slice-pie{ fill : #3a7edf; }
+.ct-series-c .ct-slice-pie{ fill : #9bcbf8; }
+.ct-series-d .ct-slice-pie{ fill : #bbbbbb; }
+
 
 .ct-series-a .ct-bar{
-	stroke: #3a7edf;
+	stroke : #3a7edf;
 }
 
 .ct-bar{
-	stroke-width: 16%;
+	stroke-width : 16%;
+}
+/* ----------------- 본문2 ---------------- */
+.brown_bg{
+	background-color: #f8f8f8;
 }
 
-/*----------------------본문2-----------------*/
-.brown_bg{
-    background-color: #f8f8f8;
-}
 .title{
 	line-height: 150%;
 	font-size: 30px;
-	border-bottom: 5px solid #cccccc;
 }
-.title::after{ /*가상 요소로 하단에 테두리 만들기*/
-	content: '';   /* 내용물x  */
-	display: block; /*한줄차지  */
-	height: 10px; /* 높이 -> 테두리 굵기  */
-	width: 100px; /* 가로 -> 테두리 길이  */
+.title::after{ /* 가상 요소 로 하단에 테두리 만들기 */
+	content: '';		/* 내용물 X */ 
+	display : block;	/* 한줄 차지 */
+	height: 5px;		/* 높이 -> 테두리 굵기 */
+	width: 10rem;		/* 가로 -> 테두리 길이 */
 	background-color: #cccccc;
-	margin: 2rem 0 2.5rem;
+	margin: 2rem  0 2.5rem;
+}
+/*-------------------- job.html ------------------------*/
+/* 본문 */
+.text_center{
+	text-align: center;
+}
+.text_center::after{ margin: 30px auto; }
+/* 레이아웃 */
+.main{
+	max-width: 900px;
+	width : 90%;		/* 모바일 기준으로 가로길이 10% 여백사용 */
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #ffffff; /* 배경이미지 가림 */
+	box-shadow: 0 0 6px #cccccc; /* 그림자 : 배경이미지 경계선 */
 }
 
-/* ---------------푸터---------------------*/
+/* ------- 메인 이미지 ------------------*/
+.job_page{
+	background-image: url("images/bg-job.jpg");
+	background-repeat: no-repeat;
+	background-position: left 100px; /* 헤더 보이게끔 100px 이동 */
+	background-size: 70vw; /* viewport width : 반응형 가로 사이즈 */
+}
+
+/* --------  테이블 --------------------*/
+table{
+	margin : 3.5rem 0;
+	width:100%;
+}
+th{
+	background-color: #f8f6f2;
+	padding: 1rem;
+	vertical-align: middle; /* 텍스트 세로 정렬 / text-align : 텍스트 가로 정렬 */
+	font-weight: normal; /* 글꼴 굵게[ th기본값 ] 제거 */
+	
+}
+td{
+	padding: 0.75rem 1rem 1.75rem;
+}
+th,td{ display: block; } /* 모바일기준 [ block : 한줄차지 ] */
+
+/* ------------ 타임라인 ----------------------*/
+.timeline{
+	list-style: decimal inside;
+}
+.timeline_item{
+	margin-bottom: 2rem;
+}
+.timeline_title{
+	display: inline-block; /* <h3> display : block */
+	font-size: 20px;
+	margin-bottom: 1rem;
+}
+
+/*-------------------- form.html ------------------------*/
+/* ------- 메인 이미지 ------------------*/
+.form_page{
+	background-image: url("images/bg-form.jpg");
+	background-repeat: no-repeat;
+	background-position: right 100px; /* 헤더 보이게끔 100px 이동 */
+	background-size: 70vw; /* viewport width : 반응형 가로 사이즈 */
+}
+/*--- 플레이스 홀더 셀렉터 ( 속성을 이용한 셀렉터 ) --------- */
+input[type='text']::placeholder , 
+input[type='email']::placeholder , 
+input[type='url']::placeholder , 
+textarea::placeholder{
+	color: #bbbbbb;
+}
+input[type='checkbox']{
+	opacity: 0;	/* 투명도 이용한 숨기기 */
+	appearance : none;/*기본 스타일 제거*/
+	position: absolute;
+}
+/* 인접 형제 셀렉터 [ + ] */
+input[type='checkbox'] + span::before{
+	display: inline-block;
+	content: '';
+	width: 1.5rem; height: 1.5rem;
+	border: 1px solid #bbbbbb;
+	background-color: white;
+	margin: -0.125rem  0.5rem 0 0;
+	vertical-align: middle; 
+	
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 900;
+	padding: 0 2px;
+	line-height: 1.5;
+}
+/* 체크 했을때 */
+input[type="checkbox"]:checked + span::before{
+	content: '\f00c';
+}
+
+.select_box{
+	position: relative;
+}
+.select_box::after{
+	display: inline-block;
+	position: absolute;
+	top:0.625rem; right: 1rem;
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 900;
+	content: '\f078';	/* 아래 발향 화살표 아이콘 */
+	color: #bbbbbb;
+}
+/* 입력상자 기본 꾸미기 */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+select,
+textarea{
+	border: 1px solid #bbbbbb;
+	background-color: white;
+	padding: 10px;
+	width: 100%;
+}
+
+textarea{
+	height: 200px;
+	
+}
+
+
+/* ----------- 푸터 ------------------- */
+
 footer{
 	background-color: #000080;
 	text-align: center;
@@ -122,67 +239,118 @@ footer{
 	color: white;
 }
 .footer_nav li{
-	margin: 30px 0px;
+	margin: 15px 0px;
 }
-.footer_nav{
-	margin-bottom: 50px; 
-}
+.footer_nav{ margin: 50px; }
 
 
-
-
-/*모바일 퍼스트 : 모바일 기준으로 css 우선 작성 / 테스크톱 : 미디어쿼리  */
-@media(min-width : 600px) {
+/* 모바일 퍼스트 : 모바일 기준으로 css 우선 작성 / 테스크톱 : 미디어쿼리 */
+@media( min-width : 600px )  {/* 600px 이상일때 적용되는 css */
+	select{ width: 40%;}
+	/* ------------ 타임라인 ----------------------*/
+	.timeline_item{
+		display: flex;
+		margin-bottom: 0; /* 테두리 연결 */
+	}
+	.timeline_title{
+		width: 24%;
+		text-align: right;
+		padding: 2rem 2.5rem 2rem 0;
+	}
+	.timeline_content{
+		width: 76%;
+		border-left: 5px solid #f8f6f2;	/* 구분선 테두리 */
+		padding: 1.5rem 0 1.5rem 2.5rem;
+		position: relative; /* 가상요소를 절대위치 사용하기 위해 */
+	}
+	.timeline_content::before{ /* 가상요소 -> 아이콘 */
+		/* 가상요소 절대위치 */
+		position: absolute; 	/* 부모요소 기준 */
+		top: 1.5rem; left: -1.5rem;  
+		/* 가상요소의 크기/배경색/정렬/여백 */
+		display: block; width: 2.25rem; height: 2.25rem; background-color: #d0bea2;
+		text-align: center; padding: 0.1rem;
+		/* 폰트어썸 아이콘 */
+		font-family: 'Font Awesome 5 Pro';
+		font-weight: 900;
+		color: white;
+		font-size: 1.25rem;
+	}
+	.icon_file::before{ content: '\f56e'; }
+	.icon_code::before{ content: '\f121'; }
+	.icon_chat::before{ content: '\f086'; }
+	.icon_hands::before{ content: '\f2b5'; }
+	
+	
+	
+	
+	
+	
+	
+	
+	/* ----------------- */
+	.main{ padding: 4rem; }
+	/* --------- 테이블 ----------------*/
+	th,td{ display: table-cell; } /* td,th display 기본값 : table-cell; */
+		/* -------- 가상클래스 : 동일한 식별자가 있을경우 홀/짝/n 번째 선택 *--------------*/
+	/* tr : 5개 존재 */
+	tr:nth-child(odd){	/* 홀수 번째 tr 행 */
+		background-color: #f8f6f2;
+	}
+	tr:nth-child(even) th{ /* 짝수 번쨰 tr 행 */
+		background-color: #ffffff;
+	}
+	th{ width: 25%; }
+	td{ width: 75%; }
+	
+	/* ----------- 푸터 ------------------- */
+	.footer_nav{ 
+		display: flex; 
+		justify-content: center; 
+		margin: 50px; 
+	}
+	.footer_nav li{ margin: 0 20px; }
+	
+	/* ------------ 본문 --------------------- */
 	.content{ 
-	          display: flex; 
-	          justify-content: space-between; 
-	          align-items: center; 
-	          padding: 4rem 1rem;
+		display: flex; 						/* 하위태그 가로배치 [ flex-direction : row ]  */
+		justify-content: space-between; 	/* 하위태그 가로 정렬 */
+		align-items: center; 				/* 하위태그 세로 정렬 */
+		padding: 4rem 1rem; 
 	}
 	.flex_reverse{
-	  flex-direction: row-reverse;
+		flex-direction: row-reverse;		/*  flex-direction : row-reverse */
 	}
-	
 	.home_text{
-	   width: 50vw;
-	   margin-bottom: 0;
+		width: 50vw;		/* viewport width : 반응형 크기 */
+		margin-bottom: 0;
 	}
 	.home_chart{
-	   width: 35vw;
-	   margin-bottom: 0;
-	}	
+		width: 35vw; 
+	}
+	
 	.home_hero{
-	  padding: 16vw 1rem;
+		padding: 16vw 1rem;
 	}
 	.home_hero h2{
-		font-size: 1.5rem;
+		font-size: 2.5rem;
 		margin: 0 0 2rem;
-		background: none;
+		background: none;	/* 배경 제거 */
 		padding: 0;
 	}
 	.home_hero p{
-	    width: 38vw
-    }	
-    /* 현재 페이지의 메뉴 버튼 */
-    .main_nav .current {
-       border-bottom: 3px solid #000080;
-       padding: 5px;
-    }
-    /* 메뉴에 있는 아이콘 제거*/
-    .main_nav a::before{ content:'';}
-    /*--------------푸터------------- */
-    .footer_nav{display: flex; justify-content: center; margin: 50px;}
-    .footer_nav li{margin: 0 20px;}
+		width: 38vw
+	}
+	
+	/* 현재 페이지의 메뉴 버튼에 아래 테두리 */
+	.main_nav .current {
+		border-bottom: 2px solid #000080;
+		padding: 5px;
+	}
+	/* 메뉴에 있는 가상요소[아이콘] 제거 */
+	.main_nav a::before{ content:''; }
+
 }
-
-
-
-
-
-
-
-
-
 
 
 

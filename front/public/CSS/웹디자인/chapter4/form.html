@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 뷰포트 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- css 기본 초기화 -->
+	<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+		<!-- font awesome 글머리 기호[ 아이콘 ] -->
+	<script src="https://kit.fontawesome.com/b8a7fea4d4.js"></script>
+		<!-- css -->
+	<link href="style.css" rel="stylesheet">
+</head>
+<body class="form_page">
+	<header>	<!-- 헤더 -->
+		<div class="wrapper"> 
+			<h1>  <!-- 로고 -->
+				<a href="index.html"><img class="logo" src="images/logo.svg"></a>
+			</h1>
+			
+			<nav> <!-- 메뉴  -->
+				<ul class="main_nav">
+					<li><a class="menu_home" href="index.html">홈</a></li>
+					<li><a class="menu_job" href="job.html">모집요강</a></li>
+					<li><a class="current menu_form" href="form.html">지원</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>	
+	
+	<section class="main"> <!-- 본문 -->
+		<h2 class="title text_center"> 지원 폼 </h2>
+		<p> 하기 지원 폼에 모든 정보를 입력 한 뒤 전송 버튼을 눌러주세요.<br>
+			※파일 첨부는 불가능합니다. 포트폴리오 파일은 있는 경우 반드시 업로드한 URL를 기입하기 바랍니다.
+		</p>
+		<table>	
+			<tr> <th> 성명 </th> <td> <input type="text" placeholder="예 : 유재석" id="KoreanNameSubmit"> </td> </tr>
+			<tr> <th> 영문명 </th> <td> <input type="text" placeholder="예 : Yu jae-Seok" id="EnglishNameSubmit"> </td> </tr>
+			<tr> <th> 메일주소 </th> <td> <input type="email" placeholder="예 : hello@example.com" id="EmailAddressSubmit"> </td> </tr>
+			<tr> <th> 포트폴리오 </th> <td> <input type="url" placeholder="예 : http://example.com" id="PortfolioSubmit"> </td> </tr>
+			<tr> 
+				<th> 희망 근무지 </th> 
+				<td id="WorkSpaceSubmit">  
+					<label>
+						<input type="checkbox"><span>도쿄</span>
+					</label>
+					<label>
+						<input type="checkbox"><span>오사카</span> 
+					</label> 	
+					<label>
+						<input type="checkbox"><span>원격 근무</span>
+					</label> 	
+				</td> 
+			</tr>
+			<tr> <th> 현재 상태 </th>
+				<td>
+					<div class="select_box" >
+						<select name="current_position" id="WorkState">
+							<option value="재직중">재직중</option>
+							<option value="프리랜서">프리랜서</option>
+							<option value="학생">학생</option>
+							<option value="휴직중">휴직중</option>
+						</select>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="text_center">
+			<input type="submit" value="전송" onclick="submitButton()" class="btn btn_primary">
+		</p>
+	</section> 
+	
+		<section class="main"> <!-- 본문 -->
+		<h2 class="title text_center"> 지원 자 목록 [과제]</h2>
+		<table id="tableResult">
+			 <tr>
+			   <th>성명</th> <th>영문명</th> <th>메일주소</th> 
+			   <th>포트폴리오</th>    <th>희망근무지</th>    <th>현재상태</th>
+			 </tr>
+		
+		</table>
+		</section>
+	
+	
+	<footer>	<!-- 푸터 -->
+		<a href="job.html" class="btn btn_secondary">모집요강 확인</a>
+		<ul class="footer_nav">
+			<li><a href="#">회사소개</a></li>
+			<li><a href="#">서비스 내용</a></li>
+			<li><a href="#">스태프 블로그</a></li>
+			<li><a href="#">문의사항</a></li>
+		</ul>
+	</footer>
+
+
+	<!-- js -->
+	<script src="form.js" type="text/javascript"></script>
+	<script src="script.js" type="text/javascript"></script>
+	
+</body>
+</html>
