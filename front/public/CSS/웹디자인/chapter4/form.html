@@ -35,13 +35,13 @@
 			※파일 첨부는 불가능합니다. 포트폴리오 파일은 있는 경우 반드시 업로드한 URL를 기입하기 바랍니다.
 		</p>
 		<table>	
-			<tr> <th> 성명 </th> <td> <input type="text" placeholder="예 : 유재석" id="KoreanNameSubmit"> </td> </tr>
-			<tr> <th> 영문명 </th> <td> <input type="text" placeholder="예 : Yu jae-Seok" id="EnglishNameSubmit"> </td> </tr>
-			<tr> <th> 메일주소 </th> <td> <input type="email" placeholder="예 : hello@example.com" id="EmailAddressSubmit"> </td> </tr>
-			<tr> <th> 포트폴리오 </th> <td> <input type="url" placeholder="예 : http://example.com" id="PortfolioSubmit"> </td> </tr>
+			<tr> <th> 성명 </th> <td> <input type="text" placeholder="예 : 유재석"> </td> </tr>
+			<tr> <th> 영문명 </th> <td> <input type="text" placeholder="예 : Yu jae-Seok"> </td> </tr>
+			<tr> <th> 메일주소 </th> <td> <input type="email" placeholder="예 : hello@example.com"> </td> </tr>
+			<tr> <th> 포트폴리오 </th> <td> <input type="url" placeholder="예 : http://example.com"> </td> </tr>
 			<tr> 
 				<th> 희망 근무지 </th> 
-				<td id="WorkSpaceSubmit">  
+				<td>  
 					<label>
 						<input type="checkbox"><span>도쿄</span>
 					</label>
@@ -55,8 +55,8 @@
 			</tr>
 			<tr> <th> 현재 상태 </th>
 				<td>
-					<div class="select_box" >
-						<select name="current_position" id="WorkState">
+					<div class="select_box">
+						<select name="current_position">
 							<option value="재직중">재직중</option>
 							<option value="프리랜서">프리랜서</option>
 							<option value="학생">학생</option>
@@ -65,22 +65,24 @@
 					</div>
 				</td>
 			</tr>
+			<tr>
+				<th> 자기 소개 </th> <td> <textarea placeholder="예 : 본인 자기소개"></textarea> </td>
+			</tr>
 		</table>
 		<p class="text_center">
-			<input type="submit" value="전송" onclick="submitButton()" class="btn btn_primary">
+			<input type="submit" onclick="지원자등록()" value="전송" class="btn btn_primary">
 		</p>
 	</section> 
 	
-		<section class="main"> <!-- 본문 -->
-		<h2 class="title text_center"> 지원 자 목록 [과제]</h2>
-		<table id="tableResult">
-			 <tr>
-			   <th>성명</th> <th>영문명</th> <th>메일주소</th> 
-			   <th>포트폴리오</th>    <th>희망근무지</th>    <th>현재상태</th>
-			 </tr>
-		
+	<section class="main"> <!-- 본문 -->
+		<h2 class="title text_center"> 지원자 목록 [ 과제 ] </h2>
+		<table>	
+			<tr>
+				<th> 성명 </th> <th> 영문명 </th> <th> 메일주소 </th> 
+				<th> 포트폴리오 </th> <th> 희망근무지 </th> <th> 현재 상태 </th> 
+			</tr>
 		</table>
-		</section>
+	</section>
 	
 	
 	<footer>	<!-- 푸터 -->
@@ -95,7 +97,6 @@
 
 
 	<!-- js -->
-	<script src="form.js" type="text/javascript"></script>
 	<script src="script.js" type="text/javascript"></script>
 	
 </body>

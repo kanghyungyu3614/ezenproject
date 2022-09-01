@@ -3,116 +3,107 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-   <!-- css 기본 초기화 -->
-   <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
-   <!-- 뷰포트 -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- chartist.css  -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">   
-   <!-- 아이콘폰트 js -->
-   <script src="https://kit.fontawesome.com/b8a7fea4d4.js"></script>
-   <!-- 내꺼 -->
-   <link rel="stylesheet" type="text/css" href="style.css">
-    
-
+		<!-- 뷰포트 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- css 기본 초기화 -->
+	<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+		<!-- chartist.css [ cdn ]  -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+		<!-- font awesome 글머리 기호[ 아이콘 ] -->
+	<script src="https://kit.fontawesome.com/b8a7fea4d4.js"></script>
+		<!-- css -->
+	<link href="style.css" rel="stylesheet">
+	
 </head>
 <body>
-    <header> <!-- 헤더 -->
-       <div class="wrapper">
-          <h1>
-             <a href="index.html"><img class="logo" src="images/logo.svg"></a>
-          </h1>
-          
-          <nav>
-            <ul class="main_nav">
-               <li><a class="current menu_home" href="index.html">홈</a></li>
-               <li><a class="menu_job" href="job.html">모집요강</a></li>
-               <li><a class="menu_form" href="form.html">지원</a></li>
-            </ul>
-          </nav>
-       </div>
-    </header>
-    
-    
-    <section class="home_hero wrapper"> <!--  본문1  -->
-      <h2>함께 도전해봅시다.</h2>
-      <p>
-         저희와 함께 웹의 미래를 만들어보지 않으시겠습니까?
-         멋진 동료를 모집하고 있습니다.
-         "되고 싶은 나"가 될 수 있는 곳, 분명 발견할 수 있을거에요.
-      </p>
-      <a href="job.html" class="btn btn_primary">모집요강 확인</a>
-    </section>
-    
-    
-    <section class="brown_bg"> <!--  본문2  -->
-       <div class="wrapper content flex_reverse">
-           <div class="home_text"> <!-- 내용 -->
-              <h2 class="title"> 웹디자이너가 활약하는 직장입니다.</h2>
-              <p>
-                  개발 팀 내 웹디자이너 비율이 가장 높습니다.
-                  단순히 기능만 개발하는 것이 아닌 고객이 사용하기 편하고 
-                  아름다움을 느낄 수 있는 것을 만들고 있습니다.
-                  당신도 누군가의 세계를 바꿀 수 있는 크리에이티브한 웹사이트를 
-                  온 세계에 넓혀보시겠습니까?
-              
-              </p>
-           </div> 
-            
-       
-           <div class="hoem_chart"><!-- 차트 --> <!-- chartist.js 라이브러리 이용한 차트 구현 -->
-              <div class="pie_chart"></div>  <!-- 원형차트 -->
-           </div>     
-       </div>
-    </section>
-    
-    <section class="wrapper content"> <!--  본문3  -->
-       <div class="home_text">
-           <h2 class="title">당신의 생활 방식에 맞는 스타일로 일할 수 있습니다.</h2>
-           <p>
-              자사는 도쿄, 오사카 등 각지에 사물이 있으며 원격 근무도 가능합니다.
-              원격 근무로 활약중인 사원은 전체 약 1/3로, 매년 증가하고 있습니다.
-              재택, 공유 사무실 등 당신이 가장 집중할 수 있는 곳에서 근무하기 바랍니다.
-           
-           </p>
-           </div>
-        <div class="hoem_chart"> <!-- chartist.js 라이브러리 이용한 차트 구현 -->
-           <div class="bar_chart"></div> <!-- 막대차트 -->
-           <p>원격 근무 사원 수 추이</p>
-        </div>      
-       
-    </section>
-    
-    <section class="wrapper content"> <!--  본문3  -->
-       <div class="home_text">
-           <h2 class="title">직원 급여 차트 [ 과제 ]</h2>
-           <p>
-              직원명 : <input type="text" id="name"><br>
-              급여 : <input type="text" id="money"><br>
-              <button class="btn btn_secondary" onclick="차트그리기()">등록</button>
-           
-           </p>
-           </div>
-        <div class="hoem_chart"> <!-- chartist.js 라이브러리 이용한 차트 구현 -->
-           <div class="bar_chart2"></div> <!-- 막대차트 -->
-           <p>원격 근무 사원 수 추이</p>
-        </div>      
-       
-    </section>
-    
-    
-    
-    <footer> <!-- 푸터 -->
-        <a href="job.html" class="btn btn_primary">모집요강 확인</a>
-        <ul class="footer_nav">
-	        <li><a href="#">회사소개</a></li>
-	        <li><a href="#">서비스 내용</a></li>
-	        <li><a href="#">스태프 블로그</a></li>
-	        <li><a href="#">문의 사항</a></li>
-        </ul>
-    </footer>
-    <!--chartist.js  -->
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<header>	<!-- 헤더 -->
+		<div class="wrapper"> 
+			<h1>  <!-- 로고 -->
+				<a href="index.html"><img class="logo" src="images/logo.svg"></a>
+			</h1>
+			
+			<nav> <!-- 메뉴  -->
+				<ul class="main_nav">
+					<li><a class="current menu_home" href="index.html">홈</a></li>
+					<li><a class="menu_job" href="job.html">모집요강</a></li>
+					<li><a class="menu_form" href="form.html">지원</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>	
+	
+	<section class="home_hero wrapper">	<!-- 본문 -->
+		<h2>함께 도전해봅시다</h2>
+		<p>
+			저희와 함께 웹의 미래를 만들어보지 않으시겠습니까?
+			멋진 동료를 모집하고 있습니다.
+			'되고 싶은 나'가 될 수 있는 곳, 분명 발견할 수 있을거에요.
+		</p>
+		<a href="job.html" class="btn btn_primary">모집요강 확인</a>
+	</section>
+	
+	<section class="brown_bg"> <!-- 본문2 -->
+		<div class="wrapper content flex_reverse">
+			<div class="home_text"> <!-- 내용 -->
+				<h2 class = "title">웹디자이너가 활약하는 직장입니다.</h2>
+				<p>
+					개발 팀 내 웹디자이너 비율이 가장 높습니다.
+					단순히  기능만 개발하는 것이 아닌 고객이 사용하기 편하고 
+					아름다움을 느낄 수 있는 것을 만들고 있습니다.
+					당신도 누군가의 세계를 바꿀 수 있는 크리에이티브한 웹사이트를
+					온 세계에 넓혀보시겠습니까?
+			</div> 
+			<div class="home_chart"> <!-- 차트 -->	<!-- chartist.js 라이브러리 이용한 차트 구현 -->
+				<div class="pie_chart"></div> <!-- 원형차트 -->
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="wrapper content" > <!-- 본문3 -->
+		<div class="home_text"> <!-- 내용  -->
+			<h2 class="title">당신의 생활 방식에 맞는 스타일로 일할 수 있습니다.</h2>
+			<p>
+				자사는 도쿄, 오사카 등 각지에 사물이 있으며 원격 근무도 가능합니다.
+				원격 근무로 활약중인 사원은 전체 약 1/3로, 매년 증가하고 있습니다.
+				재택, 공유 사무실 등 당신이 가장 집중할 수 있는 곳에서 근무하기 바랍니다.
+			</p>
+		</div> <!-- 차트 -->
+		<div class="home_chart">	<!-- chartist.js 라이브러리 이용한 차트 구현 -->
+			<div class="bar_chart"></div> <!-- 막대차트 -->
+			<p>원격 근무 사원 수 추이 </p>
+		</div>
+	</section>
+	
+	<section class="wrapper content" > <!-- 본문3 -->
+		<div class="home_text"> <!-- 내용  -->
+			<h2 class="title"> 직원 급여 차트 [ 과제 ]</h2>
+			<p>
+				직원명 : <input id="name" type="text"> <br>
+				급여 : <input id="money" type="text"> <br>
+				<button onclick="차트그리기()" class="btn btn_secondary">등록</button>
+			</p>
+		</div> <!-- 차트 -->
+		<div class="home_chart">	<!-- chartist.js 라이브러리 이용한 차트 구현 -->
+			<div class="bar_chart2"></div> <!-- 막대차트 -->
+		</div>
+	</section>
+	
+	<footer>	<!-- 푸터 -->
+		<a href="job.html" class="btn btn_secondary">모집요강 확인</a>
+		<ul class="footer_nav">
+			<li><a href="#">회사소개</a></li>
+			<li><a href="#">서비스 내용</a></li>
+			<li><a href="#">스태프 블로그</a></li>
+			<li><a href="#">문의사항</a></li>
+		</ul>
+	</footer>
+
+	<!-- chartist.js -->
+	<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+	<!-- js -->
+	<script src="script.js" type="text/javascript"></script>
+	
 </body>
 </html>

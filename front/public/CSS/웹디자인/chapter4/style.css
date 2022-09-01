@@ -200,6 +200,7 @@ input[type="checkbox"]:checked + span::before{
 	content: '\f00c';
 }
 
+/* 목록 상자 */
 .select_box{
 	position: relative;
 }
@@ -212,23 +213,20 @@ input[type="checkbox"]:checked + span::before{
 	content: '\f078';	/* 아래 발향 화살표 아이콘 */
 	color: #bbbbbb;
 }
-/* 입력상자 기본 꾸미기 */
-input[type="text"],
-input[type="email"],
-input[type="url"],
+
+/* 입력상자 기본 꾸미기  */
+input[type='text'],
+input[type='email'],
+input[type='url'],
 select,
 textarea{
 	border: 1px solid #bbbbbb;
 	background-color: white;
-	padding: 10px;
-	width: 100%;
+	padding: 10px; width: 100%;
 }
-
 textarea{
 	height: 200px;
-	
 }
-
 
 /* ----------- 푸터 ------------------- */
 
@@ -246,7 +244,7 @@ footer{
 
 /* 모바일 퍼스트 : 모바일 기준으로 css 우선 작성 / 테스크톱 : 미디어쿼리 */
 @media( min-width : 600px )  {/* 600px 이상일때 적용되는 css */
-	select{ width: 40%;}
+	
 	/* ------------ 타임라인 ----------------------*/
 	.timeline_item{
 		display: flex;
@@ -351,11 +349,3 @@ footer{
 	.main_nav a::before{ content:''; }
 
 }
-
-
-
-
-
-
-
-
