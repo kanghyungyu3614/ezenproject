@@ -100,9 +100,9 @@ function 지원자등록(){
 	let 목록상자 = document.querySelector('select')
 	let 긴글상자 = document.querySelector('textarea')
 	// 2-1번 테스트
-	console.log( 입력리스트 )
-	console.log( 목록상자 )
-	console.log( 긴글상자 )
+	console.log( "입력리스트",입력리스트 )
+	console.log( "목록상자",목록상자 )
+	console.log( "긴글상자",긴글상자 )
 	/* 2-3 : 모든 내용물 객체에 저장 */
 	let 지원자 = {  
 		성명 : 입력리스트[0].value, /*  2-2 : 문서객체내 내용물 호출 [ value 속성 ] */
@@ -114,10 +114,10 @@ function 지원자등록(){
 		자기소개 : 긴글상자.value , 
 	}
 	// 2-3번 테스트
-	console.log( 지원자 )
+	console.log( "지원자",지원자 )
 	// 2-4 : 생성된 객체를 배열에 저장
 	지원자리스트.push( 지원자 )
-	console.log( 지원자리스트 )
+	console.log( "지원자리스트",지원자리스트 )
 }
 
 
