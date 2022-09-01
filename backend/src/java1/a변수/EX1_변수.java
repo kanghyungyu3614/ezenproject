@@ -72,13 +72,3 @@ public class EX1_변수 { // class s
   int 변수 = 10               0x1f8b1d2     [ 16진수 메모리 주소 ]
  
 */
-
-
-
-
-
-
-
-
-
-

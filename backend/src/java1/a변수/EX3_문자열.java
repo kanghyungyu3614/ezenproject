@@ -28,11 +28,20 @@ public class EX3_문자열 {
 			System.out.println(" (  /  )");
 			System.out.println("  \\(__)|");
 			System.out.println("///////////////////////////////");
-			System.out.println("console 에 강아지 출력");
+			// 예2)
 			System.out.println("|\\_/|");
 			System.out.println("|q p|   /}");
-			System.out.print("( 0 )");
-			System.out.print("\"\"");
+			System.out.println("( 0 )\"\"\"\\");
+			System.out.println("|\"^\"`    |");
+			System.out.println("||_/=\\\\__|");
+			System.out.println("///////////////////////////////");
+			// 예3)
+			System.out.print("\t[[ 출석부 ]]");
+			System.out.print("\n------------------------------");
+			System.out.print("\n이름\t1교시\t2교시\t3교시");
+			System.out.print("\n유재석\t출석\t결석\t출석");
+			System.out.print("\n강호동\t출석\t결석\t출석");
+			System.out.print("\n------------------------------");
 	  /*  예제1 ) console 에 토끼모양 출력
 		\    /\
 		 )  ( ')

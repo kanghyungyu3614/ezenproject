@@ -9,9 +9,9 @@ public class EX2_자료형 {
 		// 정수 타입 [ 10진수 ]
 		// 1.byte +-128정도
 		byte 바이트변수1 = -128;
-		System.out.println(바이트변수1);
+		System.out.println("바이트변수1"+"\\\\\\"+바이트변수1);
 		byte 바이트변수2 = 127;
-		System.out.println(바이트변수2);
+		System.out.println("바이트변수2"+"\\\\\\"+바이트변수2);
 		// byte 바이트변수3 = 128; //오류발생 : 저장 범위 초과
 		
 		

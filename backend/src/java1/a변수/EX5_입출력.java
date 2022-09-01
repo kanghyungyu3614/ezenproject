@@ -41,9 +41,12 @@ public class EX5_입출력 {
 		 // 키보드(System.in) ---입력-->객체 저장 --next()--> 변수 저장
 		 //2. 입력받은 데이터를 변수에 저장
 		 Scanner scanner = new Scanner(System.in);
-		 System.out.print("이름: "); String 이름 = scanner.next();
-		 System.out.println("나이: ");int 나이 = scanner.nextInt();
-		 System.out.println("키: "); double 키 = scanner.nextInt();
+		 System.out.print("이름: "); 
+		 String 이름 = scanner.next();
+		 System.out.println("나이: ");
+		 int 나이 = scanner.nextInt();
+		 System.out.println("키: "); 
+		 double 키 = scanner.nextInt();
 		 
 		 //3. 변수  출력
 		 System.out.println("---------------개인정보-----------");
