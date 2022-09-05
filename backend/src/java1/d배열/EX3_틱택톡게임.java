@@ -108,7 +108,12 @@ public class EX3_틱택톡게임 {
 			
 			
 		}
-		
+		for( int i = 0 ; i<게임판.length ; i++ ) { 
+			System.out.print( 게임판[i] );
+			// 1-2 3줄[ 인덱스 : 2 , 5 , 8 ] 마다 줄바꿈
+			if( i == 2 || i == 5 || i == 8 ) { System.out.println(); }
+			// if( i == 2 || i == 5 || i == 8 ) ---> if( i % 3 == 2 )
+		} // for end 
 		 System.out.println(승자); 
 	} // main end 
 } // class end 
