@@ -15,8 +15,8 @@ public class Hello { //class s
 	               // main 메소드에 main스레드[ 코드를 읽어주는 역할 ]
 	               // * 실행할 코드는 main 메소드 안에서 작성 
 	  //syso + 자동완성
-	System.out.println("Hello , Java");
-	
+	System.out.print("Hello , Java");
+	System.out.print("Hello , Java" +"\r" + "Hello , Java");
   } //main e
    // 3. 주석처리
   // 1. // " 한줄 주석
