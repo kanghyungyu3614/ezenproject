@@ -203,7 +203,7 @@ public class EX3_틱택톡게임{
 			 // 가로승리?  0 1 2 3 4 5 6 7 8
 			 for(int i=0; i<게임판.length; i++){
 				 if(i ==0 || i==3 || i==6 ) {		 
-					 if(게임판[i].length()>2 && 게임판[i].equals(게임판[i+1]) || 게임판[i+1].equals(게임판[i+2])){
+					 if(!게임판[i].equals("[]") && 게임판[i].equals(게임판[i+1]) || 게임판[i+1].equals(게임판[i+2])){
 						 승리 = true;
 						 if(게임판[i].equals("[O]")) {
 							 승리자 = "사용자승리(가로)";
@@ -222,7 +222,7 @@ public class EX3_틱택톡게임{
 			 // 세로승리? 0 3 6   1  4 7  2 5 8
 			 for(int i=0; i<게임판.length; i++){
 				 if(i==0 || i==1 || i==2 ) {		 
-					 if(게임판[i].length()>2 && 게임판[i].equals(게임판[i+3]) || 게임판[i+3].equals(게임판[i+6])){
+					 if(!게임판[i].equals("[]") && 게임판[i].equals(게임판[i+3]) || 게임판[i+3].equals(게임판[i+6])){
 						 승리 = true;
 						 if(게임판[i].equals("[O]")) {
 							 승리자 = "사용자승리(세로)";
@@ -241,7 +241,7 @@ public class EX3_틱택톡게임{
 			 // 대각선승리? 0 4 8   2  4 6 
 			 for(int i=0; i<게임판.length; i++){
 				 if(i==0) {		 
-					 if(게임판[i].length()>2 && 게임판[i].equals(게임판[i+4]) || 게임판[i+4].equals(게임판[i+8])){
+					 if(!게임판[i].equals("[]") && 게임판[i].equals(게임판[i+4]) || 게임판[i+4].equals(게임판[i+8])){
 						 승리 = true;
 						 if(게임판[i].equals("[O]")) {
 							 승리자 = "사용자승리(세로)";
@@ -258,7 +258,7 @@ public class EX3_틱택톡게임{
 				 }
 				 
 				 if(i==2) {		 
-					 if(게임판[i].length()>2 && 게임판[i].equals(게임판[i+2]) || 게임판[i+2].equals(게임판[i+6])){
+					 if(!게임판[i].equals("[]") && 게임판[i].equals(게임판[i+2]) || 게임판[i+2].equals(게임판[i+6])){
 						 승리 = true;
 						 if(게임판[i].equals("[O]")) {
 							 승리자 = "사용자승리(세로)";
@@ -276,7 +276,13 @@ public class EX3_틱택톡게임{
 				 
 			 }
 			 
-			 
+//			 if(승리==true) {
+//				 System.out.println(승리자);
+//				 break;
+//			 }
+//			 else {
+//				 continue;
+//			 }
 			 
 			 
 			 
