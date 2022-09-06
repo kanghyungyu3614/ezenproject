@@ -9,6 +9,7 @@ public class EX3_틱택톡게임 {
 		String[ ] 게임판 = { "[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]" };
 		Scanner scanner = new Scanner(System.in);
 		String 승자 = "모름";
+		int 무승부 = 0;
 		boolean 승리자찾기 = false;
 		
 		
@@ -32,8 +33,6 @@ public class EX3_틱택톡게임 {
 				else { System.out.println("안내) 이미 알이 존재하는 위치 입니다. "); }
 			}  
 			
-			
-			
 			// 3. 컴퓨터 에게 위치 난수 생성
 			while( true ) { // while 2
 				Random random = new Random(); // 랜덤 객체 생성 
@@ -41,6 +40,23 @@ public class EX3_틱택톡게임 {
 				if( 게임판[위치].equals("[ ]")){ 게임판[위치] = "[X]"; break; } // 알을 두면 무한루프 종료
 			} // while 2 end 
 			
+			// 무승부 기록
+			for( int i = 0 ; i<게임판.length ; i++ ) { 
+				if(게임판[i].equals("[O]")||게임판[i].equals("[X]")) {
+					무승부+=1;
+					System.out.println(무승부);
+				}
+				else {
+					continue;
+				}
+			}
+			if(무승부>7) {
+				승리자찾기 = true;
+				break;
+			}
+			else {
+				무승부=0;
+			}
 			
 			
 		    
@@ -100,7 +116,11 @@ public class EX3_틱택톡게임 {
 					) {
 				승자 = "사용자가 이겼습니다.";
 				break;
-			} 				
+			}
+			else if(무승부>7) {
+				승자 = "무승부입니다.";
+				break;
+			}
 			else {
 				승자 = "컴퓨터가 이겼습니다.";
 				break;
