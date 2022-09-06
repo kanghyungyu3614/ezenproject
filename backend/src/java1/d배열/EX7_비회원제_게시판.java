@@ -117,17 +117,18 @@ public class EX7_비회원제_게시판 { // class s
 																// 2-3 : 저장했으면 반복문 종료 [ 끝내기 ]
 																break;
 															} // if end 
+															break;
 															// 마지막 행까지 빈공간이 없으면 [ 최대 회원 100명 , 최대 행 인덱스 = 0~99 ]
-															if( row == 99 ) { System.out.println("안내) 최대 회원수가 찼습니다. [회원가입불가능 : 관리자에게문의 ] ");}
+															//if( row == 99 ) { System.out.println("안내) 최대 회원수가 찼습니다. [회원가입불가능 : 관리자에게문의 ] ");}
 														}// for end 
-															
+															break;
 														}
 														
 														// 글보기 보튼을 눌렀으면
 														else if(boardNumber==2) {
 															System.out.println("----------- 커뮤니티 -----------");
 															for( int row = 0 ; row<boardlist.length ; row++ ) {
-																if( boardlist[row][0] != null) { // row번째 게시판제목이 null이면 = 게시판 글 이 없다!! 
+																if( boardlist[row][0] == null) { // row번째 게시판제목이 null이면 = 게시판 글 이 없다!! 
 																	// 2-2 : null 행 위치에 입력받은 데이터를 하나씩 대입
 																	System.out.println(row+"\t"+boardlist[row][2]+"\t"+boardlist[row][0]);
 																	// 2-3 : 저장했으면 반복문 종료 [ 끝내기 ]
@@ -138,14 +139,13 @@ public class EX7_비회원제_게시판 { // class s
 																}// if end 
 															}// for end 	
 															System.out.println("1.글쓰기\t 2.글보기\t 선택\t");
+															int BoardSee = scanner.nextInt();
 															System.out.println("보고싶은 게시물 번호를 누르세요.");
 															int BoardNumber = scanner.nextInt();
-															if(BoardNumber<0 || BoardNumber>boardlist.length) {
+															if(BoardSee<0 || BoardSee>boardlist.length) {
 																System.out.println("그런번호는 없습니다.");
 															}
-															else {
-																System.out.println("----------- 커뮤니티 -----------");
-															}
+
 															
 															
 														}
