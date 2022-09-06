@@ -9,6 +9,7 @@ public class EX7_비회원제_게시판 { // class s
 		// 0. 메모리
 		String[][] memberlist = new String[100][4]; // 문자열 400개를 저장할수 있는 배열 선언 [ 초기값 : null 400 개 ] 
 		Scanner scanner = new Scanner(System.in);	// 입력객체
+		String[][] boardlist =  new String[100][4]; // 문자열 400개를 저장할수 있는 배열 선언 [ 초기값 : null 400 개 ] 
 		
 		// 1. 무한루프[ 프로그램 실행 ] 
 		while( true ) { // while start [ 종료조건 : 없다 ]
@@ -25,6 +26,7 @@ public class EX7_비회원제_게시판 { // class s
 					System.out.print("비밀번호 : ");	String password = scanner.next();
 					// 2. 배열내 모든 항목[인덱스]와 비교해서 입력한 아이디와 비밀번호 있는지 확인 
 					int logincheck = 0 ; // *로그인 처리에 대한 상태를 저장하는 변수 
+					int boardlogin = 0 ;
 					for( int i = 0 ; i<memberlist.length ; i++ ) {
 						if( memberlist[i][0] != null ) { 
 							// 해당 인덱스가 null 아니면서 
@@ -35,9 +37,10 @@ public class EX7_비회원제_게시판 { // class s
 									// 해당 인덱스의 비밀번호가 입력받은 password 와 같으면 
 									System.out.println("안내) 로그인 성공 !!");
 									logincheck = 1; // 로그인 성공 [ 아이디와 비밀번호가 모두 맞았을때 ]
+								
 										//로그인 메뉴 
 										while(true) {
-											System.out.print("회원 메뉴 : 1.회원탈퇴 2.로그아웃 3.게시판이동 ");
+											System.out.print("회원 메뉴 : 1.회원탈퇴 2.로그아웃 3.게시판페이지이동 ");
 											int btn2 = scanner.nextInt();
 											if( btn2 == 1 ) { 
 												// ------------------------------------------- //
@@ -58,11 +61,8 @@ public class EX7_비회원제_게시판 { // class s
 												break;
 											}
 											else if( btn2 == 2 ) { break; }
-											else if( btn2 == 3 ) {  
-												System.out.println("게시판페이지 ");
-												
-												
-											}
+											//게시판으로 들어갔을때 
+											else if( btn2 == 3) {break;}
 										} // while end 
 									break;
 								} // if end 

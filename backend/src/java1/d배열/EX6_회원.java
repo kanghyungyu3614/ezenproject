@@ -1,7 +1,5 @@
 package java1.d배열;
 
-import java.beans.beancontext.BeanContextMembershipListener;
-import java.lang.reflect.Member;
 import java.util.Scanner;
 
 public class EX6_회원 {
