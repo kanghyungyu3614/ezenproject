@@ -9,6 +9,10 @@ public class EX7_비회원제_게시판 { // class s
 		// 0. 메모리
 		String[][] memberlist = new String[100][4]; // 문자열 400개를 저장할수 있는 배열 선언 [ 초기값 : null 400 개 ] 
 		Scanner scanner = new Scanner(System.in);	// 입력객체
+		//게시판 추가
+		String[][] boardlist =  new String[100][4]; // 문자열 400개를 저장할수 있는 배열 선언 [ 초기값 : null 400 개 ] 
+		
+		
 		
 		// 1. 무한루프[ 프로그램 실행 ] 
 		while( true ) { // while start [ 종료조건 : 없다 ]
@@ -58,11 +62,100 @@ public class EX7_비회원제_게시판 { // class s
 												break;
 											}
 											else if( btn2 == 2 ) { break; }
+											//------------------------------------------------------------------------
+											// 여기서부터 게시판
+											//-----------------------------------------------------------------------
 											else if( btn2 == 3 ) {  
-												System.out.println("게시판페이지 ");
+												System.out.println("----------- 커뮤니티 -----------");
+												System.out.println("번호\t 작성자\t 제목\t");	
+												// 여기서 리스트를 출력해야한다.
+												for( int row = 0 ; row<boardlist.length ; row++ ) {
+													if( boardlist[row][0] != null) { // row번째 게시판제목이 null이면 = 게시판 글 이 없다!! 
+														// 2-2 : null 행 위치에 입력받은 데이터를 하나씩 대입
+														System.out.println(row+"\t"+boardlist[row][2]+"\t"+boardlist[row][0]);
+														// 2-3 : 저장했으면 반복문 종료 [ 끝내기 ]
+														break;
+													}
+													else {
+														break;
+													}// if end 
+												}// for end 
 												
+
+												System.out.println("1.글쓰기\t 2.글보기\t 선택\t");
+												int boardNumber = scanner.nextInt();
+												//글쓰기 버튼을 눌렀으면
+											     while(true) {
+												
+											    	 if(boardNumber==1) {
+															System.out.println("-----------글쓰기 페이지-----------");
+															//-----------제목: title-----------
+															System.out.println("title : ");
+															String BoardTitle = scanner.next();
+															
+															//-----------내용: content-----------
+															System.out.println("content : ");
+															String BoarContent = scanner.next();
+															
+															//-----------글쓴이: writer-----------
+															System.out.println("writer : ");
+															String BoardWriter = scanner.next();
+															
+															//-----------비밀번호: password-----------
+															System.out.println("password : ");
+															String BoardPassword = scanner.next();
+															
+															
+															for( int row = 0 ; row<boardlist.length ; row++ ) {
+															if( boardlist[row][0] != null ) { // row번째 게시판내용이 null이면 = 게시판 글 이 없다!! 
+																// 2-2 : null 행 위치에 입력받은 데이터를 하나씩 대입
+																boardlist[row][0] = BoardTitle;
+																boardlist[row][1] = BoarContent;
+																boardlist[row][2] = BoardWriter;
+																boardlist[row][3] = BoardPassword;
+																
+																// 2-3 : 저장했으면 반복문 종료 [ 끝내기 ]
+																break;
+															} // if end 
+															// 마지막 행까지 빈공간이 없으면 [ 최대 회원 100명 , 최대 행 인덱스 = 0~99 ]
+															if( row == 99 ) { System.out.println("안내) 최대 회원수가 찼습니다. [회원가입불가능 : 관리자에게문의 ] ");}
+														}// for end 
+															
+														}
+														
+														// 글보기 보튼을 눌렀으면
+														else if(boardNumber==2) {
+															System.out.println("----------- 커뮤니티 -----------");
+															for( int row = 0 ; row<boardlist.length ; row++ ) {
+																if( boardlist[row][0] != null) { // row번째 게시판제목이 null이면 = 게시판 글 이 없다!! 
+																	// 2-2 : null 행 위치에 입력받은 데이터를 하나씩 대입
+																	System.out.println(row+"\t"+boardlist[row][2]+"\t"+boardlist[row][0]);
+																	// 2-3 : 저장했으면 반복문 종료 [ 끝내기 ]
+																	break;
+																}
+																else {
+																	break;
+																}// if end 
+															}// for end 	
+															System.out.println("1.글쓰기\t 2.글보기\t 선택\t");
+															System.out.println("보고싶은 게시물 번호를 누르세요.");
+															int BoardNumber = scanner.nextInt();
+															if(BoardNumber<0 || BoardNumber>boardlist.length) {
+																System.out.println("그런번호는 없습니다.");
+															}
+															else {
+																System.out.println("----------- 커뮤니티 -----------");
+															}
+															
+															
+														}
+											    	 
+												}
 												
 											}
+											//------------------------------------------------------------------------
+											// 여기까지 게시판
+											//-----------------------------------------------------------------------
 										} // while end 
 									break;
 								} // if end 
