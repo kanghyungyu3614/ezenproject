@@ -16,7 +16,7 @@ while(true) {
 	System.out.println("번호\t 작성자\t 제목\t");	
 // 여기서 리스트를 출력해야한다.
 	for( int row = 0 ; row<boardlist.length ; row++ ) {
-		if( boardlist[0][0] == null) {
+		if( boardlist[row][0] == null) {
 			break;
 		}
 		else if(boardlist[row][0] != null) {
@@ -67,12 +67,18 @@ while(true) {
 	}							
 	// 글보기 보튼을 눌렀으면
 	else if(boardNumber==2) {
+		
+		
+		
 				System.out.println("----------- 보고싶은 게시글의 번호를 알려주세요. -----------");
 
 				int BoardSee = scanner.nextInt();
 				//게시물이 있는지 판별하는것
 				int nothing = 0;
 				for(int j=0; j<boardlist.length; j++) {
+					
+					
+					
 					if(boardlist[BoardSee][0] == null) {
 						nothing = 1;
 					}
