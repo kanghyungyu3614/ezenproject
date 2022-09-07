@@ -144,7 +144,7 @@ while(true) {
 				}
 				else if(nothing == 0) {
 					System.out.println("----------- 게시물 상세페이지 -----------");
-					System.out.println("작성자 : "+boardlist[BoardSee][2]+"   "+"제목"+boardlist[BoardSee][0]);
+					System.out.println("작성자 : "+boardlist[BoardSee][2]+"   "+"제목 : "+boardlist[BoardSee][0]);
 					System.out.println("내용 : "+boardlist[BoardSee][1]);
 					System.out.println("-------------------------------------");
 					System.out.println("1.목록보기(뒤로가기)"+" "+"2.글삭제"+" "+"3.글수정"+"\t"+"선택 : ");
