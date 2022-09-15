@@ -15,7 +15,7 @@ public class view {
 	// * 함수 밖에 scanner 선언한 이유 : 모든 함수에서 같이 사용할려고 [ 필드 ]
 	static Scanner scanner = new Scanner(System.in);
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		
 		// 1. static 사용 버전
 		start(); // 함수 호출 
@@ -25,7 +25,7 @@ public class view {
 		
 	}
 	// 1. 프로그램 시작하는 화면 구현 함수 [ 매개변수x / 반환x / 정적메소드: 호출시 객체 생략 가능 ]
-	void start() {
+	static void start() {
 		while(true) { // 무한루프 
 			view_boardlist(); // 무조건  view_boardlist( ) 함수 호출 
 			System.out.print("1.글쓰기 2.글보기 선택 : ");
@@ -37,7 +37,7 @@ public class view {
 	} // start end 
 	
 	// 2. 게시물을 등록하는 화면 구현 함수 
-	void view_regist() { 
+	static void view_regist() { 
 		System.out.println(">>> 게시물 등록 페이지 "); 
 		System.out.print(" 제목 : "); 		String title = scanner.next();
 		System.out.print(" 내용 : ");			String content = scanner.next();
@@ -55,7 +55,7 @@ public class view {
 	}
 	
 	// 3. 게시물 상세페이지 화면 구현 함수 
-	void view_board( ) { 
+	static void view_board( ) { 
 		System.out.print("게시물번호 선택 : "); 		int bnum = scanner.nextInt();
 		System.out.println(">>> 게시물 상세 페이지 ");
 		Board temp = Controller.boardlist[bnum]; //  새로운객체[임시객체]  = 입력받은 인덱스의 객체
@@ -64,13 +64,13 @@ public class view {
 		System.out.println("내용 : " + temp.content );
 		System.out.print("1.뒤로가기 2.수정 3.삭제 선택 : ");	int ch = scanner.nextInt();
 		if( ch == 1 ) {} 
-		else if( ch== 2 ) {} // 수정 화면 함수 호출 
+		else if( ch== 2 ) { view_update( bnum ); } // 수정 화면 함수 호출 
 		else if( ch == 3 ) { view_delete( bnum ); } // 삭제 화면 함수 호출 [ 매개변수 1개 int = 현재 보고 있는 게시물 ]
 		else { } 
 		return;
 	} // m end 
 	// 4. 게시물 목록 화면 구현 함수
-	void view_boardlist() { 
+	static void view_boardlist() { 
 		System.out.println(">>>게시물 목록 페이지 ");
 		System.out.println("번호\t\t작성자\t\t제목");
 		for( int i = 0 ; i<Controller.boardlist.length; i++ ) {
@@ -85,7 +85,7 @@ public class view {
 	} // m end 
 	
 	// 5. 게시물 삭제 함수 
-	void view_delete( int bnum ) {
+	static void view_delete( int bnum ) {
 		System.out.print("비밀번호 : "); String password = scanner.next();
 		boolean result =  Controller.con_delete(bnum, password);
 		if( result ) { System.out.println("안내) 게시물 삭제 성공 ");}
@@ -93,7 +93,7 @@ public class view {
 	} // m end 
 	
 	// 6. 게시물 수정 함수 
-	void view_update( int bnum ) {
+	static void view_update( int bnum ) {
 		System.out.print("비밀번호 : "); 		String password = scanner.next();
 		System.out.print("수정할 제목 : ");	String title = scanner.next();
 		System.out.print("수정할 내용 : ");	String content = scanner.next();
@@ -109,3 +109,4 @@ public class view {
 	// 7. 비밀번호 검증 함수 ???? 
 	
 }
+
