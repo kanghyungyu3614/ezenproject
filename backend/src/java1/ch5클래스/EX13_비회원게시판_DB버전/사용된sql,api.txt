@@ -1,0 +1,42 @@
+JDBC [ 자바와 DB 연동 ] 
+	1. Connection 		:  DB연동 인터페이스   
+		1. DB연동 
+			con = DriverManager.getConnection( db주소 , 계정명 , 비밀번호 );
+			* DriverManager  : DB연동 클래스 
+
+	2. PreparedStatement 	: 연결된 DB에 SQL연결/조작
+		1. 연동된 DB에 SQL 연결 
+			ps = con.prepareStatement( sql )
+		2. 조작 메소드 
+			1. ps.setInt( ?위치 , 정수열데이터 )   /   ps.setString( ?위치 , 문자열데이터 ) 
+			2. ps.executeUpdate( ) 	: insert , update, delete 
+			2. rs = ps.executeQuery( )	: select
+ 	
+	3. ResultSet 		: SQL 결과[쿼리] 조작 
+		* rs 기본값 : null
+		*   null --next()--> 결과의 첫번째레코드 -- next() --> 검색결과의 두번째레코드 ---> ~~~~ 
+
+		1. rs.next( ) : (행) 다음 레코드 [ 있으면 true / 없으면 false ]
+  		2. rs.getInt( 필드번호 / 필드명 ) : 현재 레코드[행] 해당 필드의 데이터 호출 
+
+SQL 
+	DML
+		select * from 테이블명 where 조건
+			[ 모든필드 ] select * from 테이블명 
+			[ 레코드수 ] select count(*) from 테이블명 
+			[ 특정조건 ] select * from 테이블명 where 필드명 = 조건값 
+
+		insert into 테이블명 values( 데이터1 , 데이터2 , 데이터3 )
+			[ 모든필드추가] insert into 테이블명 values( 값1, 값2. 값3 )
+			[ 특정필드추가] insert into 테이블명( 필드명1 , 필드명2 ) values( 값1 , 값2 ) 
+
+		update 테이블명 set 필드명 = 새로운데이터 where 조건 
+			[ 특정조건 ] update 테이블명 필드명 = 새로운데이터 , 필드명2 = 새로운데이터 where 필드명 = 조건값 
+
+		delete from 테이블명 where 조건 
+			[ 특정조건 ] delete from 테이블명 where 필드명 = 조건값
+			
+[ 활용과제 ]
+	1.수정처리
+	2.삭제처리
+	3.조회수처리
