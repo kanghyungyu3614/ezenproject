@@ -1,4 +1,4 @@
-package java1.선생님가계부;
+package java1.가계부;
 
 import java.util.ArrayList;
 

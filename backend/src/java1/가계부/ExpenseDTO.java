@@ -1,4 +1,4 @@
-package java1.선생님가계부;
+package java1.가계부;
 
 public class ExpenseDTO {
 	// 1. DTO 필드 <---> DB TABLE 필드
