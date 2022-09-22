@@ -56,20 +56,23 @@ public class ExpenseDAO {
 	}
 
 	//3. 내용 수정 sql 메소드
-	boolean update (new ExpenseDTO dto) {
-		String sql = "update expense set"
-				+ "edate = ?"
-				+ "emoney = ?"
-				+ "ecomment = ?"
-				+ "where eno = ?";
-	try {
-		ps = con.prepareStatement(sql);
-		ps.setString(1, dto.)
-		return true;
-	} catch ([ e) {}
-	return false;
-	
-	} 
+	boolean update( ExpenseDTO dto ) {
+		String sql= "update expense set "
+				+ "edate = ? , "
+				+ "emoney = ? , "
+				+ "ecomment = ?  "
+				+ "where eno = ? ";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , dto.getEdate() );
+			ps.setInt( 2 , dto.getEmoney() );
+			ps.setString( 3 , dto.getEcomment() );
+			ps.setInt( 4 , dto.getEno() );
+			ps.executeUpdate(); return true;
+		}catch (Exception e) {}
+		return false;
+		
+	}
 	
 	
 	//4. 내용 삭제 sql 메소드

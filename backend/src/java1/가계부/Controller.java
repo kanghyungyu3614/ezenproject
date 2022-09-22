@@ -19,11 +19,10 @@ public class Controller {
 		return ExpenseDAO.getInstance().read();
 	}
 	
-	//3. 내용수정 컨트롤러
-	boolean update(int eno,String edate,int emoney,String ecomment) {
-		
-		return ExpenseDAO.update(new ExpenseDTO(eno,edate,emoney,ecomment));
-	}
+	// 3. 내용수정 컨트롤러
+		boolean update( int a , String b , int c , String d  ) {
+			return ExpenseDAO.getInstance().update( new ExpenseDTO(a, d, c, d) );
+		}
 	
 	
 	//4. 내용삭제 컨트롤러
