@@ -19,7 +19,7 @@ public class Controller {
 		return ExpenseDAO.getInstance().read();
 	}
 	
-	// 3. 내용수정 컨트롤러
+	// 3. 내용수정 컨트롤러  d
 		boolean update( int a , String b , int c , String d  ) {
 			return ExpenseDAO.getInstance().update( new ExpenseDTO(a, d, c, d) );
 		}
