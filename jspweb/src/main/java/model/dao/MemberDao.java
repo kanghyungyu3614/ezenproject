@@ -25,5 +25,27 @@ public class MemberDao extends Dao {
 			ps.executeUpdate(); return true;
 		}catch (Exception e) {System.out.println(e);}
 		return false; 	
+	}//회원가입
+	
+	public boolean login(String id, String password) {
+		String sql= "select * from member "
+				+ "where mid=? and mpassword=?";
+		
+		try {
+			 ps = con.prepareStatement(sql);
+			 ps.setString(1, id);
+			 ps.setString(2, password);
+			 rs = ps.executeQuery();
+			 if(rs.next()) {
+				 return true;
+			 }
+			 
+			 
+		} catch (Exception e) {System.out.println(e);}
+		return false;
 	}
+	
+	
+	
+	
 }
