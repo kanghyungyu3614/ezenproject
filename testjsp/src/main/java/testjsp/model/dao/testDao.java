@@ -4,12 +4,8 @@ import testjsp.model.dto.testDto;
 
 public class testDao extends Dao{
 	// 0. 싱글톤 객체 선언 [ 공유 메모리 ] 
-	private static Dao testdao = new Dao();
-	public static Dao getInstance() { return testdao; }
-	
-																					
-//	private String testdate;		
-//	private int testpoint;
+	private static testDao testdao = new testDao();
+	public static testDao getInstance() { return testdao; }
 	
 	// 기능 메소드 구현 
 	//1. 회원가입 메소드 

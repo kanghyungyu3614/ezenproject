@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import testjsp.model.dto.testDto;
 //끝
 public class Dao {
 	Connection con;	PreparedStatement ps;	ResultSet rs;
