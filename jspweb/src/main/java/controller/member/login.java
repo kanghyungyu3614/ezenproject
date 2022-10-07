@@ -23,11 +23,11 @@ public class login extends HttpServlet {
 		String mpassword = request.getParameter("mpassword");
 		// 2. 변수2개 --> dto x 
 		// 3. dao 메소드 호출 [싱글톤 ]
-		boolean result 
-			=  MemberDao.getInstance().login(mid, mpassword);
-		// 4. 결과 제어 [ true이면 index.jsp  false 이면 login.jsp ]
-		if( result ) { response.sendRedirect("/jspweb/index.jsp"); }
-		else{ response.sendRedirect("/jspweb/member/login.jsp"); }
+//		boolean result 
+//			=  MemberDao.getInstance().login(mid, mpassword);
+//		// 4. 결과 제어 [ true이면 index.jsp  false 이면 login.jsp ]
+//		if( result ) { response.sendRedirect("/jspweb/index.jsp"); }
+//		else{ response.sendRedirect("/jspweb/member/login.jsp"); }
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -45,13 +45,13 @@ public class login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// 1. js ajax 에게 변수 요청
 		String mid = request.getParameter("mid");
 		String mpassword = request.getParameter("mpassword");
-		
-		boolean result =  MemberDao.getInstance().login(mid, mpassword);
+		// 2. DAO DB메소드 호출 
+		int result =  MemberDao.getInstance().login(mid, mpassword);
+		// 3. db메소드 반환 결과를 js ajax에게 응답
 		response.getWriter().print( result );
-		
 	}
 
 	/**
