@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-      <%@include file="header.jsp" %>
-      <img src="../img/main.jpg" width="100%">
-      <div class="webbox">
-      	<h3> 메인 페이지</h3>
-      </div>
+	<%@include file="header.jsp" %>
+	
+	<img alt="" src="img/mainimg.gif" width="100%">
+	
+	<div class="webbox"> 
+		<h3> 메인 페이지 </h3>
+	</div>
+
 </body>
 </html>
