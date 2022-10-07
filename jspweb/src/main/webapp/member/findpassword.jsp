@@ -15,7 +15,6 @@
 		<div id="findpasswordconfirmbox"></div>		<!-- 결과 메시지 출력 박스 -->
 		<button type="button" onclick="findpassword()">아이디찾기</button>
 	</div>
-	
 	<script src ="../js/member/find.js" type="text/javascript"></script>
 	
 </body>
