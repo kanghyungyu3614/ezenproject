@@ -64,37 +64,33 @@ public class MemberDao extends Dao {
 		}catch (Exception e) {System.out.println(e);}
 		return null;	// 동일한 정보가 없으면 null 
 	}
-	// 4. 비밀번호 찾기(임시 비밀번호 발급)
-	public boolean findpassword(String mid, String memail) {
-		String sql = "select * from member where mid =? and memail=?";
+	
+	// 4.비밀번호찾기 [ 임시 비밀번호 발급 여부 판단  ]  
+	public boolean findpassword( String mid , String memail) {
+		String sql = "select * from member "
+				+ "where mid = ? and memail = ?";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, mid);
-			ps.setString(2, memail);
+			ps.setString( 1 , mid );
+			ps.setString( 2 , memail );
 			rs = ps.executeQuery();
-			if(rs.next()) {return true;}
-		} catch (Exception e) {
-			// TODO: handle exception
-		
-		}
+			if( rs.next() ) return true;
+		}catch (Exception e) { System.out.println(e); }
 		return false;
-	
 	}
 	
 	// 5. 임시 비밀번호 업데이트 
-	public boolean passwordchange(String mid, String randstr) {
-		String sql = "update member set mpassword = ? "
-				+ " where mid =?";
+	public boolean passwordchange( String mid , String randstr ) {
+		String sql ="update member set mpassword = ? "
+				+ " where mid = ? ";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, randstr);
-			ps.setString(2, mid);
+			ps.setString( 1 , randstr  );
+			ps.setString( 2 , mid );
 			ps.executeUpdate(); return true;
-		} catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) { System.out.println(e); }
 		return false;
 	}
-	
-	
 	
 	
 	
