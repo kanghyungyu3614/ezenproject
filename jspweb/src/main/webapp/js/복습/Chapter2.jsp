@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-      <%@include file="header.jsp" %>
-      <img src="../img/main.jpg" width="100%">
-      <div class="webbox">
-      	<h3> 메인 페이지</h3>
-      </div>
+   <script src="Chapter2.js" type="text/javascript"></script>
 </body>
 </html>

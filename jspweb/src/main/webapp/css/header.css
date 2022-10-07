@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/*
+	식별자{ 속성 = 값 }
+		0. *		*{ }			: 모든곳에 적용 
+		1. class	.클래스명{ }		: 해당 클래스 
+		2. id 		#id{ }			: 해당 id
+		3. name 
+		4. 태그명
+	하위 식별자 선택 [띄어쓰기]
+		식별자 하위식별자 {   } 
+	복수 식별자선택 
+		식별자 , 식별자 , 식별자 { }
+*/
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{ /* 기본값 제거 */
+	margin: 0px; padding: 0px; /* 바깥여백 , 안쪽여백 */
+	text-decoration: none;	/* 밑줄제거 */
+	list-style: none;		/* 글머리 */
+	color: black;			/* 글꼴 색상 */
+	font-family: '맑은 고딕';	/* 글꼴 */
+}
+.webbox{
+	width: 1200px;	/* 가로 길이 */
+	margin: 0 auto; /* 박스 가운데 정렬 */
+}
+/*-----------------------상단헤더---------------------  */
+.hd_top{
+	display: flex;	/* 자식 요소들이 가로배치 */
+	justify-content: space-between;
+	margin: 10px 0px 20px 0px;	/* 위 오른쪽 아래쪽 왼쪽 */
+	
+}
+.hd_sub{
+	display: flex;
+	font-size: 12px;
+	align-items: center;
+}
+.hd_sub li{ margin-left: 20px; }
+
+.hd_title a{ font-family: "yg-jalnan"; font-size: 35px; }
+/*-----------------------하단헤더---------------------  */
+.hd_menu{display:flex; justify-content:space-between; margin-bottom: 50px;}
+
+.searchbox input{border: none;} /*테두리*/
+.searchbox span{border-bottom: solid 2px black; margin: 0px 20px 0px 150px;}
+.fa-search, .fa-shoppint-cart{font-size: 20px;}
+
+
+.hd_menu li:nth-child(1) a {color: red; font-weight: bold;}
+.hd_menu li:nth-child(2) a {color: blue; font-weight: bold;}
+.hd_menu li:nth-child(10) a {color: grey; font-weight: bold;}
+.hd_menu li:nth-child(11) a {color: skyblue; font-weight: bold;}
+
+
+
+
