@@ -1,6 +1,8 @@
 package model.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.PseudoColumnUsage;
+import java.util.ArrayList;
 
 import model.dto.MemberDto;
 
@@ -92,7 +94,76 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	
+	// 6. 회원정보 호출
+	public MemberDto getinfo(String mid) {
+		
+		MemberDto dto = null;
+       //1번 : String sql = "select * from member where mid=?";
+       //2번 : String sql = "select * from member where mid='"+mid+"';
+		 String sql = "select * from member where mid=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1, mid);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				//1번 풀 생성자
+				//dto = new MemberDto(rs.getInt(1),rs.getString(2),
+				//		null,rs.getString(4),rs.getString(5),
+				//		rs.getString(6),rs.getString(7),
+				//		rs.getString(8),rs.getInt(9));
+				
+				
+				
+				//2번 빈 생성자 
+				dto = new MemberDto();
+				dto.setMno(rs.getInt(1));
+				dto.setMid(rs.getString(2));
+				//패스워드 제외
+				dto.setMname(rs.getString(4));
+				dto.setMphone(rs.getString(5));
+				dto.setMemail(rs.getString(6));
+				dto.setMaddress(rs.getString(7));
+				dto.setMdate(rs.getString(8));
+				dto.setMpoint(rs.getInt(9));
+				return dto;
+			}
+		} catch (Exception e) {System.out.println(e);}
+		return dto;
+	}
 	
+	public ArrayList <MemberDto> getinfoList(){
+		ArrayList<MemberDto> list = new ArrayList<>();
+		
+		String sql = "select * from member";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				MemberDto dto =  new MemberDto(rs.getInt(1),rs.getString(2),
+						null,rs.getString(4),rs.getString(5),
+						rs.getString(6),rs.getString(7),
+						rs.getString(8),rs.getInt(9));
+				list.add(dto);
+			}
+			return list;
+		} catch (Exception e) {System.out.println(e);}
+		return list;
+	}
+	
+	// 8. 회원탈퇴 
+	public boolean delete(String mid, String mpassword) {
+		String sql = "delete from member where mid = ? and mpassword = ? ";
+	    try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, mpassword);
+			//삭제 레코드 수 반환
+			int count = ps.executeUpdate(); 
+			//  삭제된 레코드가 1개이면 성공			
+			if(count ==1) {return true;} 
+		} catch (Exception e) {System.out.println(e);}
+	    return false;
+	}
 	
 	
 	
