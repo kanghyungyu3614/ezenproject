@@ -20,7 +20,6 @@ public class signup extends HttpServlet {
 		String mcontent =  request.getParameter("mcontent");
 		String mname =  request.getParameter("mwriter");
 		String mpassword =  request.getParameter("mpassword");
-		String mpasswordconfirm =  request.getParameter("mpasswordconfirm");
 		
 		// 2. 변수6개 ---> DTO 객체화 
 		MemberDto dto = new MemberDto( 
@@ -36,10 +35,8 @@ public class signup extends HttpServlet {
 			// 2. 싱글톤객체가 있을경우 [ 클래스명.getInstance().메소드명() ]
 		boolean result = MemberDao.getInstance().signup(dto);
 		// 5. 결과 제어
-		if( result ) {response.sendRedirect("/testjsp/member/success.jsp");} // 이동시키고 싶은 파일명 
+		if( result ) {response.sendRedirect("/testjsp/member/signup.jsp");} // 이동시키고 싶은 파일명 
 		else {System.out.println();}
-		
-		
 	}
 	private static final long serialVersionUID = 1L;
        

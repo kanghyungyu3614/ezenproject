@@ -1,11 +1,3 @@
-/**
- * 
- */
-
-
-
- 
- 
 print();
  
 function print(){
