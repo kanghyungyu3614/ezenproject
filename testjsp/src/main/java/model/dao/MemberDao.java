@@ -8,7 +8,7 @@ public class MemberDao extends Dao{
 	public static MemberDao getInstance() { return mdao; }
 	
 	// 기능 메소드 구현 
-	//1. 회원가입 메소드 
+	//1. 글등록 메소드 
 	public boolean signup( MemberDto dto ) {
 		String sql ="insert into"
 				+ " member( mtitle ,mcontent,mwriter,mpassword)"
@@ -22,5 +22,18 @@ public class MemberDao extends Dao{
 			ps.executeUpdate(); return true;
 		}catch (Exception e) {System.out.println(e);}
 		return false; 	
-	}//회원가입
+	}//글등록
+	
+	//2. 글 출력 메소드
+	public boolean print(MemberDto dto) {
+		String sql = "select * from member";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+				ps =con.prepareStatement(sql);
+				return true;
+		}catch (Exception e) { System.out.println(e); } // 데이터베이스 오류 뜻 
+		return false; 
+	}
+	
 }
