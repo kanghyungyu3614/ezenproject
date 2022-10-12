@@ -15,21 +15,24 @@
 		비밀번호확인 : 	<input type="password" 	name="mpasswordconfirm">	<br>
 		내용 : 		<input type="text" 		name="mcontent">				<br>
 		작성자 : 	<input type="text" 		name="mwriter">				<br>
-		<input type="submit" value="과제제출" onclick="print()">
+		<button type="button" onclick="print()"> 로그인 </button>
+		<button type="button" onclick="delete()">삭제버튼</button>
 	</form>
 	
 			<table id="boardTable">
 			<tr>
-				<td id="mno">회원번호 </td>
-				<td id="mtitle">제목 </td>
-				<td id="mcontent">내용 </td>
-				<td id="mname">작성자 </td>
-				<td id="mpassword">비밀번호 </td>
-				<td id="mdate">작성일 </td>
-				<td id="mpoint">조회수 </td>
+				<th id="mno">회원번호 </th>
+				<th id="mtitle">제목 </th>
+				<th id="mcontent">내용 </th>
+				<th id="mname">작성자 </th>
+				<th id="mpassword">비밀번호 </th>
+				<th id="mdate">작성일 </th>
+				<th id="mpoint">조회수 </th>
 			</tr>
 		</table>
 	
 	<script type="text/javascript" src="../js/print.js"></script>
+		<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>

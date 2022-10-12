@@ -2,17 +2,17 @@ print();
  
 function print(){
 	$.ajax({
-		url : "/jspweb/member/infolist", 
+		url : "http://localhost:8080/testjsp/member/signup.jsp", 
 		success : function( result ){
 			let memberlist = JSON.parse( result )
 			// 1. tag 가져오기
-			let table =  document.querySelector("#memeberlisttable")
+			let table =  document.querySelector("#boardTable")
 			// 2. table 에 넣을 제목 셋팅 
 			let tag = 
 				'<tr>'+
-					'<th> 번호 </th>	<th> 아이디 </th><th> 이름 </th>'+
-					'<th> 연락처 </th><th> 이메일 </th><th> 주소 </th>'+
-					'<th> 날짜 </th>	<th> 포인트 </th>'+
+					'<th> 회원번호 </th>	<th> 제목 </th><th> 내용 </th>'+
+					'<th> 작성자 </th><th> 비밀번호 </th><th> 작성일 </th>'+
+					'<th> 조회수 </th>'+
 				'</tr>';
 			//3. tag 값 넣기 
 			for( let i = 0 ; i < memberlist.length ; i++ ){
@@ -24,7 +24,7 @@ function print(){
 						'<td> '+m.mno+' </td> 		<td> '+m.mid+' </td>'+
 						'<td> '+m.mname+' </td> 	<td> '+m.mphone+' </td>'+
 						'<td> '+m.memail+' </td>	<td> '+m.maddress+' </td>'+
-						'<td> '+m.mdate+' </td> 	<td> '+m.mpoint+' </td>'+
+						'<td> '+m.mdate+' </td>'+
 					'</tr>';
 			}
 			// 6. html 문자열을 table 에 넣어주기 

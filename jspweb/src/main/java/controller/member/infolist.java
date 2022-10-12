@@ -23,7 +23,7 @@ public class infolist extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		ArrayList<MemberDto> list = 
-				MemberDao.getInstance().getinfoList();
+				MemberDao.getInstance().getinfolist();
 		// Dto ------> json
 		// 1. JSONObject 여러개 담을수 있는 JSON리스트 선언 
 		JSONArray array = new JSONArray();

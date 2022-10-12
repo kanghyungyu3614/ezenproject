@@ -9,13 +9,20 @@ function getmember(){
 			let member = JSON.parse( result )
 			document.querySelector("#mno").innerHTML = member.mno
 			document.querySelector("#mid").innerHTML = member.mid
-			document.querySelector("#mname").innerHTML = member.mname
-			document.querySelector("#mphone").innerHTML = member.mphone
-			document.querySelector("#memail").innerHTML = member.memail
-			document.querySelector("#maddress").innerHTML = member.maddress
 			document.querySelector("#mdate").innerHTML = member.mdate
 			document.querySelector("#mpoint").innerHTML = member.mpoint
-			getmemberlist(); // 모든 회원 함수 호출
+			
+			
+			document.querySelector("#mname").value = member.mname
+			document.querySelector("#mphone").value = member.mphone
+			document.querySelector("#memail").value = member.memail
+			
+			document.querySelector("#sample4_postcode").value = member.maddress.split(",")[0]
+			document.querySelector("#sample4_roadAddress").value = member.maddress.split(",")[1]
+			document.querySelector("#sample4_jibunAddress").value = member.maddress.split(",")[2]
+			document.querySelector("#sample4_detailAddress").value = member.maddress.split(",")[3]
+			
+			// getmemberlist(); // 모든 회원 함수 호출
 		}
 	});
 }
@@ -84,6 +91,37 @@ function mdelete(){
 }
 
 
+let buttons =  document.querySelectorAll('button')  // 현재 페이지의 모든 버튼 호출
+
+function updateaction(){
+	let mname  = document.querySelector('#mname')
+	if( buttons[1].innerHTML === '확인' ){
+		$.ajax({
+			url : "http://localhost:8080/jspweb/member/update" ,
+			data : { "mname" : mname.value } , 
+			success : function( re ){ 
+				if( re === 'true'){
+					alert('수정성공')
+				}else{
+					alert('수정실패')
+				}
+			}
+		})
+		buttons[1].innerHTML = '수정'
+		mname.readOnly = true;	// 수정모드 설정 
+		//location.href = 'url' ; // 페이지 이동
+		location.reload() ; 	// 현재 페이지 새로고침
+	}else{
+		alert('수정후 확인 버튼 클릭시 수정이 완료됩니다.')
+		mname.readOnly = false;	// 수정모드 제거 
+		buttons[1].innerHTML = '확인'
+	}
+}
+
+
+
+
+
 
 
 
@@ -98,5 +136,3 @@ function mdelete(){
 	선언 : let 객체명 = { 속성명 : 값 , 속성명 : 값 , 속성명 : 값 }
 	호출 : 객체명.속성명
 */
-
-
