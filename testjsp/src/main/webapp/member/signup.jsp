@@ -15,7 +15,7 @@
 		비밀번호확인 : 	<input type="password" 	name="mpasswordconfirm">	<br>
 		내용 : 		<input type="text" 		name="mcontent">				<br>
 		작성자 : 	<input type="text" 		name="mwriter">				<br>
-		<button type="button" onclick="print()"> 로그인 </button>
+		<button type="button" onclick="print()">등록</button>
 		<button type="button" onclick="delete()">삭제버튼</button>
 	</form>
 	
@@ -30,9 +30,8 @@
 				<th id="mpoint">조회수 </th>
 			</tr>
 		</table>
-	
-	<script type="text/javascript" src="../js/print.js"></script>
 		<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="../js/print.js"></script>
 </body>
 </html>
