@@ -68,7 +68,6 @@
 			</li>
 		</ul>
 	</div>
-	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
