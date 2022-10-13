@@ -10,13 +10,22 @@
        <%@include file="../header.jsp"%>
        <div class="webbox">
          <h3> 글쓰기 </h3>
-         
+         <!-- 1번 -->
          <!-- 1.form = [페이지전환O] 2.ajax = [페이지전환X] 선택 -->
-         <form method="get" action="http://localhost:8080/jspweb/board/write">
-	         제목 : <input type="text" name="btitle"> <br>
-    	     내용 : <input type="text" name="bcontent">
-    	     <button type="submit">쓰기</button> 
-         </form>
+<!--          <form method="get" action="http://localhost:8080/jspweb/board/write"> -->
+<!-- 	         제목 : <input type="text" name="btitle"> <br> -->
+<!--     	     내용 : <input type="text" name="bcontent"> <br> -->
+<!--     	     <button type="submit">쓰기</button>  -->
+<!--          </form> -->
+
+         <!-- 2번 -->
+			 제목 : <input type="text" name="btitle"> <br> 
+ 			 내용 : <input type="text" name="bcontent"> <br> 	
+             <button type="submit">쓰기</button>
+
+         
        </div>
+       <script type="text/javascript" src="../js/board/write.js">
+       
 </body>
 </html>
