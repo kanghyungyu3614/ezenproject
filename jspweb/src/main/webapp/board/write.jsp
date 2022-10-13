@@ -8,6 +8,9 @@
 </head>
 <body>
        <%@include file="../header.jsp"%>
+       
+       <% if (loginid == null) response.sendRedirect("http://localhost:8080/jspweb/member/login.jsp"); %>
+       
        <div class="webbox">
          <h3> 글쓰기 </h3>
          <!-- 1번 -->
