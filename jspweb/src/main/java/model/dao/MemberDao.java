@@ -1,6 +1,5 @@
 package model.dao;
 
-import java.nio.channels.SelectableChannel;
 import java.util.ArrayList;
 
 import model.dto.MemberDto;
@@ -179,21 +178,21 @@ public class MemberDao extends Dao {
 		}catch (Exception e) {System.out.println(e);} return false;
 	}
 	
-	// 12. 회원아이디 ----> 회원번호
-	public int getBno(String mid) {
-		String sql = "select mno from member where mid =?";
-		
+	// 12. 회원아이디 ---> 회원번호 
+	public int getMno( String mid) {
+		String sql = "select mno from member "
+				+ "where mid = ?";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, mid);
+			ps.setString( 1 , mid );
 			rs = ps.executeQuery();
-			// if문 (1개) vs while (여러개)
-			if( rs.next()) {
-				return rs.getInt(1);
-			}else { return 0;}
-		} catch (Exception e) {System.out.println(e);}
-		return 0;
+			//  if (1개) vs while (여러개)
+			if( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) { System.out.println(e);} return 0;
+		
 	}
+	
+	
 	
 	
 	
