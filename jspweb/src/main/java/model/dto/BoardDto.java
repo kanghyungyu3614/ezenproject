@@ -114,4 +114,10 @@ public class BoardDto {
 		return "BoardDto [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", mno=" + mno + ", bfile="
 				+ bfile + ", bdate=" + bdate + ", bview=" + bview + ", cno=" + cno + ", mid=" + mid + "]";
 	}
+	
+	
+	
+
+	
+	
 }

@@ -26,11 +26,13 @@ public class view extends HttpServlet {
 		
 		// 1. 세션 요청 [ 세션(Object) --> String -> int ] 
 			// 다형성 : 부모가 자식으로 강제 형변환 가능 
-		int bno = MemberDao.getInstance().getMno( (String)request.getSession().getAttribute("mid"));
+		int bno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("mid"));
 		// 2. DAO 처리 
+		System.out.println("bno 는?" +bno);
 		BoardDto dto = 
 		BoardDao.getInstance().getboard(bno);
 		// 3. DTO --> JSON 형변환
+		System.out.println("dto 는?" +dto);
 		JSONObject object = new JSONObject();
 		object.put("bno", dto.getBno());
 		object.put("btitle", dto.getBtitle());
