@@ -14,7 +14,7 @@
 	<div class="webbox">
 		<a href="write.jsp"> 글쓰기 </a>
 		<!-- JSP로 테이블 표시   [ 서블릿,js 제외한 ] -->
-		<table>
+<%-- 		<table>
 			<tr>
 				<th> 번호 </th> <th> 제목 </th> <th> 작성자 </th>
 			</tr>
@@ -33,13 +33,13 @@
 			<% 
 			}			// <%= 표현식(호출) 
 			%>
-		</table>
+		</table> --%>
 		
 		<!-- JS로 테이블 표시    [ HTML(JSP) --- JS ---- 서블릿 --- DAO ] -->
 		<table class="btalbe">
 			<tr>
-				<th> 번호 </th> <th> 제목 </th> <th> 작성자 </th>
-				<th>작성자</th><th>조회수</th>
+				<th> 번호 </th> <th> 제목 </th> <th>작성자</th> 
+				<th> 작성일 </th> <th> 조회수 </th>
 			</tr>
 		</table>
 	</div>

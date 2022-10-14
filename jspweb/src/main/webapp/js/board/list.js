@@ -11,7 +11,7 @@ function list(){ // 함수 정의한다
 			for( let i = 0 ;  i<boardlist.length ; i++){
 				// 1. i번째 객체 호출 
 				let b = boardlist[i]
-				console.log( "b"+ b )
+				console.log( b )
 				// 2. i번쨰 객체의 정보를 html 형식으로 변환해서 문자열에 저장
 				html += '<tr>' +
 							'<td>'+b.bno+'</td>'+
@@ -22,7 +22,7 @@ function list(){ // 함수 정의한다
 							'<td>'+b.bview+'</td>'+
 						'</tr>';
 			} // for end 
-			console.log( "html"+html )
+				console.log( html )
 			document.querySelector('.btalbe').innerHTML += html
 		}
 	})

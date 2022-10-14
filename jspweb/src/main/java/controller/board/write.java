@@ -57,7 +57,7 @@ public class write extends HttpServlet {
 			// new MultipartRequest( 1.요청방식 , 2.파일저장경로 , 3.최대용량범위(바이트) , 4.인코딩타입 , 5.기타(보안기능)  )
 						// 1비트( 0 , 1 )	--> 1바이트 ( 01011111 : 8비트 ) -> 1kb ( 1024b ) -> 1mb ( 1024kb ) -> 1G ( 1024MB )
 		// 1. 저장 경로 [ 프로젝트 저장 ] 
-		String uploadpath = "C:\\Users\\504t\\git\\ezen_web_2022_webapp\\jspweb\\src\\main\\webapp\\upload";
+		String uploadpath = "C:\\Users\\504\\git\\ezenproject\\jspweb\\src\\main\\webapp\\upload";
 		// 2. Multipart 객체 생성 
 		MultipartRequest multi = new MultipartRequest(
 							request ,  						// 1. 요청방식 

@@ -10,22 +10,19 @@ public class BoardDao extends Dao {
 	public static BoardDao getInstance() { return bdao; }
 	
 	// 1. 글등록 
-	public boolean write( String btitle , 
-			String bcontent , int mno , String bfile) {
+	public boolean write( String btitle , String bcontent , int mno , String bfile ) {
 		
-		String sql ="insert into board(btitle,bcontent,mno, bfile) "
+		String sql ="insert into board( btitle , bcontent , mno , bfile) "
 				+ "values( ? , ? , ? , ? )";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString( 1 , btitle );
-			ps.setString( 2 , bcontent );
-			ps.setInt( 3 , mno);
-			ps.setString( 4 , bfile);
+			ps.setString( 1 , btitle );	ps.setString( 2 , bcontent );
+			ps.setInt( 3 , mno);		ps.setString( 4 , bfile );
 			ps.executeUpdate(); return true;
 		}catch (Exception e) {System.out.println( e );}
 		return false;
 	}
-	// 2. 글출력 [ JSP 용 ] 
+	// 2. 글출력
 	public ArrayList< BoardDto > getlist( ) {
 		ArrayList< BoardDto > list = new ArrayList<>();
 		String sql = "select b.* , m.mid from member m , board b where m.mno = b.mno;";
@@ -50,7 +47,7 @@ public class BoardDao extends Dao {
 	
 	// 3. 글 조회
 	public BoardDto getboard( int bno) {
-		String sql ="select b.* , m.mid from member m , board b where m.mno = b.mno and bno = 1";
+		String sql ="select b.* , m.mid from member m , board b where m.mno = b.mno and bno = "+bno;
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();

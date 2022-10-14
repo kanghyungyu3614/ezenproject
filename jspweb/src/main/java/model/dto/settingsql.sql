@@ -60,3 +60,7 @@ select * from member , board where member.mno = board.mno;
 -- 4. 표시할 필드 선택 
 select b.bno , b.btitle , b.bcontent , b.bfile , b.bdate , b.bview , b.cno , b.mno , m.mid
 from member m , board b where m.mno = b.mno;
+-- 5. 모든 글출력 
+select b.* , m.mid from member m , board b where m.mno = b.mno;
+-- 5. 개별 글출력 
+select b.* , m.mid from member m , board b where m.mno = b.mno and bno = 1; -- 게시물번호 
