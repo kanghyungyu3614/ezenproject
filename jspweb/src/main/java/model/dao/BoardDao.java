@@ -65,6 +65,20 @@ public class BoardDao extends Dao {
 		return null;
 	}
 	
+	// 4. 글 삭제 
+	public boolean delete( int bno ) {
+		String sql = "delete from board "
+				+ " where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			int count = ps.executeUpdate(); 
+			if( count == 1 ) return true;
+		}catch (Exception e) {
+			System.out.println( e );
+		} return false;
+		
+	}
+	
 	
 	
 	

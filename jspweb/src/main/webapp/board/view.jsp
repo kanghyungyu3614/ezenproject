@@ -45,9 +45,15 @@
 			<tr> <td> 작성자 <td> <td class="mid"> 		</td> </tr>
 			<tr> <td> 첨부파일 <td> <td class="bfile"> 	</td> </tr>
 		</table>
+		
+		<div class="btnbox">
+			<a href="list.jsp"><button>목록보기</button></a>	
+		</div>
+		
 	</div>
 	
 	<script type="text/javascript" src="../js/board/view.js"></script>
 
 </body>
 </html>
+

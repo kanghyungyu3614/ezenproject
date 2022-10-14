@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import model.dao.BoardDao;
+import model.dao.MemberDao;
 import model.dto.BoardDto;
 
 /**
@@ -25,7 +26,7 @@ public class view extends HttpServlet {
 		
 		// 1. 세션 요청 [ 세션(Object) --> String -> int ] 
 			// 다형성 : 부모가 자식으로 강제 형변환 가능 
-		int bno = (Integer)request.getSession().getAttribute("bno");
+		int bno = MemberDao.getInstance().getMno( (String)request.getSession().getAttribute("mid"));
 		// 2. DAO 처리 
 		BoardDto dto = 
 		BoardDao.getInstance().getboard(bno);
@@ -36,6 +37,19 @@ public class view extends HttpServlet {
 		object.put("bcontent", dto.getBcontent());
 		object.put("mid", dto.getMid() );
 		object.put("bfile", dto.getBfile() );
+		
+			// * 삭제 , 수정 버튼을 활성화를 위한 식별변수 선언 [ 본인글 판단 ]
+			// 1. 로그인한 세션 정보 호출 
+			String mid = (String)request.getSession().getAttribute("mid");
+			System.out.println(  mid );
+			System.out.println(  dto.getMid() );
+			// 2. 로그인한 세션과 현재 게시물의 작성자와 일치하면
+			if( mid != null && mid.equals( dto.getMid() )) {
+			// 로그인 했으   면서  로그인된아이디와 현재게시물의 작성자 아이디 가 동일하면 
+				object.put("btnaction", true );
+			}
+		
+		
 		// 4. 응답 
 		response.setCharacterEncoding("utf-8");
 		response.getWriter().print( object );
