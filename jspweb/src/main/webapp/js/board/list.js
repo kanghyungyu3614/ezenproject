@@ -29,6 +29,7 @@ function list(){ // 함수 정의한다
 }
 
 function viewload( bno ){
+	alert( bno )
 	$.ajax({
 		url : "http://localhost:8080/jspweb/board/viewload" , 
 		data : { "bno" : bno },

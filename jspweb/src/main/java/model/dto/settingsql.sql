@@ -63,4 +63,4 @@ from member m , board b where m.mno = b.mno;
 -- 5. 모든 글출력 
 select b.* , m.mid from member m , board b where m.mno = b.mno;
 -- 5. 개별 글출력 
-select b.* , m.mid from member m , board b where m.mno = b.mno and bno = 1; -- 게시물번호 
+select b.* , m.mid from member m , board b where m.mno = b.mno and bno = 1; -- 게시물번호
