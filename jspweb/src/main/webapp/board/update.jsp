@@ -15,25 +15,16 @@
 	<% if( loginid == null ) response.sendRedirect("http://localhost:8080/jspweb/member/login.jsp");  %>
 	
 	<div class="webbox">
-		<h3> 글수정 </h3>
-		
-		<!-- 1. form = [페이지전환O]  2. ajax = [페이지전환X]  선택  -->
-		<!-- 1.  -->  
-		<!--
-		<form method="get" action="http://localhost:8080/jspweb/board/write">
-			제목 : <input type="text" name="btitle"> <br>
-			내용 : <input type="text" name="bcontent">
-			<button type="submit">쓰기</button>
-		</form>
-		 -->
-		 
+		<h3> 글쓰기 </h3>
 		<!--  2.  -->
 		<form>
-			제목 : <input type="text" name="btitle"> <br>
-			
+			제목 : <input type="text" name="btitle" class="btitle"> <br>
 			<!-- 썸머노트  -->
-			<textarea id="summernote" name="bcontent"></textarea>
-			첨부파일 : <input type="file" name ="bfile"> <br>
+			<textarea id="summernote" name="bcontent" class="bcontent"></textarea>
+			첨부파일 : <input type="file" name ="bfile" class="bfile"> <br>
+			<!-- 기존 첨부파일 이름과 삭제버튼 표시 구역 -->
+			<div class="oldbfilebox" id="oldbfilebox"></div>
+			
 			<!-- form 태그 안에서 button 사용시에는 type 필수 넣기 -->
 			<button type="button" onclick="bupdate()">수정</button>
 		</form>

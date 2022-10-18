@@ -42,6 +42,11 @@
 				<th> 작성일 </th> <th> 조회수 </th>
 			</tr>
 		</table>
+		
+		<div class="pagebox">
+			
+		</div>
+		
 	</div>
 	
 	<script type="text/javascript" src="../js/board/list.js"></script>
