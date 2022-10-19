@@ -49,13 +49,13 @@ CREATE TABLE board(
     constraint bcno_fk foreign key (cno) references category(cno) on update cascade ,
     constraint bmno_fk foreign key (mno) references member(mno) on delete cascade
 );
--- 댓글 : 1.게시물번호 2.회원번호 3.내용
-
+-- 댓글 : 1.게시물번호 2.회원번호 3.내용 4.답글식별필드
 drop table if exists reply;
 create table reply(
 	rno 		int  auto_increment, -- 댓글식별번호 
     rcontent 	varchar(1000) not null , -- 댓글내용
     rdate		datetime  default now(),  -- 댓글작성일
+    rindex		int default 0 , -- 댓글 과 대댓글 식별 필드 [ 0:상위댓글 , 숫자:상위댓글번호 ] 
     mno			int not null,-- 작성자 회원번호
     bno			int not null,-- 게시물번호 
     constraint rno_pk primary key(rno) ,
@@ -63,7 +63,18 @@ create table reply(
     constraint rbno_fk foreign key (bno ) references board(bno) on delete cascade -- 게시물삭제시 댓글도 같이 삭제
 );
 select * from reply;
-
+select r.rcontent , r.rdate , m.mid from reply r , member m where r.mno = m.mno and r.bno = 33;
+-- 댓글만 출력 
+select * from reply where rindex = 0;
+-- 1번 댓글의 답글만 출력 
+select * from reply where rindex = 1;
+-- 해당 게시물의 댓글만 출력 			[ 33번 게시물의 댓글만 출력 ]
+select r.rcontent , r.rdate , m.mid , r.rno
+from reply r , member m 
+where r.mno = m.mno and r.bno = 33 and r.rindex = 0 
+order by r.rdate desc;
+-- 해당 게시물의 1번 댓글의 답글만 출력 	[ 33번 게시물의 1번 댓글의 답글 출력  ]
+select r.rcontent , r.rdate , m.mid from reply r , member m where r.mno = m.mno and r.bno = 33 and r.rindex = 1;
 
 
 

@@ -156,12 +156,24 @@ public class BoardDao extends Dao {
 		}catch (Exception e) {System.out.println(e);} return false;
 	}
 	
+	// 9-2. 대댓글 작성 
+	public boolean rrwrite( String rcontent , int mno , int bno , int rindex ) {
+		String sql = "insert into reply( rcontent , mno , bno , rindex ) values( ? , ? , ? , ? )";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , rcontent ); 	ps.setInt( 2 , mno ); 
+			ps.setInt( 3 , bno );			ps.setInt( 4 , rindex );
+			ps.executeUpdate(); return true;
+		}catch (Exception e) {System.out.println(e);} return false;
+	}
+	
 	// 10. 댓글 호출
 	public JSONArray getrlist( int bno ) {
 		JSONArray array = new JSONArray();
-		String sql = "select r.rcontent , r.rdate , m.mid , r.rno "
-				+ "from reply r , member m "
-				+ "where r.mno = m.mno and r.bno = "+bno;
+		String sql = "select r.rcontent , r.rdate , m.mid , r.rno"
+				+ " from reply r , member m "
+				+ " where r.mno = m.mno and r.bno = "+bno+" and r.rindex = 0 "
+				+ " order by r.rdate desc";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -174,6 +186,25 @@ public class BoardDao extends Dao {
 				array.add(object);
 			}
 		}catch (Exception e) {} return array;
-		
+	}
+	// 10-2. 대댓글 호출
+	public JSONArray getrrlist( int bno , int rindex ) {
+		JSONArray array = new JSONArray();
+		String sql = "select r.rcontent , r.rdate , m.mid , r.rno"
+				+ " from reply r , member m "
+				+ " where r.mno = m.mno and r.bno = "+bno+" and r.rindex = "+rindex
+				+ " order by r.rdate desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				JSONObject object = new JSONObject();
+				object.put( "rcontent", rs.getString(1) );
+				object.put( "rdate", rs.getString(2) );
+				object.put( "mid", rs.getString(3) );
+				object.put( "rno", rs.getInt(4) );
+				array.add(object);
+			}
+		}catch (Exception e) {} return array;
 	}
 }

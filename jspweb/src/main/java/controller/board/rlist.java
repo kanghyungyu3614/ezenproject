@@ -17,10 +17,21 @@ import model.dao.BoardDao;
 @WebServlet("/reply/rlist")
 public class rlist extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int bno = (Integer)request.getSession().getAttribute("bno"); // 1. 요청
-		JSONArray array = BoardDao.getInstance().getrlist( bno ); 		// 2. dao처리 
-		response.setCharacterEncoding("UTF-8"); 		// 3. 결과
+		// 1. 요청
+		String type = request.getParameter("type");
+		int bno = (Integer)request.getSession().getAttribute("bno");
+		JSONArray array = new JSONArray();
+		// 2. dao처리 
+		if( type.equals("reply") ) {	// 댓글 
+			array = BoardDao.getInstance().getrlist( bno ); 		
+		}else if( type.equals("rereply") ) { // 대댓글
+			int rindex = Integer.parseInt( request.getParameter("rno") ); // 상위댓글의 번호 호출
+			array = BoardDao.getInstance().getrrlist( bno , rindex ); 		
+		}
+		// 3. 결과
+		response.setCharacterEncoding("UTF-8"); 		
 		response.getWriter().print( array );
+	
 	}
 	private static final long serialVersionUID = 1L;
        
