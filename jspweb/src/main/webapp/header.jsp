@@ -59,6 +59,7 @@
 			<li><a href="#"> 트레이닝 </a></li>
 			<li><a href="#"> 50% 할인 </a></li>
 			<li><a href="#"> MUSCLE-FIT </a></li>
+			<li><a href="/jspweb/board/chatting.jsp"> 채팅방 </a></li>
 			<li class="searchbox">
 				<span>
 					<input>
