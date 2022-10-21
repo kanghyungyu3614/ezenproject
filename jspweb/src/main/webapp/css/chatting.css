@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/*
+	부트스트랩 5.2.2
+		container : 박스권
+		row : 하위 태그 가로배치
+			* 그리드 [ 12조각 ]
+			col-sm-숫자 
+			offset-숫자 : 공백 그리드
+		
+		m : 바깥여백 
+		my : 위/아래 바깥여백
+		mx : 왼쪽/오른쪽 바깥여백
+		
+		rounded-circle : 이미지 원형
+		
+		g-0 : 커터 [ 하위 태그들간의 여백 제거 ]
+		
+		form-control : 폼양식 기본 꾸미기
+		
+		* 드롭다운 
+			dropdown-toggle : 드롭다운 버튼 
+			dropdown-menu : 드롭다운 클릭시 표시되는 구역
+		
+*/
+/* 사용자 정의 css */
+
+.chattingbox{ border : 3px solid #f9f9f9; }
+
+.contentbox{ /* 채팅창 */
+	background-color: #b2c7d9;
+	height: 700px; 
+}
+.secontent{ /* 보낼때 */
+	text-align: right; /* 텍스트 오른쪽배치 */
+}
+.secontent .content{ /* 보낼때 */
+	background-color: #ffeb33;
+}
+.content{ /* 메시지 내용 */
+	background-color: #ffffff;
+	border-radius: 10px; /* 모서리 둥글게 */
+	padding: 10px;
+	max-width: 70%;
+	word-break:break-all; 
+	/* 박스권 사이즈보다 텍스트가 더 길어지면 자동줄바꿈*/
+	display: inline-block;
+	font-size: 12px;
+}
+.date{ /* 날짜 표시 */
+	font-size: 1px; margin: 5px 2px;
+}
+.alarm{  /* 알림 표시 */
+	width: 70%; margin: 0 auto;
+	text-align: center; font-size: 5px;
+	padding: 2%;
+	background-color: #a9bdce;
+}
+.name{ font: 12px; }
+
+.msgbox{ resize: none; } /* textarea 크기 변경불가 */
