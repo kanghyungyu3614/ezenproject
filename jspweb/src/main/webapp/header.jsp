@@ -61,6 +61,7 @@
 			<li><a href="#"> BEST </a></li>
 			<li><a href="#"> 트레이닝 </a></li>
 			<li><a href="#"> 50% 할인 </a></li>
+			<li><a href="/jspweb/board/api.jsp"> 공공데이터 </a></li>
 			<li><a href="/jspweb/board/chatting.jsp"> 채팅방 </a></li>
 			<li class="searchbox">
 				<span>
@@ -79,6 +80,13 @@
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>
+
+<!-- 헤데파일 [ 모든 페이지에서 호출되는 파일 ] 
+	 경로 : 상대경로 x  
+	 절대경로: 프로젝트 경로
+	 상대경로: 이 파일 기준 
+	 / : 최상위 경로 : localhost:8080/board
+-->
 
 
 
