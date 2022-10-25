@@ -36,7 +36,8 @@
 			<% if( loginid == null ){ %>
 				<li> <a href="/jspweb/member/login.jsp">로그인</a> </li>
 				<li> <a href="/jspweb/member/signup.jsp">회원가입</a></li>
-				
+			<%	}else if(loginid.equals("admin")){ %>	
+				<li> <a href="/jspweb/admin/dashboard.jsp">관리자모드</a></li>
 			<!-- 로그인 메뉴  // 세션이 존재한다.    로그인 했다..  -->
 			<%	}else{  %>
 				<li> <%=loginid %>님 안녕하세요 </li>
