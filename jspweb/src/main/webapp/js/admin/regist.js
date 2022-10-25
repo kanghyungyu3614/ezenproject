@@ -32,12 +32,48 @@ pimg.addEventListener( 'change' , function(e){ //  e : 첨부파일 input change
 // 3. 카테고리 추가 버튼을 눌렀을때 이벤트 
 function pcategoryview(){
 	document.querySelector('.pcategoryaddbox').innerHTML
-		= ' <input type="text" name="pcname">'+
+		= ' <input type="text" id="pcname">'+
 					'<button type="button" onclick="pcategoryadd()">카테고리 등록</button>'
 }
 
+// 4. 카테고리 등록 버튼을 눌렀을때 이벤트
+function pcategoryadd(){
+	$.ajax({
+		url : "/jspweb/board/pcategory",
+		type : "post",
+		data : {"pcname" : document.querySelector('#pcname').value},
+		success: function(re){
+			if(re =='true'){
+				alert("카테고리등록");
+				document.querySelector('.pcategoryaddbox').innerHTML = '';
+				getpcategory()// 카테고리 호출 메소드 실행
+			}else{
+				alert("카테고리실패");
+			}
+		}
+	})
+}
 
-
+// 5. 카테고리 호출 메소드 [ 실행조건 : 페이지 열렸을때 ]
+getpcategory()
+function getpcategory(){
+			$.ajax({
+		url : "/jspweb/board/pcategory",
+		type : "get",
+		success: function(re){
+			let json = JSON.parse(re);
+			console.log(json);
+			
+			let html = ''
+			
+			for(let i=0; i<json.length; i++){
+				let category = json[i];
+				html += '<input type="radio" name="pcno" value='+category.pcno+'>'+category.pcname+'';
+			}
+			document.querySelector(".pcategorybox").innerHTML = html;
+		}
+	})
+}
 
 
 
