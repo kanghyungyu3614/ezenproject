@@ -62,6 +62,52 @@ create table reply(
     constraint rmno_fk foreign key (mno) references member(mno) on delete cascade, -- 회원탈퇴시 댓글도 같이 삭제
     constraint rbno_fk foreign key (bno ) references board(bno) on delete cascade -- 게시물삭제시 댓글도 같이 삭제
 );
+
+-- 제품 테이블 --
+drop table if exists pcategory;
+drop table if exists product;
+create table pcategory( /* 제품 카테고리 테이블 */
+	pcno  int auto_increment,   				/* 카테고리번호  */
+    pcname varchar(100) , 						/* 카테고리이름  */
+    constraint pcno_pk primary key( pcno )
+);
+
+create table product( /* 제품 테이블 */
+	pno int auto_increment ,  /*제품번호*/
+    pname varchar(100)  , /*제품명*/
+    pcomment varchar(1000) , /* 제품설명 */
+    pprice int unsigned ,  /*  +-20억    unsigned ---> 0~40억   : 제품가격 */
+    pdiscount float , /* 할인율[소수점] */ 
+    pactive tinyint , /* 상태 : 0[준비중] , 1:판매중 , 2:재고없음  뜻함 */
+    pimg varchar(1000) , /* 대표 이미지 경로 */ 
+    pdate datetime default now() , 	/* 등록날짜 */
+    pcno int , /* 제품카테고리의 FK */ 
+    constraint pno_pk primary key ( pno ),
+    constraint pcno_fk foreign key ( pcno ) references pcategory( pcno ) /* pcategory[pk:pcno]  <-------->  product[fk:pcno] */
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 select * from reply;
 select r.rcontent , r.rdate , m.mid from reply r , member m where r.mno = m.mno and r.bno = 33;
 -- 댓글만 출력 
@@ -144,3 +190,4 @@ limit 0 , 3 ;
             필드명 like 김__	: 김으로 시작하는 세글자 
             필드명 like _김_	: 두번째 글자가 '김'인 세글자 
 */
+
