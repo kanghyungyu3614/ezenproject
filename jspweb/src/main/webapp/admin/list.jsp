@@ -1,6 +1,6 @@
-<%@page import="model.dao.ProductDao"%>
 <%@page import="model.dto.ProductDto"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="model.dao.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,35 +13,25 @@
 
 	<div class="container">
 	
-	
-	<% 
-	
-		// 서블릿[자바 코드를 입력할수 있는 공간]
-		ArrayList<ProductDto> list = new ProductDao().getProductlist(); 
-	
-	%>
-	<table>
-		<tr>
-			<th>제품명</th><th>제품이미지</th>
-		</tr>
-		<%
-			for(int i=0; i<list.size(); i++){
-		%>
+		<table id="table">
 			<tr>
-				<td><%=list.get(i).getPname()%></td>
-				<td><img alt="" src="/jspweb/admin/pimg/<%=list.get(i).getPimg()%>"></td>
-			
+				<th> 제품이미지 </th> 
+				<th> 제품번호 </th>
+				<th> 카테고리 </th>
+				<th> 제품명 </th>
+				<th> 가격 </th>
+				<th> 할인율 </th>
+				<th> 판매가[가격*할인율] </th>
+				<th> 판매상태 </th>
+				<th> 등록날짜 </th>
 			</tr>
-		<% 		
-			}
-		%>
-		
-		
-		
-	</table>
-	
-	
+		</table>
 	</div>
-	<script type="text/javascript" src="../js/list.js"></script>
+	
+	<script src="../js/admin/list.js" type="text/javascript"></script>
+
 </body>
 </html>
+
+
+
