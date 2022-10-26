@@ -11,7 +11,8 @@ function regist(){
 		processData : false ,
 		contentType : false ,
 		success: function( re ){ 
-			console.log( re )
+			if(re=='true'){alert("제품등록")}
+			else{alert("제품등록실패")}
 		 }
 	})
 }

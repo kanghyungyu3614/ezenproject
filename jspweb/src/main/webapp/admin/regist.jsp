@@ -21,8 +21,7 @@
 				</span>
 				
 				<div class="pcategorybox"> <!-- 카테고리 목록 구역  -->
-					<input type="radio" name="pcno"> 신발
-					<input type="radio" name="pcno"> 가방
+					
 				</div>
 				
 			상품대표이미지 : <input type="file" id="pimg" name="pimg"> <br>
