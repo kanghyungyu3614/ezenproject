@@ -3,14 +3,17 @@ getproduct()
 function getproduct(){
 	$.ajax({
 		url :"/jspweb/admin/regist" ,
-		data : { "type" : 1 } , 	// 타입이 1 이면 모든 제품 호출 
+		data : { "type" : 1 , "option" : "all" } , 	// 타입이 1 이면 모든 제품 호출 
 		type : "get", // 해당 서블릿주소의 doGet메소드과 통신
 		success : function( re ){
+			
 			let json = JSON.parse( re )
 			let html = '';
 			// forEach( 반복변수명 => { 실행문 } ) : 인덱스 존재하는 객체에 한해 사용가능
 			json.forEach( p => {
 				// 반복변수명에 인덱스객체 하나씩 대입 
+				console.log("p에는 무엇이 들어있을까요?")
+				console.log(p)				
 				html +=  `<tr>`+
 						`	<td> <img src="/jspweb/admin/pimg/${p.pimg}" style="width:100%"> </td> `+
 						`	<td> ${p.pno} </td>`+
@@ -18,7 +21,7 @@ function getproduct(){
 						`	<td> ${p.pname}  </td>`+
 						`	<td> ${p.pprice}  </td>`+
 						`	<td> ${p.pdiscount}  </td>`+
-						`	<td> ${ p.pprice -(p.pprice * p.pdiscount) }  </td>`+
+						`	<td> ${p.pprice -(p.pprice * p.pdiscount) }  </td>`+
 						`	<td> ${p.pactive}  </td>`+
 						`	<td> ${p.pdate}  </td>`+
 						`	<td> `+
@@ -45,9 +48,10 @@ function updatemodal( pno ){
 			type : "get" ,
 			success : function( re ){ 
 				let json = JSON.parse(re);
-				console.log("json")
-				console.log(json)
+				console.log("2-1 수정모달 실행 메소드에 있는 json")
+				console.log(json)				
 				document.querySelector('.pno').value = json.pno
+				document.querySelector('.pcno').value = json.pcno
 				document.querySelector('.pname').value = json.pname
 				document.querySelector('.pcomment').value = json.pcomment
 				document.querySelector('.pprice').value = json.pprice
@@ -57,31 +61,39 @@ function updatemodal( pno ){
 }
 // 2-2. 수정 처리 메소드 
 function updateproduct(){
-	alert('업데이트 진행')
+	
 	
 	// 1. 수정할 정보
-	let form = document.querySelector('.updateform')
+	let form = document.querySelector(".updateform")
 	let formdata = new FormData(form);
+	
+	console.log( "* : " + document.querySelector(".pname").value )
+	
+	console.log( form )
+	console.log( formdata )
+	console.log( formdata.get("pname") )
+	
 	  // formdata 속성 추가
 		//formdata.set('속성명' : 데이터)
 		//formdata.set('pno' : pno)
 	// 2. 수정할 대상
-	
-	
-	
 	$.ajax({
 		url : "/jspweb/admin/regist",
 		type : "put",
-		data: formdata,
-		processData : false,
-		contentType : false,
+		data : formdata , 
+		processData : false , 
+		contentType : false , 
 		success : function (re){
+			alert(re)
 			if(re == 'true'){
 				alert('수정완료')
+				console.log("2-2 수정 처리 메소드에 있는 콘솔")
 				// 1. 모달닫기
 				document.querySelector(".modelclosebtn").click() // 클릭이벤트
 				// 새로고침
 				pagechage('list.jsp');
+			}else{
+				console.log("수정실패")
 			}
 			
 		}

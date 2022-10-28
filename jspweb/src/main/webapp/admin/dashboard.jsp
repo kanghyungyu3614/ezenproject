@@ -30,7 +30,6 @@
 			<li class="side_item"><a href="#">매출 관리</a></li>
 			<li class="side_item"><a href="#">회원 목록</a></li>
 			<li class="side_item"><a href="#">배송 관리</a></li>
-			
 			<li class="side_item"><a href="/jspweb/member/logout.jsp">로그 아웃</a></li>
  		</ul>
 	</div>

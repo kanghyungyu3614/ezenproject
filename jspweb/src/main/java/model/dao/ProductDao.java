@@ -47,9 +47,17 @@ public class ProductDao extends Dao {
 		
 	}
 	// 4. 제품 출력  [ R ]
-	public ArrayList< ProductDto > getProductlist(){
+	public ArrayList< ProductDto > getProductlist( String option ){
+		
 		ArrayList< ProductDto > list = new ArrayList<>();
-		String sql = "select * from product";
+		String sql = null;
+		if( option.equals("all") ) { // 1. 조건없는 모든 제품 출력 
+			 sql = "select * from product";
+		}else if( option.equals("pactive1")) { // 2. [ 판매중 ] 상태 만 모든 제품 출력 
+			 sql = "select * from product where pactive = 1 order by pdate desc";
+		}
+
+				
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -95,34 +103,23 @@ public class ProductDao extends Dao {
 		}catch (Exception e) {System.out.println(e);} return null;
 	}
 	
-	// 7. 제품 정보 교체하기
- 	public boolean ChangeProduct(ProductDto dto) {
- 		//pno , pname, 
- 		//pcomment,pprice, 
- 		//pdiscount, (byte) 0 ,
- 		//pimg, null, 0 );
- 		String sql = "update product set pname = ? , "
- 				+ " pcomment=? , pprice = ? ,"
- 				+ " pdiscount=? , pactive=?,"
- 				+ " pimg=? "
- 				+ " where pno = ?";
- 		//update jspweb.product set pname = "제품등록", pprice = 120000, pdiscount=0.2, pimg="bread112.png" where pno =3;
- 		//ProductDto dto = new ProductDto( 0 , pname, pcomment,pprice, pdiscount, (byte) 0 ,pimg, null, pcno );
- 		try {
- 			ps = con.prepareStatement(sql);
- 			ps.setString(1, dto.getPname());
- 			ps.setString(2, dto.getPcomment());
- 			ps.setInt(3, dto.getPprice());
- 			ps.setFloat(4, dto.getPdiscount());
- 			ps.setByte(5, dto.getPactive());
- 			ps.setString(6, dto.getPimg());
- 			ps.setInt(7, dto.getPno());
- 			ps.executeUpdate(); return true;
- 		}catch (Exception e) {System.out.println(e);} return false;
- 	}
-	
+	// 7. 제품 업데이트 
+	public boolean updateProduct( ProductDto dto ) {
+		String sql = "update product set pname = ? , pcomment=? , pprice=? , pdiscount=? , pactive=? , pimg=? , pcno=? "
+				+ "where pno = ?";
+		try {
+			System.out.println("dto.getPcno()");
+			System.out.println(dto.getPcno());
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 , dto.getPname());	ps.setString( 2 , dto.getPcomment());
+			ps.setInt( 3 , dto.getPprice());	ps.setFloat( 4 , dto.getPdiscount());
+			ps.setByte( 5 , dto.getPactive());	ps.setString( 6 , dto.getPimg());
+			ps.setInt( 7 , dto.getPcno());		ps.setInt( 8 , dto.getPno());
+			ps.executeUpdate(); return true;
+		}catch (Exception e) { System.out.println(e);	} return false;
+	}
 }
-	
+
 
 
 
