@@ -108,8 +108,6 @@ public class ProductDao extends Dao {
 		String sql = "update product set pname = ? , pcomment=? , pprice=? , pdiscount=? , pactive=? , pimg=? , pcno=? "
 				+ "where pno = ?";
 		try {
-			System.out.println("dto.getPcno()");
-			System.out.println(dto.getPcno());
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , dto.getPname());	ps.setString( 2 , dto.getPcomment());
 			ps.setInt( 3 , dto.getPprice());	ps.setFloat( 4 , dto.getPdiscount());

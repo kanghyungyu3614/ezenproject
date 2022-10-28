@@ -65,13 +65,12 @@ create table reply(
 
 -- 제품 테이블 --
 drop table if exists pcategory;
-drop table if exists product;
 create table pcategory( /* 제품 카테고리 테이블 */
 	pcno  int auto_increment,   				/* 카테고리번호  */
     pcname varchar(100) , 						/* 카테고리이름  */
     constraint pcno_pk primary key( pcno )
 );
-
+drop table if exists product;
 create table product( /* 제품 테이블 */
 	pno int auto_increment ,  /*제품번호*/
     pname varchar(100)  , /*제품명*/

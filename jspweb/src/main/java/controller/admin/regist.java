@@ -121,7 +121,9 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 				"UTF-8", 
 				new DefaultFileRenamePolicy() );
 		
-		System.out.println("1번: 여기까지는 되나?? ㅠ");
+		
+		int pno = Integer.parseInt( multi.getParameter("pno") );	// 수정할 대상 
+		byte pactive = Byte.parseByte(multi.getParameter("pactive")); // 제품상태
 		
 		String pname = multi.getParameter("pname");			
 		String pcomment = multi.getParameter("pcomment");	
@@ -132,30 +134,22 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 		int pcno = Integer.parseInt( multi.getParameter("pcno") );	// 수정할 대상 
 		
 		
-		System.out.println(pactive);
-		System.out.println(pname);
-		System.out.println(pcomment);
-		System.out.println(pprice);
-		System.out.println(pdiscount);
-		System.out.println(pcno);
 		// 과제
-		System.out.println("2번: 여기까지는 되나?? ㅠ");
 		// * 기존첨부파일 변경 여부 판단 
 		boolean bfilechange = true;
+		ProductDto olddto = new ProductDao().getpProduct( pno );
 		
-//		 // *. 수정시 첨부파일 등록 없을경우 [ 기존첨부파일 호출  ]
-//		if( pimg == null ) {  pimg = olddto.getPimg(); bfilechange =false; }
+		 // *. 수정시 첨부파일 등록 없을경우 [ 기존첨부파일 호출  ]
+		if( pimg == null ) {  pimg = olddto.getPimg(); bfilechange =false; }
 		
-		//ProductDto dto = new ProductDto( pno , pname, pcomment,pprice, pdiscount, pactive ,pimg, null, pcno );
+		ProductDto dto = new ProductDto( pno , pname, pcomment,pprice, pdiscount, pactive ,pimg, null, pcno );
 
-		//boolean result = new ProductDao().updateProduct(dto);
+		boolean result = new ProductDao().updateProduct(dto);
 		
-		// 4.dao 처리 [ 업데이트 = 새로운 첨부파일 ] , olddto.getPimg() );
-		//if( result && bfilechange ) {  deletefile( request.getSession(), olddto.getPimg() );  }
+		// 4.dao 처리 [ 업데이트 = 새로운 첨부파일 ]
+		if( result && bfilechange ) {  deletefile( request.getSession() , olddto.getPimg() ); }
 		
-		//response.getWriter().print(result);
-		
-		response.getWriter().print("aaaa");
+		response.getWriter().print(result);
 		
 	}
 	

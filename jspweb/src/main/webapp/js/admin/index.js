@@ -9,6 +9,7 @@ function getpactive1(){
 			console.log(json);
 			let html = '';
 			json.forEach(p => {//"/jspweb/admin/pimg/${p.pimg}" style="width:100%"
+			console.log(p);
 				html +=  '<div class="item"> <!-- 1개의 제품[아이템] -->'+
 								'<a href="#">'+
 									`<img src="/jspweb/admin/pimg/${p.pimg}" style="width:100%"> <!--  대표 이미지 -->`+
@@ -21,9 +22,9 @@ function getpactive1(){
 								''+
 								'<div class="item_size"> [FREE] </div>'+
 								''+
-								'<div class="item_price"> 200,000 원 </div> <!-- 원가 -->'+
+								`<div class="item_price">${p.pprice}</div> <!-- 원가 -->`+
 								'<div>   <!-- 할인된 가격, 할인율 -->'+
-									`<span class="item_sals">${p.pprice}</span>`+
+									`<span class="item_sals">${p.pprice -(p.pprice * p.pdiscount)}</span>`+
 									'<span class="item_discount">90%</span>'+
 								'</div>'+
 								'<div>리뷰수 412</div> <!-- 리뷰 --> '+

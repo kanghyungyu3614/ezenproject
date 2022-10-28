@@ -56,6 +56,40 @@ function updatemodal( pno ){
 				document.querySelector('.pcomment').value = json.pcomment
 				document.querySelector('.pprice').value = json.pprice
 				document.querySelector('.pdiscount').value = json.pdiscount
+				
+				// 카테고리 호출 
+						$.ajax({
+							url : "/jspweb/board/pcategory" , 
+							type : "get" , 
+							success:function(re){
+								let json2 = JSON.parse(re)
+								let html = ''
+								for( let i = 0 ; i<json2.length ; i++ ){
+									let category = json2[i];
+									if( category.pcno == json.pcno ){
+										
+										html += '<input checked type="radio" name="pcno" value='+category.pcno+'>'+category.pcname;
+									}else{
+										html += '<input type="radio" name="pcno" value='+category.pcno+'>'+category.pcname;
+									}
+									
+								}
+								document.querySelector(".pcategorybox").innerHTML = html;
+							}
+						})
+						
+						// 제품 상태 호출 
+						let pactivebtns =  document.querySelectorAll('.pactive');
+						if( json.pactive == 0 ){ pactivebtns[0].checked = true }
+						if( json.pactive == 1 ){ pactivebtns[1].checked = true }
+						if( json.pactive == 2 ){ pactivebtns[2].checked = true }
+				
+				
+				
+				
+				
+				
+				
 			}
 		})
 }
@@ -66,12 +100,6 @@ function updateproduct(){
 	// 1. 수정할 정보
 	let form = document.querySelector(".updateform")
 	let formdata = new FormData(form);
-	
-	console.log( "* : " + document.querySelector(".pname").value )
-	
-	console.log( form )
-	console.log( formdata )
-	console.log( formdata.get("pname") )
 	
 	  // formdata 속성 추가
 		//formdata.set('속성명' : 데이터)
