@@ -73,6 +73,7 @@ function getpcategory(){
 				html += '<input type="radio" name="pcno" value='+category.pcno+'>'+category.pcname+'';
 			}
 			document.querySelector(".pcategorybox").innerHTML = html;
+			
 		}
 	})
 }
