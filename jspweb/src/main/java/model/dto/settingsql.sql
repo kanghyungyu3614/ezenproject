@@ -86,6 +86,25 @@ create table product( /* 제품 테이블 */
 );
 
 
+drop table if exists productsize;
+create table productsize(
+	psno	int auto_increment , 
+    psize	varchar(100) , 
+    pno		int  , 
+	constraint psno_pk primary key( psno ) ,
+    constraint pno_fk foreign key ( pno ) references product( pno )
+);
+/* 사이즈별 색상재고 테이블 : 사이즈별[psno] 색상[pcolor] 재고[pstock] 저장 */
+drop table if exists productstock;
+create table productstock(
+	pstno	int auto_increment , 
+    pcolor 	varchar(100) , 
+    pstock int ,
+    psno int , 
+    constraint pstno_pk primary key( pstno ) , 
+    constraint psno_fk	foreign key( psno ) references productsize( psno )
+);
+
 
 
 
@@ -189,4 +208,3 @@ limit 0 , 3 ;
             필드명 like 김__	: 김으로 시작하는 세글자 
             필드명 like _김_	: 두번째 글자가 '김'인 세글자 
 */
-

@@ -14,7 +14,7 @@ mainbox.addEventListener( 'click' , function(){
 })
 
 //////////// 본문 전환 이벤트 ///////////
-function pagechage( page ){
+function pagechange( page ){
 	// (정의) 특정 태그에 해당 파일 로드 [ jquery ]
 	$("#mainbox").load( page )
 }
