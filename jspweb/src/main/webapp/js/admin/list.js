@@ -11,9 +11,7 @@ function getproduct(){
 			let html = '';
 			// forEach( 반복변수명 => { 실행문 } ) : 인덱스 존재하는 객체에 한해 사용가능
 			json.forEach( p => {
-				// 반복변수명에 인덱스객체 하나씩 대입 
-				console.log("p에는 무엇이 들어있을까요?")
-				console.log(p)				
+				// 반복변수명에 인덱스객체 하나씩 대입 			
 				html +=  `<tr>`+
 						`	<td> <img src="/jspweb/admin/pimg/${p.pimg}" style="width:100%"> </td> `+
 						`	<td> ${p.pno} </td>`+

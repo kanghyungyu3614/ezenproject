@@ -85,7 +85,7 @@ create table product( /* 제품 테이블 */
     constraint pcno_fk foreign key ( pcno ) references pcategory( pcno ) /* pcategory[pk:pcno]  <-------->  product[fk:pcno] */
 );
 
-
+/* 제품별 사이즈 테이블  : 제품별[pno] 사이즈[psize] 저장 */
 drop table if exists productsize;
 create table productsize(
 	psno	int auto_increment , 

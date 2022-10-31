@@ -40,6 +40,7 @@ pselect.addEventListener( 'click' , e => {
 			rows[0].innerHTML = p.pcno
 			rows[1].innerHTML = p.pno
 			rows[2].innerHTML = p.pname
+			getstock() // 페이지로드 될때 실행
 		}
 	})
 })
@@ -79,6 +80,72 @@ function getproduct( pcno ){
 		}
 	});
 }
+
+// 3. 제고 등록 버튼을 눌렀을때 
+function setstock(){
+	// 1. 등록할 데이터 구성[객체화]한다. vs form [ 첨부파일 있을경우 ]
+	let info = {
+		psize : document.querySelector('.psize').value,
+		pcolor : document.querySelector('.pcolor').value, 
+		pstock : document.querySelector('.pstock').value, 
+		pno : rows[1].innerHTML
+	}
+	console.log(info)
+	// 2. 통신
+	$.ajax({
+		url : "/jspweb/admin/stock",
+		type : "post", // post http method
+		data: info,
+		success : re => {
+			if(re=='true'){
+				alert('재고등록성공');
+				getstock(); // 제품을 클릭했을때 제품재고 메소드 호출 
+			}else{
+				alert('재고등록실패');
+			}
+		}
+	})
+}
+
+
+// 4. 제품별 재고 출력
+function getstock(){
+	
+	$.ajax({
+		url:"/jspweb/admin/stock",
+		type: "get", // get method
+		data : {"pno" : rows[1].innerHTML},
+		success : re =>{
+			
+			let json = JSON.parse(re);
+			console.log(json);
+			var html =  '<tr>'+
+'						<th>사이즈</th>'+
+'						<th>재고</th>'+
+'						<th>색상</th>					'+
+'					</tr>';
+			
+			json.forEach( p => {
+				// 반복변수명에 인덱스객체 하나씩 대입 			
+				html +=  '<tr class="col-md-6">'+
+							'<th>'+p.psize+'</th>'+
+							'<th>'+p.pstock+'</th>'+
+							'<th>'+p.pcolor+'</th>'+
+						'</tr>';
+			}) // 반복 end 
+			document.querySelector('.ptable').innerHTML = html
+			
+			
+			
+		}
+	})
+	
+}
+
+
+
+
+
 
 
 
