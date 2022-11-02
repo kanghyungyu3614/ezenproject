@@ -161,6 +161,34 @@ public class ProductDao extends Dao {
 				}
 			} catch (Exception e) {System.out.println(e);} return list;
 		}
+		
+		
+		// 10 . 제품 찜하기
+		public int setPlike(int pno, int mno) {
+			String sql = "select * from plike where pno = ? and mno = ?"; // 검색 [ 해당 찜하기 여부 있는지 체크 ]
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, pno);
+				ps.setInt(2, mno);
+				rs = ps.executeQuery();
+				if(rs.next()) { // 이미 찜하기가 되어 있는 경우 // 검색 결과가 있으면	=> 취소  
+					sql = "delete * from plike where pno = ? and mno = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, pno);
+					ps.setInt(2, mno);
+					ps.executeUpdate(); return 1;			
+				}else { // 찜하기가 없는 경우	// 검색 결과가 없으면 => 등록
+					sql = "insert into plike (pno, mno) values(?,?)";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, pno);
+					ps.setInt(2, mno);
+					ps.executeUpdate(); return 2;
+				}
+				
+				
+			} catch (Exception e) {System.out.println(e);} return 3;
+			
+		}
 	}
 
 

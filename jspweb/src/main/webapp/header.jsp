@@ -29,6 +29,7 @@
 				// JSP 스크립트 태그 ( 태그안에 JAVA 문법 작성 가능 )
 				String loginid = (String)session.getAttribute("mid"); 	
 							// 형변환 : 세션자료형 = object// jsp 기본 객체로 세션 제공
+				Object object = session.getAttribute("mid");
 			%>
 			<ul class="hd_sub">	<!--  상단 메뉴 -->
 			

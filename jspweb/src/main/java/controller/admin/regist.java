@@ -1,6 +1,5 @@
 package controller.admin;
 
-import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiDesktopIconUI;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -44,12 +42,10 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 		int pprice = Integer.parseInt( multi.getParameter("pprice") ) ;		
 		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") );
 		String pimg = multi.getFilesystemName("pimg"); 
-		byte pactive = Byte.parseByte(multi.getParameter("pactive"));
 		
 		int pcno = Integer.parseInt( multi.getParameter("pcno") );
-		System.out.println("pcno 는?  "+pcno);
-		System.out.println("pcno 는?  "+pcno);
-		ProductDto dto = new ProductDto( 0 , pname, pcomment,pprice, pdiscount, pactive ,pimg, null, pcno );
+		
+		ProductDto dto = new ProductDto( 0 , pname, pcomment,pprice, pdiscount, (byte) 0 ,pimg, null, pcno );
 		
 		boolean result = new ProductDao().setProduct(dto);
 		response.getWriter().print(result);
@@ -63,7 +59,7 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 		response.setCharacterEncoding("UTF-8");
 		if( type.equals("1") ) {
 			
-			// 1.전체출력 2.판매중 출력 
+			// 1.전체출력 2.판매중 출력
 			String option = request.getParameter("option");
 			
 			//////////////////////////////////////////// 모든 제품 출력 //////////////////////////
@@ -121,7 +117,6 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 				"UTF-8", 
 				new DefaultFileRenamePolicy() );
 		
-		
 		int pno = Integer.parseInt( multi.getParameter("pno") );	// 수정할 대상 
 		byte pactive = Byte.parseByte(multi.getParameter("pactive")); // 제품상태
 		
@@ -132,7 +127,6 @@ public class regist extends HttpServlet { // HttpServlet 서블릿클래스[ htt
 		String pimg = multi.getFilesystemName("pimg"); 
 		
 		int pcno = Integer.parseInt( multi.getParameter("pcno") );	// 수정할 대상 
-		
 		
 		// 과제
 		// * 기존첨부파일 변경 여부 판단 
