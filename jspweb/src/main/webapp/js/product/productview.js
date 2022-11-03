@@ -41,6 +41,8 @@ let psale = 0 // 할인율이 적용된 판매가
 
 // *. 현재 페이지내 제품번호[ a href="링크?pno=제품번호" ]를 가지고 와서 ajax로 해당 제품번호의 모든 제품정보를 가져오자 
 let pno = document.querySelector('.pno').value
+let pid = document.querySelector('.pid').value
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// 이벤트 /////////////////////////////////////////////////
 // **색상 select 박스를 체인지 했을때 이벤트 
@@ -71,7 +73,7 @@ document.querySelector('.sselect').addEventListener('change' , (e)=>{
 	}
 	
 	// 3. 선택된 제품정보와 옵션을 객체 만든다.
-	let sproduct = {
+	let sproduct = {		// 재고번호 vs 제품번호/색상/사이즈[v]
 		pcolor : color , 	// 색상
 		psize : size , 		// 사이즈 
 		amount : 1			// 수량
@@ -82,41 +84,50 @@ document.querySelector('.sselect').addEventListener('change' , (e)=>{
 	
 })
 
-let btnlike = document.querySelector(".btnlike")
+// ** 찜하기 버튼을 눌렀을떄 
+let btnlike = document.querySelector('.btnlike');
 btnlike.addEventListener('click' , (e)=>{
-	alert('클릭');
-	//1.로그인 유무 판단 [ 1.ajax 통신해서 세션 유무 확인한다. 2.js에서 가져온다. ]
-	let mid = document.querySelector(".mid").value;
-	if(mid=='null'){
-		return;
+	// 1.로그인 유무 판단 [ 1. ajax 통신해서 세션 유무 확인한다. *2. jsp 에서 가져온다. ]
+	let mid = document.querySelector('.mid').value
+	if( mid == 'null'){
+		alert('로그인후 가능한 기능입니다.');return;
 	}
-	
-	
-	//2.찜하기 등록 혹은 삭제
+	// 2.찜하기 등록 혹은 취소 처리 
 	$.ajax({
-		url : "/jspweb/product/plike",
-		type: "post",
-		data : {"pno" : pno} , 
-		success : re => { 
-			if(re =="1"){
-				alert("찜하기취소")
-				btnlike.innerHTML = "찜하기♡"
-			}
-			else if(re=="2"){
-				alert("찜하기 성공")
-				btnlike.innerHTML = "찜하기♥"
-			}
-			else{
-				alert("DB오류")
-			
-			}
+		url : "/jspweb/product/plike" ,
+		type : "post" , 
+		data : { "pno" : pno } , 
+		success : re => {
+			if( re == "1"){
+				alert('찜하기 취소')
+				btnlike.innerHTML = '찜하기 ♡'
+			}else if ( re == "2" ){
+				alert('찜하기 성공')
+				btnlike.innerHTML = '찜하기 ♥'
+			}else{ alert('DB오류') }
 		}	
 	})
 	
 	
+});
+// 장바구니 버튼을 눌렀을때
+document.querySelector('.btncart').addEventListener('click' , (e)=>{
+
+	// 1. 만약에 선택한 제품이 없으면 
+	if( productlist.length == 0 ){ alert('최소1개 이상 옵션을 선택해주세요'); return; }
+	// 2. 로그인 유무 
+	if( document.querySelector('.mid').value == 'null' ){ alert('로그인후 가능한 기능입니다.');return; }
+	
+	// 3. 선택된 제품들의 옵션들을 전송
+	$.ajax({ // 전송타입 : 문자열객체 
+		url : "/jspweb/product/cart" ,
+		type : "post",
+		data : { "data" : JSON.stringify(productlist) , "pno" : pno } , 
+				//  JSON.stringify( 객체 ) : 객체 타입 --> 문자열타입
+		success : re =>{ 	alert(re)  }
+	})
 	
 });
-
 
 
 
@@ -194,20 +205,19 @@ function getstock( pno ){ // 5. 현재 제품의 재고목록 호출 [ ajax ]
 	});
 }
 
-
 // 4. 선택된 제품옵션 리스트를 출력하는 함수 [ 1. 사이즈선택 했을때 2.옵션 제거 했을때 마다 실행]
 function print(){
 	let ohtml = '<tr> <th width="60%">상품명/옵션 </th>  <th width="25%">수량</th>  <th width="15%"> 가격 </th>  </tr>';
 	
-	let	totalprice = 0  // 선택한 옵션제품 목록 총판매가 변수
-	let	totalamount = 0 // 선택한 옵션제품 목록 총 수량 변수
-
+	let totalprice = 0	// 선택한 옵션제품 목록 총판매가 변수 
+	let totalamount = 0	// 선택한 옵션제품 목록 총 수량 변수 
+	
 	productlist.forEach( ( p , i  ) => {
 		let tsale = psale * p.amount	// 판매가 * 수량 
 		let tpoint = Math.round(tsale * 0.01)		// (판매가 * 수량)  * 1%
 		
-		totalprice += tsale 	// 각 옵션별 판매가를 전체판매가에 누적 더하기 
-		totalamount += p.amount // 각 옵션별 수량을 전체 수량에 누적 더하기 
+		totalprice += tsale		// 각 옵션별 판매가를 전체판매가에 누적 더하기
+		totalamount += p.amount	// 각 옵션별 수량을 전체 수량에 누적 더하기 
 		
 		ohtml +=  '<tr>	'+
 					'	<td> '+
@@ -234,9 +244,11 @@ function print(){
 					'		<span class="pointbox"> (포인트)'+ tpoint.toLocaleString()+' </span>'+
 					'	</td>'+
 					'</tr>';
-	}) // for end
+	}) // for end 
+	
 	document.querySelector('.select_t').innerHTML = ohtml
-	let tohtml = totalprice.toLocaleString()+ "원 ("+totalamount+"개)";
+	
+	let tohtml = totalprice.toLocaleString()+"원 ("+totalamount+"개)";
 	document.querySelector('.totalprice').innerHTML = tohtml
 }
 

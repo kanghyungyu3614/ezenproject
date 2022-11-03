@@ -12,15 +12,15 @@
 	<% // 자바를 작성할수 있는 태그[서블릿] 
 		// 1. 경로에 있는 pno request 요청
 		int pno = Integer.parseInt( request.getParameter("pno") );
-		// 2. 로그인된 회원정보 호출
-			Object object = session.getAttribute("mid");
+		// 2. 로그인된 회원정보 호출 
+		Object obj = session.getAttribute("mid");
 		String mid = null;
-		if(object != null){
-			mid = (String)object;
+		if( obj != null ){ // 로그인 했다.
+			mid = (String)obj;
 		}
 	%>
-	<input type="hidden" value="<%=pno%>" class="pno" >
-	<input type="hidden" value="<%=pno%>" class="mid" >
+	<input type="text" value="<%=pno%>" class="pno" >	<!-- 제품번호 -->
+	<input type="text" value="<%=mid%>" class="mid" >	<!-- 회원아이디 -->
 	
 	<div class="container">	<!-- b : container -->
 		<div class="row">	<!-- b : row  -->
@@ -87,10 +87,9 @@
 					<!-- 버튼목록 -->
 					<div class="btnbox">
 						<button id="btn1">바로 구매</button>
-						<button id="btn2">장바구니 담기</button>
-						<button id="btn3"  class="btnlike">찜하기 ♡</button>	
+						<button id="btn2" class="btncart">장바구니 담기</button>
+						<button id="btn3" class="btnlike">찜하기 ♡</button>	
 					</div>	
-					
 				</div>
 			</div>
 		</div>

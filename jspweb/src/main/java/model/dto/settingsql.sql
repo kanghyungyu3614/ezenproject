@@ -104,6 +104,127 @@ create table productstock(
     constraint pstno_pk primary key( pstno ) , 
     constraint psno_fk	foreign key( psno ) references productsize( psno )
 );
+-- 장바구니 db
+drop table if exists cart;
+create table cart(
+	cartno int auto_increment 	,	-- 장바구니 번호
+    amount int	,					-- 옵션 수량
+    pstno int	,					-- 제품재고 정보
+    mno	int	,						-- 회원번호
+    constraint cart_pk primary key( cartno ) , 
+    constraint cart_pstno_fk foreign key ( pstno ) references productstock( pstno ),
+    constraint cart_mno_fk foreign key ( mno ) references member( mno )
+);
+
+
+-- 1. 재고번호 찾기 [ join ]
+select * from productstock;	-- 재고 테이블 검색
+select * from productstock where pno = 10; 	-- 재고 pno 없다.[ 오류 ]
+select * from productsize where pno = 10;	-- 사이즈 pno 있다.
+select * from productsize where pno = 10 and psize = 'XL';
+select * from productsize ps , productstock pst where ps.psno = pst.psno; -- 두개 이상 테이블 검색 
+
+select pstno 
+from productsize ps , productstock pst 
+where ps.psno = pst.psno and pno = 10 and psize = 'XL' and pcolor = '오렌지';
+-- -------------------------------------------------------------------------- --
+-- 1. 재고번호 찾기  서브쿼리 [ SQL 안에 select ]
+select psno from productsize where pno = 10 and psize = 'XL';
+
+select pstno
+from productstock pst , 
+(select psno from productsize where pno = 10 and psize = 'XL') sub 
+where pst.psno = sub.psno and pcolor = '오렌지';
+
+-- ------------------------------------------------------------------------- --
+insert into cart( amount , pstno , mno )
+values ( 
+	1 ,
+    (select pstno
+	from productstock pst , 
+		(select psno from productsize where pno = 10 and psize = 'XL') sub 
+	where pst.psno = sub.psno and pcolor = '오렌지') ,
+    3
+);
+
+
+
+
+
+-- ------------------------------------------------------------------------- --
+-- 로그인 된 회원의 장바구니 정보 모두 호출 [ mno -> 카트번호 , 재고번호 , 제품명, 제품사진 , 가격 , 할인율 , 선택한옵션색상/사이즈/수량 ]
+-- 예시 3번회원
+
+select * from cart where mno = 3; -- 회원 장바구니
+select * from cart c , productstock pst where c.pstno = pst.pstno; -- 카트 + 재고
+
+select * from cart c , productstock pst , productsize ps 
+where c.pstno = pst.pstno and pst.psno = ps.psno; 		-- 카트 + 재고 + 사이즈 
+
+select * from cart c , productstock pst , productsize ps , product p
+where c.pstno = pst.pstno and pst.psno = ps.psno and ps.pno = p.pno;	-- 카트 + 재고 + 사이즈 + 제품 
+--      	fk = pk		and       fk   =  pk    and  fk = pk
+
+select 
+	c.cartno 장바구니번호 ,  c.pstno 재고번호 , 
+    p.pname  제품명 , p.pimg 제품사진 , 
+    p.pprice  가격 ,   p.pdiscount 할인율 ,
+	pst.pcolor 색상 , ps.psize 사이즈 ,
+    c.amount 구매예정수량
+from 
+	cart c , 
+    productstock pst , 
+    productsize ps , 
+    product p
+where c.pstno = pst.pstno 
+	and pst.psno = ps.psno 
+    and ps.pno = p.pno;
+    
+-- JOIN [ 관계[pf-fk]있을경우에 2개 이상 테이블의 동일한 데이터  ]
+	-- 1. 테이블명 inner JOIN 테이블명 on pk필드 = fk필드 
+select 
+	c.cartno 장바구니번호 ,  c.pstno 재고번호 , 
+    p.pname  제품명 , p.pimg 제품사진 , 
+    p.pprice  가격 ,   p.pdiscount 할인율 ,
+	pst.pcolor 색상 , ps.psize 사이즈 ,
+    c.amount 구매예정수량
+from 
+	cart c inner join
+    productstock pst inner join
+    productsize ps inner join
+    product p
+on  c.pstno = pst.pstno 
+	and pst.psno = ps.psno  
+    and ps.pno = p.pno;
+
+    -- 2. 테이블명 natural join 테이블명 [ 암묵적으로 pk와fk를 조건으로 사용 ]
+select 
+	c.cartno 장바구니번호 ,  c.pstno 재고번호 , 
+    p.pname  제품명 , p.pimg 제품사진 , 
+    p.pprice  가격 ,   p.pdiscount 할인율 ,
+	pst.pcolor 색상 , ps.psize 사이즈 ,
+    c.amount 구매예정수량
+from 
+	cart c natural join
+    productstock pst natural join
+    productsize ps natural join
+    product p;
+    
+-- 
+select 
+	c.cartno ,  c.pstno , 
+    p.pname , p.pimg  , 
+    p.pprice   ,   p.pdiscount  ,
+	pst.pcolor  , ps.psize  ,
+    c.amount 
+from 
+	cart c natural join
+    productstock pst natural join
+    productsize ps natural join
+    product p
+where
+	c.mno = 3;
+
 
 
 
@@ -208,3 +329,4 @@ limit 0 , 3 ;
             필드명 like 김__	: 김으로 시작하는 세글자 
             필드명 like _김_	: 두번째 글자가 '김'인 세글자 
 */
+

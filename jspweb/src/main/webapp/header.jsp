@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- 부트스트랩 css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	
 	<!-- 사용자 정의 css 호출  -->
 	<link rel="stylesheet" href="/jspweb/css/header.css">
 	<!-- 폰트어썸 [ 아이콘 ] -->
@@ -29,7 +28,6 @@
 				// JSP 스크립트 태그 ( 태그안에 JAVA 문법 작성 가능 )
 				String loginid = (String)session.getAttribute("mid"); 	
 							// 형변환 : 세션자료형 = object// jsp 기본 객체로 세션 제공
-				Object object = session.getAttribute("mid");
 			%>
 			<ul class="hd_sub">	<!--  상단 메뉴 -->
 			
@@ -37,8 +35,8 @@
 			<% if( loginid == null ){ %>
 				<li> <a class="nav-link" href="/jspweb/member/login.jsp">로그인</a> </li>
 				<li> <a class="nav-link" href="/jspweb/member/signup.jsp">회원가입</a></li>
-			<%	}else if(loginid.equals("admin")){ %>	
-				<li> <a class="nav-link" href="/jspweb/admin/dashboard.jsp">관리자모드</a></li>
+			<%	}else if( loginid.equals("admin") ){  %> <!-- 로그인된 아이디가 admin이면 보이는 메뉴 -->
+				<li> <a class="nav-link" href="/jspweb/admin/dashboard.jsp">관리자모드</a> </li>
 			<!-- 로그인 메뉴  // 세션이 존재한다.    로그인 했다..  -->
 			<%	}else{  %>
 				<li> <%=loginid %>님 안녕하세요 </li>
@@ -62,7 +60,6 @@
 			<li><a class="nav-link" href="#"> 악세사리 </a></li>
 			<li><a class="nav-link" href="#"> BEST </a></li>
 			<li><a class="nav-link" href="#"> 트레이닝 </a></li>
-			<li><a class="nav-link" href="#"> 50% 할인 </a></li>
 			<li><a class="nav-link" href="/jspweb/board/api.jsp"> 공공데이터 </a></li>
 			<li><a class="nav-link" href="/jspweb/board/chatting.jsp"> 채팅방 </a></li>
 			<li class="searchbox">
@@ -83,12 +80,15 @@
 </body>
 </html>
 
-<!-- 헤데파일 [ 모든 페이지에서 호출되는 파일 ] 
-	 경로 : 상대경로 x  
-	 절대경로: 프로젝트 경로
-	 상대경로: 이 파일 기준 
-	 / : 최상위 경로 : localhost:8080/board
--->
+<!-- 
+	헤더파일[ 모든 페이지에서 호출되는 파일 ]
+		경로 : 
+				/jspweb/board/chatting.jsp
+					/ : 최상위 경로 = http://localhost:8080/board/chatting.jsp	[o]
+				jspweb/board/chatting.jsp
+						현재 경로 = 	현재경로 /jspweb/board/chatting.jsp 	[x]
+					
+ -->
 
 
 
@@ -103,3 +103,13 @@
 		<li> : 리스트 아이템[ 값/항목 ] 
 	
  -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
