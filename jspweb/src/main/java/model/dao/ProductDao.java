@@ -4,7 +4,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import controller.admin.regist;
-import controller.board.list;
 import model.dto.CartDto;
 import model.dto.PcategoryDto;
 import model.dto.ProductDto;
@@ -191,10 +190,9 @@ public class ProductDao extends Dao {
 	// 11. 장바구니에 선택한 제품 옵션 저장 
 	public boolean setcart( int pno , String psize ,  int amount , String pcolor , int mno) {
 		
-		// ! 만약에 동일한 제품 옵션 존재했을떄 수량만 증가하는 업데이트 처리	[ 미구현 ]
+		// ! 만약에 동일한 제품 옵션 존재했을때 수량만 증가하는 업데이트 처리 [ 미구현 ]
 		
-		// 동일한 제품 옵션이 없을때 
-	
+		// 동일한 제품 옵션이 없을떄 
 	    String sql = " insert into cart( amount , pstno , mno )"
 	    		+ " values (  "
 	    		+ "	"+amount+" ,"
@@ -238,9 +236,8 @@ public class ProductDao extends Dao {
 			}
 		}catch (Exception e) {System.out.println(e);} return list;
 	}
-
-
-
+	
+	
 }
 
 

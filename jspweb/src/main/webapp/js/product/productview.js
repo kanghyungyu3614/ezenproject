@@ -41,8 +41,6 @@ let psale = 0 // 할인율이 적용된 판매가
 
 // *. 현재 페이지내 제품번호[ a href="링크?pno=제품번호" ]를 가지고 와서 ajax로 해당 제품번호의 모든 제품정보를 가져오자 
 let pno = document.querySelector('.pno').value
-let pid = document.querySelector('.pid').value
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// 이벤트 /////////////////////////////////////////////////
 // **색상 select 박스를 체인지 했을때 이벤트 
@@ -125,14 +123,13 @@ document.querySelector('.btncart').addEventListener('click' , (e)=>{
 		data : { "data" : JSON.stringify(productlist) , "pno" : pno } , 
 				//  JSON.stringify( 객체 ) : 객체 타입 --> 문자열타입
 		success : re =>{
-			 if(re =='true'){
-				productlist = [] // 배열 초기화
-				if(confirm(' 장바구니에 담았습니다. 장바구니페이지로 이동할까요?')){
-					location.href="cart.jsp";
-				}else{alert("장바구니 담기 실패");}
-			}
-			
-		 }
+			if( re == 'true' ){
+				productlist = [ ] // 배열 초기화	
+				if(  confirm(' 장바구니에 담았습니다. 장바구니페이지로 이동할까요?') ){
+					location.href='cart.jsp';	
+				}
+			}else{ alert('장바구니 담기 실패 ');	 }
+		}
 	})
 	
 });

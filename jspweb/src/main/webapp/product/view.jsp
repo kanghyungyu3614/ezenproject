@@ -13,10 +13,10 @@
 		// 1. 경로에 있는 pno request 요청
 		int pno = Integer.parseInt( request.getParameter("pno") );
 		// 2. 로그인된 회원정보 호출 
-		Object obj = session.getAttribute("mid");
+		Object object = session.getAttribute("mid");
 		String mid = null;
-		if( obj != null ){ // 로그인 했다.
-			mid = (String)obj;
+		if( object != null ){ // 로그인 했다.
+			mid = (String)object;
 		}
 	%>
 	<input type="text" value="<%=pno%>" class="pno" >	<!-- 제품번호 -->
@@ -100,22 +100,3 @@
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

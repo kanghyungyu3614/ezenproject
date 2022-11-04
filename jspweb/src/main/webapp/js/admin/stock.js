@@ -119,7 +119,7 @@ function getstock(){
 						`	<td> -  </td>`+
 						`</tr>`;
 			}) // 반복 end 
-			document.querySelector('.stocktable').innerHTML = html
+			document.querySelector('.ptable').innerHTML = html
 		}
 	})
 }

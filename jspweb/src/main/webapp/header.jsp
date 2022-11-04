@@ -67,7 +67,8 @@
 					<input>
 					<i class="fas fa-search"></i>
 				</span>
-				<i class="fas fa-shopping-cart"></i>
+				<a href="/jspweb/product/cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+				
 			</li>
 		</ul>
 	</div>
