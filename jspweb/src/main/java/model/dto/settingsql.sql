@@ -147,6 +147,15 @@ values (
     3
 );
 
+drop table if exists plike;
+create table plike(
+	plikeno int auto_increment,
+    mno int , 
+    pno int , 
+    constraint plike_pk primary key (plikeno) ,
+	constraint plike_mno_pk foreign key (mno) references member(mno),
+    constraint plike_pno_pk foreign key (pno) references product(pno)
+);
 
 
 
