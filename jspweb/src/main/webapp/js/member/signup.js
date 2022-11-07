@@ -35,7 +35,7 @@ function mevent1(){											// 아이디를 입력[keyup]하면 이벤트 발�
 	if( midj.test(mid) ){ // 정규표현식이 동일하면				// 3. 정규표현식 검사 
 	
 		$.ajax({ 											// 4. 아이디 중복체크 [ 비동기식 - ajax ]
-			url : "http://localhost:8080/jspweb/member/idcheck",
+			url : "/jspweb/member/idcheck",
 			data : { "mid" : mid } , 
 			success : function( re ) {						// 5. 중복체크 결과(re) 
 				if( re === 'true'){ col3[0].innerHTML = bicon+" 사용중인 아이디" }
@@ -85,7 +85,7 @@ function mevent6(){
 	if( memailj.test(memail) ){ 
 		
 		$.ajax({
-			url : "http://localhost:8080/jspweb/member/emailcheck" , 
+			url : "/jspweb/member/emailcheck" , 
 			data : { "memail" : memail } , 
 			success : function( re ){ 
 				if( re === 'true'){ 

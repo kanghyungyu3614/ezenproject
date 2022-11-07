@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import controller.admin.regist;
 import model.dto.CartDto;
+import model.dto.OrderDto;
 import model.dto.PcategoryDto;
 import model.dto.ProductDto;
 import model.dto.StockDto;
@@ -235,6 +236,74 @@ public class ProductDao extends Dao {
 				list.add(cartDto);
 			}
 		}catch (Exception e) {System.out.println(e);} return list;
+	}
+	
+	// 13. 
+	public boolean setOrder(ArrayList<OrderDto> list) {
+		// 과제 
+		// 1. 주문 레코드 생성
+		//		private int ono;
+		//		private String oname;
+		//	    private String ophone;
+		//	    private String oddress;
+		//	    private String oquest;
+		//	    private String odate;
+		//	    private int mno;
+		//	    private int odno;
+		//	    private int odamount;
+		//	    private int odprice;
+		//	    private int odactive;
+		//	    private int pstno; 
+		System.out.println("ProductDao.java 파일안에 있어요.");
+		System.out.println("여기 list 있어요.");
+		System.out.println(list);
+		System.out.println("list.get(0).getOname()");
+		System.out.println(list.get(0).getOname());
+		System.out.println("list.get(0)에는 무엇이 있나요?");
+		System.out.println(list.get(0)); 
+		//0, oname, ophone, oddress, oquest,null,  /// mno, ////  0, odamount, odprice, 0 , pstno);
+		for(int i=0; i<list.size(); i++) {
+			String sql = "insert into porder( oname , ophone , oddress , oquest, mno) values (?,?,?,?,?)";
+			try {
+				ps = con.prepareStatement( sql , Statement.RETURN_GENERATED_KEYS ); //pk -fk값 때문에 필요
+				ps.setString(1, list.get(i).getOname());
+				ps.setString(2,list.get(i).getOphone());
+				ps.setString(3,list.get(i).getOddress());
+				ps.setString(4,list.get(i).getOquest());
+				ps.setInt(5,list.get(i).getMno());
+				ps.executeUpdate(); 
+				rs = ps.getGeneratedKeys(); // executeUpdate 한후 rs에 값 넣기 
+				
+				while(rs.next()) {
+					try {
+						String sql2 = "insert into porderdetail( odamount , odprice , pstno , odno ,ono) values (?,?,?,?,?)";
+						int ono = rs.getInt(1); // pk 호출
+						ps = con.prepareStatement(sql2);
+						ps.setInt(1,list.get(i).getOdamount());
+						ps.setInt(2,list.get(i).getOdprice());
+						ps.setInt(3,list.get(i).getPstno());
+						ps.setInt(4,list.get(i).getOdno());
+						ps.setInt(5,ono);
+						ps.executeUpdate(); 
+						continue;	
+					} catch (Exception e) { System.out.println(e);return false;} 
+				}
+			}catch (Exception e) { System.out.println(e);return false;} 	
+		
+		
+		
+		}
+		return true;
+		
+		
+		
+		
+		
+		
+		
+		
+		// 2. 위에서 생성된 주문번호를 이용해서 주문[list] 개수 만큼 주문상세 레코드 생성
+		//return false;
 	}
 	
 	

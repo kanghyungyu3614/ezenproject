@@ -116,6 +116,32 @@ create table cart(
     constraint cart_mno_fk foreign key ( mno ) references member( mno )
 );
 
+drop table if exists porder;
+create table porder( -- order [ x ] 
+	ono int auto_increment, -- 주문번호 
+    oname varchar(100) ,  -- 받는사람 성명 
+    ohone varchar(100) ,-- 받는사람 연락처 
+    oddress varchar(100) ,-- 받는사람 주소 
+    oquest varchar(100) ,-- 주문 요청사항
+    odate datetime default now(),-- 주문 날짜 
+	mno int ,-- 회원 번호[ 주문한 사람 ]
+    constraint ono_pk primary key (ono) , 
+    constraint orderno_mno_fk foreign key (mno) references member(mno) 
+);
+drop table if exists porderdetail;
+create table porderdetail(
+	odno int auto_increment , -- 주문상세번호 
+    odamount int , -- 수량 
+    odprice int , -- 결제액
+    odactive int default 0,-- 주문상태 [ 0 : 결제완료  1 : 배송준비중  2: 배송완료  3 : 확정  4. 취소요청 등] 
+    pstno int , -- 재고번호
+    ono int ,-- 주문번호
+    constraint odno_pk primary key (odno) , 
+    constraint od_pstno_fk foreign key ( pstno ) references productstock ( pstno ),
+    constraint od_ono_fk foreign key( ono ) references porder( ono ) 
+);
+
+
 
 -- 1. 재고번호 찾기 [ join ]
 select * from productstock;	-- 재고 테이블 검색

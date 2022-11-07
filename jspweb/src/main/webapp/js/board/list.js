@@ -12,7 +12,7 @@ list( 1 ) // js 열람시 메소드 1번 실행  [ 첫 화면에서 1페이지 ]
 function list( page ){ // 함수 정의한다
 	pageinfo.page = page;	// 객체 정보 변경 
 	$.ajax({
-		url : "http://localhost:8080/jspweb/baord/list" , 
+		url : "/jspweb/baord/list" , 
 		data :  pageinfo ,	// 페이지 정보 객체 전달  
 		success : function( re ){
 			let boards = JSON.parse(re)
@@ -58,10 +58,10 @@ function list( page ){ // 함수 정의한다
 // 2. 제목 클릭했을때 상세페이지 이동 함수
 function viewload( bno ){
 	$.ajax({
-		url : "http://localhost:8080/jspweb/board/viewload" , 
+		url : "/jspweb/board/viewload" , 
 		data : { "bno" : bno },
 		success : function( re ){
-			location.href = "http://localhost:8080/jspweb/board/view.jsp"
+			location.href = "/jspweb/board/view.jsp"
 		}
 	})
 }

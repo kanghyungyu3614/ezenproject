@@ -21,7 +21,7 @@ function bwrite(){
 	console.log( formdata )						// [ form안에 입력받은 데이터 input 모두 가져오기 ] 
 	
 	$.ajax({ // ajax 통신 전송타입 : 문자열
-		url : "http://localhost:8080/jspweb/board/write",	// 1. 서블릿주소 
+		url : "/jspweb/board/write",	// 1. 서블릿주소 
 		data : formdata , 									// 2. ajax 기본값으로 form 전송 불가능 
 		// 첨부파일 전송시 : 아래 코드 추가 [ post방식[get방식불가] ]
 		type : 'POST' , // http메소드 [ get(첨부파일x) vs post ]
